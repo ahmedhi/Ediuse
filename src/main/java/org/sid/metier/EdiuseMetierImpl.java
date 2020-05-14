@@ -1,4 +1,4 @@
-package com.example.demo.metier;
+package org.sid.metier;
 
 import javax.transaction.Transactional;
 

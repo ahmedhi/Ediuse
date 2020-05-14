@@ -1,21 +1,21 @@
-package com.example.demo;
+package org.sid;
 
-import com.example.demo.dao.EntrepriseRepository;
-import com.example.demo.dao.TypeDocRepository;
-import com.example.demo.dao.UtilisateurRepository;
-import com.example.demo.entities.Entreprise;
-import com.example.demo.entities.Type_Doc;
-import com.example.demo.entities.Utilisateur;
+import org.sid.dao.EntrepriseRepository;
+import org.sid.dao.TypeDocRepository;
+import org.sid.dao.UtilisateurRepository;
+import org.sid.entities.Entreprise;
+import org.sid.entities.Type_Doc;
+import org.sid.entities.Utilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EdiuseDemoApplication implements CommandLineRunner{
+public class EdiuseApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
-		SpringApplication.run(EdiuseDemoApplication.class, args);
+		SpringApplication.run(EdiuseApplication.class, args);
 	}
 	
 	@Autowired
