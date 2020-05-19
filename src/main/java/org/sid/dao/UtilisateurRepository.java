@@ -1,6 +1,6 @@
-package com.example.demo.dao;
+package org.sid.dao;
 
-import com.example.demo.entities.Utilisateur;
+import org.sid.entities.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UtilisateurRepository extends JpaRepository<Utilisateur,Long>{

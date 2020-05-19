@@ -1,6 +1,6 @@
-package com.example.demo.dao;
+package org.sid.dao;
 
-import com.example.demo.entities.DocEntreprise;
+import org.sid.entities.DocEntreprise;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DocEntrepriseRepository extends JpaRepository<DocEntreprise,Long> {

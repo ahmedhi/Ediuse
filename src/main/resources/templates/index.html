@@ -66,6 +66,10 @@
               </nav>
             </li>
             <li class="nav-item">
+            <span th:inline="text"> [[${#httpServletRequest.remoteUser}]] </span>
+            <a th:href="@{/login?logout}"  > Se deconnecter</a>
+            </li>
+            <li class="nav-item">
               <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i> Pages</a>
               <nav class="az-menu-sub">
                 <a href="page-profile.html" class="nav-link">Profile</a>

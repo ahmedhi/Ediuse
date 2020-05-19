@@ -16,7 +16,10 @@ public class Utilisateur implements Serializable{
 	private String nomUser;
 	private String prenomUser ;
 	private String pwdUser;
-	private int typeUser ; // Admin 1 , comptable 2
+	private String typeUser ; // Admin  , user 
+	@OneToMany(mappedBy="utilisateur",fetch=FetchType.LAZY)
+	private Collection<Users_Role> users_Role ;
+	
 	@OneToMany(mappedBy="utilisateur",fetch=FetchType.LAZY)
 	private Collection<DocEntreprise> docEntreprises ;
 	
@@ -24,13 +27,13 @@ public class Utilisateur implements Serializable{
 		super();
 	}
 	
-	public Utilisateur(String loginUser, String nomUser, String prenomUser, String pwdUser, int typeUser) {
+	public Utilisateur(String loginUser, String nomUser, String prenomUser, String pwdUser , String type) {
 		super();
 		this.loginUser = loginUser;
 		this.nomUser = nomUser;
 		this.prenomUser = prenomUser;
 		this.pwdUser = pwdUser;
-		this.typeUser = typeUser;
+		this.typeUser = type ;
 	}
 
 	public Long getIdUser() {
@@ -63,12 +66,12 @@ public class Utilisateur implements Serializable{
 	public void setPwdUser(String pwdUser) {
 		this.pwdUser = pwdUser;
 	}
-	public int getTypeUser() {
-		return typeUser;
+	/*public String getTypeUser() {
+		return role;
 	}
-	public void setTypeUser(int typeUser) {
-		this.typeUser = typeUser;
-	}
+	public void setTypeUser(String role) {
+		this.role = role;
+	}*/
 	
 
 }
