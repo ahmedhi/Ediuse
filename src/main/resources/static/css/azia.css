@@ -43628,3 +43628,19 @@ body {
 
 .wd-100v {
   width: 100vw; }
+  
+  .backgroundPage {
+  background-image:url(img/background.jpg);
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  }
+.cardlogin {
+	border-radius: 2rem;
+    margin-top: 4rem;
+}
+.imglogin{
+	width: 5rem;
+    height: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+}

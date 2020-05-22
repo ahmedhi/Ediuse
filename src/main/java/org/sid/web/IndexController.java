@@ -13,6 +13,11 @@ public class IndexController {
 	public String index() {
 		return "/index";
 	}
+	
+	@RequestMapping("/page1")
+	public String page() {
+		return "/login";
+	}
 	@RequestMapping("/login")
 	public String signin() {
 		return "/login";

@@ -1,35 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
-  <head>
+<html xmlns:th="http://www.thymeleaf.org" 
+ xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
+ layout:decorate="~{layouts/layoutEmpty}">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Meta -->
-    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="author" content="BootstrapDash">
-
-    <title>Ediuse</title>
-
-    <!-- vendor css -->
-    <link href="../static/lib/fontawesome-free/css/all.min.css" rel="stylesheet"
-    	th:href="@{/lib/fontawesome-free/css/all.min.css}">
-    <link href="../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet"
-    	th:href="@{/lib/ionicons/css/ionicons.min.css}">
-    <link href="../static/lib/typicons.font/typicons.css" rel="stylesheet"
-    	th:href="@{/lib/typicons.font/typicons.css}">
-
-    <!-- azia CSS -->
-    <link rel="stylesheet" href="../static/css/azia.css"
-    	th:href="@{/css/azia.css}">
-
-  </head>
- <body class="az-body">
+ <div layout:fragment="content" class="backgroundPage">
+ 
+ 	           
 
     <div class="az-signin-wrapper">
-      <div class="az-card-signin" style="border-radius: 2rem;">
-        <h1 class="az-logo">Ediuse</h1>
+      <div class="az-card-signin cardlogin">
+      	<img src="img/logo_empty.png" class="imglogin">
+        <h1 class="az-logo" style="margin-left:auto ; margin-right:auto">Ediuse</h1>
         <div class="az-signin-header">
           <h2></h2>
           <h4>Please sign in to continue</h4>
@@ -53,25 +34,10 @@
       </div><!-- az-card-signin -->
     </div><!-- az-signin-wrapper -->
 
-    <script src="../lib/jquery/jquery.min.js"></script>
-    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/ionicons/ionicons.js"></script>
+  
+	</div>
+	          
 
-    <script src="../js/azia.js"></script>
-    <script>
-      $(function(){
-        'use strict'
-
-      });
-    </script>
-     <script src="../static/lib/jquery/jquery.min.js" 
-    	th:src="@{/lib/jquery/jquery.min.js}"></script>
-    <script src="../static/lib/bootstrap/js/bootstrap.bundle.min.js"
-    	th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
-    <script src="../static/lib/ionicons/ionicons.js"
-    	th:src="@{/lib/ionicons/ionicons.js}"></script>
-
-    <script src="../static/js/azia.js"
-    	th:src="@{/js/azia.js}"></script>
-  </body>
 </html>
+
+ 
