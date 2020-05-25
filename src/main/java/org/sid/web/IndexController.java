@@ -11,13 +11,9 @@ public class IndexController {
 	
 	@RequestMapping("/")
 	public String index() {
-		return "/index";
+		return "index";
 	}
 	
-	@RequestMapping("/page1")
-	public String page() {
-		return "/connexion/login";
-	}
 	@RequestMapping("/signup")
 	public String signup() {
 		return "/connexion/signup";
@@ -25,7 +21,7 @@ public class IndexController {
 	
 	@RequestMapping("/login")
 	public String signin() {
-		return "/login";
+		return "/connexion/login";
 	}
 	
 	@RequestMapping("/403")
