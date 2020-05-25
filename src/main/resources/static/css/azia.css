@@ -43630,7 +43630,7 @@ body {
   width: 100vw; }
   
   .backgroundPage {
-  background-image:url(img/background.jpg);
+  background-image:url(/img/background.jpg);
   background-attachment:fixed;
   background-repeat:no-repeat;
   }
