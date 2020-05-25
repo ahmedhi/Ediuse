@@ -9617,8 +9617,9 @@ textarea.parsley-success:focus {
 /* ###### 5.1 Buttons  ###### */
 .btn-az-primary {
   color: #fff;
-  background-color: #5b47fb;
-  border-color: #452efa; }
+  background-color: #00909e;
+  border-color: #452efa; 
+  border-radius: 2rem;}
   .btn-az-primary:hover {
     color: #fff;
     background-color: #3a22fa;
@@ -14914,7 +14915,7 @@ body {
 
 .az-signin-header h2 {
   font-weight: 500;
-  color: #5b47fb;
+  color: #00909e;
   letter-spacing: -1px; }
 
 .az-signin-header h4 {
