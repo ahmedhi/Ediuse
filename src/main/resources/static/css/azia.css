@@ -43630,9 +43630,10 @@ body {
   width: 100vw; }
   
   .backgroundPage {
-  background-image:url(/img/background.jpg);
-  background-attachment:fixed;
-  background-repeat:no-repeat;
+ background-image: url('/img/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
   }
 .cardlogin {
 	border-radius: 2rem;

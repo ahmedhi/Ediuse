@@ -16,8 +16,13 @@ public class IndexController {
 	
 	@RequestMapping("/page1")
 	public String page() {
-		return "/login";
+		return "/connexion/login";
 	}
+	@RequestMapping("/signup")
+	public String signup() {
+		return "/connexion/signup";
+	}
+	
 	@RequestMapping("/login")
 	public String signin() {
 		return "/login";
