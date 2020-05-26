@@ -7,7 +7,6 @@ import javax.transaction.Transactional;
 
 import org.sid.dao.UtilisateurRepository;
 import org.sid.entities.Utilisateur;
-import org.sid.exception.RessourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +14,36 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class UtilisateurMetierImpl implements IUtilisateurMetier {
 
+	@Override
+	public Utilisateur createUser(Utilisateur user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Utilisateur updateUser(Utilisateur user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Utilisateur> getAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Utilisateur getUserById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteUser(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+/*
 	@Autowired 
 	private UtilisateurRepository utilisateurRepository ;
 	@Override
@@ -35,8 +64,6 @@ public class UtilisateurMetierImpl implements IUtilisateurMetier {
 			userUpdate.setLoginUser(userDB.get().getLoginUser());
 			utilisateurRepository.save(userUpdate);
 			return userUpdate ;
-		}else {
-			throw new RessourceNotFoundException ("l'utilisateur introuvable, son Id : " + user.getIdUser());
 		}
 	}
 
@@ -52,9 +79,7 @@ public class UtilisateurMetierImpl implements IUtilisateurMetier {
 		if(userDB.isPresent()) {
 			return userDB.get(); 
 		}
-		else {
-			throw new RessourceNotFoundException ("l'utilisateur introuvable, son Id : " + id);
-		}
+		
 	}
 
 	@Override
@@ -64,9 +89,7 @@ public class UtilisateurMetierImpl implements IUtilisateurMetier {
 		if(userDB.isPresent()) {
 			this.utilisateurRepository.delete(userDB.get());
 		}
-		else {
-			throw new RessourceNotFoundException ("l'utilisateur introuvable, son Id : " + id);
-		}
+		
 	}
-
+*/
 }
