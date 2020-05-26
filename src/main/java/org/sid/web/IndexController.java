@@ -43,24 +43,5 @@ public class IndexController {
 	}
 	
 	
-	@GetMapping("/login")
-	public String signin() {
-		return "/connexion/login";
-	}
 	
-	@GetMapping("/403")
-	public String accessDneied() {
-		return "403";
-	}
-	
-	/*
-	@GetMapping("/user")
-	public String user() {
-		return  ("<h1>Welcome user</h1>");
-	}
-	
-	@GetMapping("/admin")
-	public String admin() {
-		return  ("<h1>Welcome admin </h1>");
-	}*/
 }
