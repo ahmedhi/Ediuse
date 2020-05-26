@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.Valid;
 @Entity
 public class Utilisateur implements Serializable{
 	@Id @GeneratedValue
@@ -16,9 +17,7 @@ public class Utilisateur implements Serializable{
 	private String nomUser;
 	private String prenomUser ;
 	private String pwdUser;
-	private String typeUser ; // Admin  , user 
-	@OneToMany(mappedBy="utilisateur",fetch=FetchType.LAZY)
-	private Collection<Users_Role> users_Role ;
+	private String role ; // Admin  , user 
 	
 	@OneToMany(mappedBy="utilisateur",fetch=FetchType.LAZY)
 	private Collection<DocEntreprise> docEntreprises ;
@@ -33,8 +32,9 @@ public class Utilisateur implements Serializable{
 		this.nomUser = nomUser;
 		this.prenomUser = prenomUser;
 		this.pwdUser = pwdUser;
-		this.typeUser = type ;
+		this.role = type ;
 	}
+
 
 	public Long getIdUser() {
 		return idUser;
@@ -66,12 +66,12 @@ public class Utilisateur implements Serializable{
 	public void setPwdUser(String pwdUser) {
 		this.pwdUser = pwdUser;
 	}
-	/*public String getTypeUser() {
+	public String getRole() {
 		return role;
 	}
-	public void setTypeUser(String role) {
+	public void setRole(String role) {
 		this.role = role;
-	}*/
+	}
 	
 
 }

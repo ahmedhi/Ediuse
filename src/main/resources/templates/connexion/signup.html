@@ -1,54 +1,56 @@
-<!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org" 
  xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
  layout:decorate="~{layouts/layoutEmpty}">
  
+ <head>
+	<title>Ediuse - Creation du compte</title>
+</head>
+
  <div layout:fragment="content" >
 	<div class="az-signup-wrapper">
-      <div class="az-column-signup-left">
-        <div>
-          <i class="typcn typcn-chart-bar-outline"></i>
-          <h1 class="az-logo">EDIUSE</h1>
-          <h5>Responsive Modern Dashboard &amp; Admin Template</h5>
-          <p>We are excited to launch our new company and product Azia. After being featured in too many magazines to mention and having created an online stir, we know that BootstrapDash is going to be big. We also hope to win Startup Fictional Business of the Year this year.</p>
-          <p>Browse our site and see for yourself why you need Azia.</p>
-        </div>
-      </div><!-- az-column-signup-left -->
+	      <div class="az-column-signup-left">
+	        <div>
+			  <img src="/img/logo_empty.png" style="width: 7rem; height: 6rem;">
+	          <h1 class="az-signin-header" style="color:#27496d">EDIUSE</h1>
+	          <h5>Responsive Modern Dashboard &amp; Admin Template</h5>
+	          <p>We are excited to launch our new company and product Azia. After being featured in too many magazines to mention and having created an online stir, we know that BootstrapDash is going to be big. We also hope to win Startup Fictional Business of the Year this year.</p>
+	          <p>Browse our site and see for yourself why you need Azia.</p>
+	        </div>
+	      </div><!-- az-column-signup-left -->
       <div class="az-column-signup">
-        <h1 class="az-logo">az<span>i</span>a</h1>
         <div class="az-signup-header">
-         <h2>Commençons</h2>
+         <h2>Commencons</h2>
             <h4>L'inscription est gratuite et ne prend qu'une minute</h4>
-
-          <form action="page-profile.html">
+          <form th:action="@{/signup}" th:obejct="${Utilisateur}" method="post">
             <div class="form-group">
               <label>Nom</label>
-              <input type="text" class="form-control" placeholder="Saisir votre nom">
+              <input type="text" class="form-control"  placeholder="Saisir votre nom" name="nomUser" id="nomUser"> 
             </div><!-- form-group -->
             <div class="form-group">
               <label>Prenom</label>
-              <input type="text" class="form-control" placeholder="Saisir votre prenom">
+              <input type="text" class="form-control"   placeholder="Saisir votre prenom" name="prenomUser" id="prenomUser"> 
             </div><!-- form-group -->
             <div class="form-group">
-              <label>Email</label>
-              <input type="text" class="form-control" placeholder="Saisir votre email">
+              <label>Login</label>
+              <input type="text" class="form-control"  placeholder="Saisir votre login" name="loginUser" id="loginUser">  
             </div><!-- form-group -->
             <div class="form-group">
               <label>Mot de passe</label>
-              <input type="password" class="form-control" placeholder="mot de passe ">
+              <input type="password" class="form-control"  placeholder="mot de passe " name="pwdUser" id="pwdUser">
             </div><!-- form-group -->
             <div class="form-group">
              <label>Confirmation de mot de passe </label>
               <input type="password" class="form-control" placeholder="Confirmation de mot de passe">
             </div><!-- form-group -->
-            <button class="btn btn-az-primary btn-block">Creer le compte</button>
+            <button class="btn btn-az-primary btn-block" type="submit">Create Count</button>
           </form>
         </div><!-- az-signup-header -->
         <div class="az-signup-footer">
-          <p>Vous avez deja un compte? <a href="/page1">Se connecter</a></p>
+          <p>Vous avez deja un compte? <a href="/">Se connecter</a></p>
         </div><!-- az-signin-footer -->
       </div><!-- az-column-signup -->
     </div><!-- az-signup-wrapper -->
-   </div>
+ </div>
 </html>
     
