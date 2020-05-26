@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 @RequestMapping("/")
-public class IndexController {
+public class CountController {
 
 	@Autowired
 	private UtilisateurRepository utilisateurRepository ;
