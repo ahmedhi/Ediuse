@@ -35,7 +35,6 @@ public class UserController {
 		return "/admin/index";
 	}
 
-	@GetMapping("/user/users")
 	private UtilisateurRepository utilisateurRepository ;
 	//private IUtilisateurMetier utilisateurMetier ;
 	
