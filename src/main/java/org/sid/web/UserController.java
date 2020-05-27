@@ -30,7 +30,7 @@ public class UserController {
 	@Autowired
 	private IUtilisateurMetier utilisateurMetier ;
 
-	@RequestMapping("/users")
+	@RequestMapping("users")
 	public String index() {
 		return "/admin/index";
 	}
@@ -56,7 +56,7 @@ public class UserController {
 	@PostMapping("signup")
 	public String createCount(@Valid Utilisateur user, BindingResult  result , Model model) {
 		if(result.hasErrors()) {
-			return "/connexion/singup";
+			return "connexion/singup";
 		}
 		user.setRole("USER");
 		this.utilisateurRepository.save(user);
