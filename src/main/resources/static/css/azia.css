@@ -15228,7 +15228,8 @@ body {
 
 .card-dashboard-one {
   position: relative;
-  border-color: #cdd4e0; }
+  border-color: #cdd4e0;
+  border-radius: 1rem;}
   .card-dashboard-one .card-header {
     padding: 20px;
     background-color: transparent; }
@@ -15332,7 +15333,7 @@ body {
 
 .card-dashboard-two {
   height: 100%;
-  border-radius: 0;
+  border-radius: 1rem;
   border-color: #cdd4e0;
   background-color: rgba(255, 255, 255, 0.5); }
   .card-dashboard-two .card-header {
@@ -15376,7 +15377,7 @@ body {
 
 .card-dashboard-three {
   height: 150px;
-  border-radius: 0;
+  border-radius: 1rem;
   border-color: #cdd4e0;
   background-color: rgba(255, 255, 255, 0.5); }
   @media (min-width: 768px) {
@@ -15965,7 +15966,8 @@ body {
 
 .card-dashboard-ten {
   border-width: 0;
-  padding: 20px; }
+  padding: 20px;
+  border-radius: 1rem;}
   @media (min-width: 576px) {
     .card-dashboard-ten {
       width: calc(50% - 11px);
@@ -43656,4 +43658,8 @@ body {
 
 .fa-icone{
     margin-right: 0.8rem;
+}
+
+.primary-color{
+    color: #00909E;
 }

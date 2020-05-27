@@ -12,6 +12,7 @@
     <title>Ediuse</title>
 
     <!-- vendor css -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <link href="../static/lib/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet"
     	th:href="@{/lib/@fortawesome/fontawesome-free/css/all.min.css}">
     <link href="../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet"
@@ -43,7 +44,7 @@
                               <li class="nav-item active">
                                   <a href="" class="nav-link"><i class="fa-icone fas fa-tachometer-alt-fast"></i> Dashboard</a>
                               </li>
-                              <li class="nav-item show">
+                              <li class="nav-item">
                                 <a href="" class="nav-link with-sub"><i class="fa-icone fal fa-user-shield"></i> Administration</a>
                                 <div class="az-menu-sub">
                                   <nav class="nav">
@@ -100,7 +101,14 @@
                 </div><!-- az-content-body -->
             </div>
       </div><!-- az-content -->
-	
+
+      <div class="az-footer ht-40">
+          <div class="container ht-100p pd-t-0-f">
+              <span>&copy; 2020 Ediuse | make by AskBri</span>
+          </div><!-- container -->
+      </div><!-- az-footer -->
+
+
 <script src="../static/lib/jquery/jquery.min.js"
         th:src="@{/lib/jquery/jquery.min.js}"></script>
 
@@ -109,7 +117,7 @@
         th:src="@{/lib/@fortawesome/fontawesome-free/js/brands.js}"></script>
 <script defer src="../static/lib/@fortawesome/fontawesome-free/js/solid.js"
         th:src="@{/lib/@fortawesome/fontawesome-free/js/solid.js}"></script>
-
+<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="../static/lib/bootstrap/js/bootstrap.bundle.min.js"
         th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <script src="../static/lib/ionicons/ionicons.js"
