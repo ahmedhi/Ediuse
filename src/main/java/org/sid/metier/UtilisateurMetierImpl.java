@@ -31,7 +31,6 @@ public class UtilisateurMetierImpl implements IUtilisateurMetier {
 
 	@Override
 	public Utilisateur getUserById(long id) {
-		// TODO Auto-generated method stub
 		return utilisateurRepository.findById( id );
 	}
 
