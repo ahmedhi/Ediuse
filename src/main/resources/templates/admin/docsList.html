@@ -40,32 +40,30 @@
     </table>
     
      
-    <!--Model delete Type document -->
-    <div th:each="doc: ${docs}">
-        <div th:id="'deleteDoc_' + ${ doc.getIdTypeDoc() }" class="modal" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document" >
-                <div class="modal-content modal-content-demo">
-                  <form method="post" th:action="@{/admin/doc/delete}" th:object="${Type_Doc}">
-                           <div class="modal-body">
-                      		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	                                <span aria-hidden="true">×</span> </button>
-                            	<input type="text" style="display: none" class="form-control" th:value="${ doc.getIdTypeDoc() }" name="idTypeDoc">
-								<img class="imglogin flex-content " src="/img/alerte.png"><br>
-	                        	<h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected TypeDoc :   </h5> 
-	                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ doc.getNomTypeDoc() }"></h5><br>  
-	                            <div class="flex-content">
-                            		<button type="submit" class="btn btn-danger btn-rounded">Delete</button>
-                            	</div>
-                        </div>
-                    </form>
-                </div>
-            </div><!-- modal-dialog -->
-        </div>
-    </div>
-
- 	<!--Model update type document -->
+ 	
     <div th:each="doc :  ${docs}">
-        <div th:id="'doc_' + ${ doc.getIdTypeDoc() }" class="modal" style="display: none;" aria-hidden="true">
+	     <!--Model delete Type document -->
+	     <div th:id="'deleteDoc_' + ${ doc.getIdTypeDoc() }" class="modal" style="display: none;" aria-hidden="true">
+	            <div class="modal-dialog modal-dialog-centered" role="document" >
+	                <div class="modal-content modal-content-demo">
+	                  <form method="post" th:action="@{/admin/doc/delete}" th:object="${Type_Doc}">
+	                           <div class="modal-body">
+	                      		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                                <span aria-hidden="true">×</span> </button>
+	                            	<input type="text" style="display: none" class="form-control" th:value="${ doc.getIdTypeDoc() }" name="idTypeDoc">
+									<img class="imglogin flex-content " src="/img/alerte.png"><br>
+		                        	<h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected TypeDoc :   </h5> 
+		                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ doc.getNomTypeDoc() }"></h5><br>  
+		                            <div class="flex-content">
+	                            		<button type="submit" class="btn btn-danger btn-rounded">Delete</button>
+	                            	</div>
+	                        </div>
+	                    </form>
+	                </div>
+	            </div><!-- modal-dialog -->
+	        </div>
+	     <!--Model update type document -->   
+	     <div th:id="'doc_' + ${ doc.getIdTypeDoc() }" class="modal" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content modal-content-demo">
 
@@ -118,11 +116,11 @@
   <form method="post" th:action="@{/admin/doc/add}" th:object="${Utilisateur}">
         <div class="form-group">
             <label>Name</label>
-            <input type="text" class="form-control"  placeholder="Insert the name of the type" name="nomTypeDoc" id="docName">
+            <input type="text" class="form-control"  placeholder="Name of Type Doc" name="nomTypeDoc" id="docName">
         </div><!-- form-group -->
         <div class="form-group">
             <label>Init path</label>
-            <input type="text" class="form-control"  placeholder="Insert initial path for the type" name="cheminDoc" id="docPath">
+            <input type="text" class="form-control"  placeholder="Path  of Type Doc" name="cheminDoc" id="docPath">
         </div><!-- form-group -->
         <button class="btn btn-az-primary btn-block" type="submit">Create type</button>
     </form>

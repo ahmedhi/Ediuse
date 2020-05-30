@@ -45,32 +45,31 @@
         </tbody>
     </table>
     
-    <!--Model delete user -->
-    <div th:each="user: ${users}">
-        <div th:id="'deleteUser_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document" >
-                <div class="modal-content modal-content-demo">
-                  <form method="post" th:action="@{/admin/user/delete}" th:object="${Utilisateur}">
-                           <div class="modal-body">
-                      		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	                                <span aria-hidden="true">×</span> </button>
-                            	<input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }" name="idUser">
-								<img class="imglogin flex-content " src="/img/alerte.png"><br>
-	                        	<h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected user :   </h5> 
-	                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ user.getNomUser() +' '+ user.getPrenomUser()  }"></h5><br>  
-	                            <div class="flex-content">
-                            		<button type="submit" class="btn btn-danger btn-rounded">Delete</button>
-                            	</div>
-                        </div>
-                    </form>
-                </div>
-            </div><!-- modal-dialog -->
-        </div>
-    </div>
+  
 
- 	<!--Model update user -->
     <div th:each="user: ${users}">
-        <div th:id="'user_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
+		      <!--Model delete user -->
+		     <div th:id="'deleteUser_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
+		            <div class="modal-dialog modal-dialog-centered" role="document" >
+		                <div class="modal-content modal-content-demo">
+		                  <form method="post" th:action="@{/admin/user/delete}" th:object="${Utilisateur}">
+		                           <div class="modal-body">
+		                      		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                                <span aria-hidden="true">×</span> </button>
+		                            	<input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }" name="idUser">
+										<img class="imglogin flex-content " src="/img/alerte.png"><br>
+			                        	<h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected user :   </h5> 
+			                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ user.getNomUser() +' '+ user.getPrenomUser()  }"></h5><br>  
+			                            <div class="flex-content">
+		                            		<button type="submit" class="btn btn-danger btn-rounded">Delete</button>
+		                            	</div>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div><!-- modal-dialog -->
+		        </div>
+		       <!--Model update user -->
+			<div th:id="'user_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content modal-content-demo">
 
