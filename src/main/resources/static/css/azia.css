@@ -7541,7 +7541,7 @@ a.text-dark:hover, a.text-dark:focus {
 /* ###### 3.6 Forms ###### */
 .form-control {
   height: 38px;
-  border-radius: 0; }
+  border-radius: 1rem; }
   .form-control:focus {
     border-color: #97a3b9;
     box-shadow: none; }
@@ -7676,7 +7676,7 @@ a.text-dark:hover, a.text-dark:focus {
     opacity: .8; }
 
 .modal-content {
-  border-radius: 0;
+  border-radius: 1.5rem;
   border-width: 0; }
   .modal-content .close {
     font-size: 28px;
@@ -9874,7 +9874,8 @@ textarea.parsley-success:focus {
 
 .az-form-group {
   padding: 12px 15px;
-  border: 1px solid #cdd4e0; }
+  border: 1px solid #cdd4e0;
+  border-radius: 1rem;}
   .az-form-group.focus {
     border-color: #b4bdce;
     box-shadow: 0 0 0 2px rgba(91, 71, 251, 0.16); }
@@ -43662,4 +43663,16 @@ body {
 
 .primary-color{
     color: #00909E;
+}
+
+.flex-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.medium-content{
+    width: 10rem;
+    margin: 0.3rem;
 }

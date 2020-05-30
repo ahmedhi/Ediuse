@@ -35,6 +35,14 @@ public class Utilisateur implements Serializable{
 		this.role = type ;
 	}
 
+	public Utilisateur( Utilisateur user ){
+		super();
+		this.loginUser = user.getLoginUser();
+		this.nomUser = user.getNomUser();
+		this.prenomUser = user.getPrenomUser();
+		this.pwdUser = user.getPwdUser();
+		this.role = user.getRole() ;
+	}
 
 	public Long getIdUser() {
 		return idUser;

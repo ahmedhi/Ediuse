@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorate="~{layouts/layoutMaster}">
+
+<div layout:fragment="primaryContent_Header">
+
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-cog"></i> Companies management</h6>
+    </div>
+    <div class="btn-group">
+        <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>
+    </div>
+
+</div>
+
+<div layout:fragment="primaryContent_Body">
+
+    <table class="table" style="width:100%">
+        <thead>
+        <tr>
+            <th>Company name</th>
+            <th>ICE</th>
+            <th>IF</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="company : ${companies}">
+            <td th:text="${company.getRaisonSocialEntreprise()}"></td>
+            <td th:text="${company.getIceEntreprise()}"></td>
+            <td th:text="${company.getIfEntreprise()}"></td>
+            <td>
+                <a th:href="'#company_' + ${ company.getIdEntreprise() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                    <i class="fal fa-info"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:each="company : ${companies}">
+        <div th:id="'company_' + ${ company.getIdEntreprise() }" class="modal" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modal-content-demo">
+
+                    <form method="post" th:action="@{/admin/company/update}" th:object="${Company}">
+                        <div class="modal-header">
+                            <h6 class="modal-title">Company preview</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" style="display: none" class="form-control" th:value="${ company.getIdEntreprise() }">
+
+                            <div class="flex-content ">
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">Company Name</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the company name" th:value="${ company.getRaisonSocialEntreprise() }" name="raisonSocialEntreprise">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">ICE</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the ICE" th:value="${ company.getIceEntreprise() }" name="iceEntreprise">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">IF</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the first name" th:value="${ company.getIfEntreprise()}" name="ifEntreprise">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
+                            <a th:href="/@{ /admin/company/delete/ + ${ company.getIdEntreprise() } }" class="btn btn-danger btn-rounded">Delete</a>
+                            <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div><!-- modal-dialog -->
+        </div>
+    </div>
+
+</div>
+
+<div layout:fragment="secondaryContent_Header">
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-plus"></i> Add new company</h6>
+    </div>
+</div>
+
+<div layout:fragment="secondaryContent_Body">
+    <form method="post" th:action="@{/admin/company/add}" th:object="${Company}">
+        <div class="form-group">
+            <label>Company name</label>
+            <input type="text" class="form-control"  placeholder="Insert your company name" name="raisonSocialEntreprise" id="raisonSocialEntreprise">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label>ICE</label>
+            <input type="text" class="form-control"  placeholder="Insert your ICE" name="iceEntreprise" id="iceEntreprise">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label>IF</label>
+            <input type="text" class="form-control"  placeholder="Insert your IF" name="ifEntreprise" id="ifEntreprise">
+        </div><!-- form-group -->
+        <button class="btn btn-az-primary btn-block" type="submit">Create Companies</button>
+    </form>
+</div>
+
+</html>

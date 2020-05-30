@@ -121,4 +121,7 @@ $(function(){
   /* DataTable Configuration */
   $('table.table').DataTable();
 
+
+
+
 });
