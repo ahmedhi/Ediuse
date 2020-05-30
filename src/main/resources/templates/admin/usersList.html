@@ -17,7 +17,7 @@
 
 <div layout:fragment="primaryContent_Body">
 
-    <table class="table" style="width:100%">
+    <table class="table" style="width:100% ; text-align:center">
         <thead>
         <tr>
             <th>Login</th>
@@ -37,11 +37,47 @@
                     <a th:href="'#user_' + ${ user.getIdUser() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
                         <i class="fal fa-info"></i>
                     </a>
+                     <a th:href="'#deleteUser_' + ${ user.getIdUser() }" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                     <i class="far fa-trash-alt"></i>
+                    </a>
                 </td>
             </tr>
         </tbody>
     </table>
+    
+    <!--Model delete user -->
+    <div th:each="user: ${users}">
+        <div th:id="'deleteUser_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modal-content-demo">
 
+                    <form method="post" th:action="@{/admin/user/delete}" th:object="${Utilisateur}">
+                        
+                        <div class="modal-body">
+                      
+                        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }" name="idUser">
+							<img class="imglogin flex-content " src="/img/alerte.png"><br>
+							
+                        	<h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected user :   </h5> 
+                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ user.getNomUser() +' '+ user.getPrenomUser()  }"></h5><br>  
+                            <div class="flex-content">
+                            	<button type="submit" class="btn btn-danger btn-rounded">Delete</button>
+                            </div>
+                            
+
+                        </div>
+                       
+                    </form>
+
+                </div>
+            </div><!-- modal-dialog -->
+        </div>
+    </div>
+
+ 	<!--Model update user -->
     <div th:each="user: ${users}">
         <div th:id="'user_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -55,7 +91,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }">
+                            <input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }" name="idUser">
 
                             <div class="flex-content ">
                                 <div class="flex-content">
@@ -102,7 +138,7 @@
                                         <label class="form-label mg-b-0">Password</label>
                                     </div><!-- col -->
                                     <div class="medium-content">
-                                        <input type="password" class="form-control" placeholder="Enter the password" name="pwdUser">
+                                        <input type="password" class="form-control" th:value="${ user.getPwdUser()}" placeholder="Enter the password" name="pwdUser">
                                     </div><!-- col -->
                                 </div><!-- row -->
                             </div>
@@ -110,7 +146,6 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
-                            <button type="button" class="btn btn-outline-info" data-dismiss="modal">Close</button>
                         </div>
                     </form>
 

@@ -47,8 +47,14 @@ public class AdminController {
 
     @PostMapping("/user/update")
     public String updateUser(@ModelAttribute("Utilisateur") Utilisateur user){
-        this.utilisateurMetier.updateUser( user );
+        this.utilisateurMetier.updateUser( user);
 
+        return "redirect:/admin/users";
+    }
+    
+    @PostMapping("/user/delete")
+    public String deleteUser(@ModelAttribute("Utilisateur") Utilisateur user){
+        this.utilisateurMetier.deleteUser(user);
         return "redirect:/admin/users";
     }
 
