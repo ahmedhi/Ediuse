@@ -18,9 +18,9 @@ public class UtilisateurMetierImpl implements IUtilisateurMetier {
 	public Utilisateur createUser(Utilisateur user) {
 		return utilisateurRepository.save( user );
 	}
-
+	
 	@Override
-	public Utilisateur updateUser(Utilisateur user) {
+	public Utilisateur updateUser(Utilisateur user ) {
 		return this.utilisateurRepository.save(user);
 	}
 
@@ -31,14 +31,12 @@ public class UtilisateurMetierImpl implements IUtilisateurMetier {
 
 	@Override
 	public Utilisateur getUserById(long id) {
-		// TODO Auto-generated method stub
 		return utilisateurRepository.findById( id );
 	}
 
 	@Override
-	public void deleteUser(long id) {
-		// TODO Auto-generated method stub
-		
+	public void deleteUser(Utilisateur user) {
+		utilisateurRepository.delete(user);
 	}
 
 }

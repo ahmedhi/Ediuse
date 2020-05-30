@@ -4,8 +4,10 @@ import org.sid.dao.EntrepriseRepository;
 import org.sid.dao.TypeDocRepository;
 import org.sid.dao.UtilisateurRepository;
 import org.sid.entities.Entreprise;
+import org.sid.entities.Type_Doc;
 import org.sid.entities.Utilisateur;
 import org.sid.metier.CompanyMetierImpl;
+import org.sid.metier.TypeDocMetierImpl;
 import org.sid.metier.UtilisateurMetierImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,15 +26,18 @@ public class AdminController {
 
     @Autowired private UtilisateurMetierImpl utilisateurMetier;
     @Autowired private CompanyMetierImpl companyMetier;
+    @Autowired private TypeDocMetierImpl typeDocMetier;
+
 
     @RequestMapping("users")
     public String users( Model model) {
-        model.addAttribute("users", utilisateurMetier.getAllUsers() );
+       model.addAttribute("users", utilisateurMetier.getAllUsers() );
         return "/admin/usersList";
     }
 
     @RequestMapping("docs")
-    public String docs() {
+    public String docs( Model model) {
+		model.addAttribute("docs", typeDocMetier.getAllDocs() );
         return "/admin/docsList";
     }
 
@@ -47,11 +52,39 @@ public class AdminController {
 
     @PostMapping("/user/update")
     public String updateUser(@ModelAttribute("Utilisateur") Utilisateur user){
-        this.utilisateurMetier.updateUser( user );
+        this.utilisateurMetier.updateUser( user);
 
         return "redirect:/admin/users";
     }
+    
+    @PostMapping("/user/delete")
+    public String deleteUser(@ModelAttribute("Utilisateur") Utilisateur user){
+        this.utilisateurMetier.deleteUser(user);
+        return "redirect:/admin/users";
+    }
+    
+    @PostMapping("/doc/add")
+    public String addUser(@Valid Type_Doc doc , BindingResult result , Model model ){
+        if( result.hasErrors() ){
+            return "admin/usersList";
+        }
+        this.typeDocMetier.createDoc( doc );
+        return "redirect:/admin/docs";
+    }
+    
+    @PostMapping("/doc/update")
+    public String updateDoc(@ModelAttribute("Type_Doc") Type_Doc doc){
+        this.typeDocMetier.updateDoc( doc);
 
+        return "redirect:/admin/docs";
+    }
+
+    @PostMapping("/doc/delete")
+    public String deleteDoc(@ModelAttribute("Type_Doc") Type_Doc doc){
+        this.typeDocMetier.deleteDoc(doc);
+        return "redirect:/admin/docs";
+    }
+    
     @RequestMapping("companies")
     public String companies( Model model ) {
         model.addAttribute("companies", companyMetier.getAllCompany() );
