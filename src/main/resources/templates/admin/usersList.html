@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorate="~{layouts/layoutMaster}">
+
+<div layout:fragment="primaryContent_Header">
+
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-cog"></i> Users management</h6>
+    </div>
+    <div class="btn-group">
+        <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>
+    </div>
+
+</div>
+
+<div layout:fragment="primaryContent_Body">
+
+    <table class="table" style="width:100% ; text-align:center">
+        <thead>
+        <tr>
+            <th>Login</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${ user.getLoginUser() }"></td>
+                <td th:text="${ user.getFirstNameUser() }"></td>
+                <td th:text="${ user.getLastNameUser() }"></td>
+                <td th:text="${ user.getRole() }"></td>
+                <td>
+                    <a th:href="'#user_' + ${ user.getIdUser() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                        <i class="fal fa-info"></i>
+                    </a>
+                     <a th:href="'#deleteUser_' + ${ user.getIdUser() }" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+  
+
+    <div th:each="user: ${users}">
+              <!--Model delete user -->
+             <div th:id="'deleteUser_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document" >
+                        <div class="modal-content modal-content-demo">
+                          <form method="post" th:action="@{/admin/user/delete}" th:object="${Utilisateur}">
+                               <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span> </button>
+                                    <input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }" name="idUser">
+                                    <img class="imglogin flex-content " src="/img/alerte.png"><br>
+                                    <h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected user :   </h5>
+                                    <h5 style="color: #dc3545 ; text-align:center" th:text="${ user.getLastNameUser() +' '+ user.getFirstNameUser()  }"></h5><br>
+                                    <div class="flex-content">
+                                        <button type="submit" class="btn btn-danger btn-rounded">Delete</button>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- modal-dialog -->
+            </div>
+
+           <!--Model update user -->
+			<div th:id="'user_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modal-content-demo">
+
+                    <form method="post" th:action="@{/admin/user/update}" th:object="${Utilisateur}">
+                        <div class="modal-header">
+                            <h6 class="modal-title">User preview</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }" name="idUser">
+
+                            <div class="flex-content ">
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">Login</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the login" th:value="${ user.getLoginUser() }" name="loginUser">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">Lastnane</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the lastname" th:value="${ user.getLastNameUser() }" name="lastNameUser">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">First Name</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the first name" th:value="${ user.getFirstNameUser()}" name="firstNameUser">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">Role</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <select class="form-control" name="role">
+                                            <option value="USER" >Normal</option>
+                                            <option value="ADMIN" >Administrator</option>
+                                        </select>
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">Password</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="password" class="form-control" placeholder="Enter the password" name="pwdUser">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
+                            <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div><!-- modal-dialog -->
+        </div>
+    </div>
+
+</div>
+
+<div layout:fragment="secondaryContent_Header">
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-plus"></i> Add new user</h6>
+    </div>
+</div>
+
+<div layout:fragment="secondaryContent_Body">
+    <form method="post" th:action="@{/admin/user/add}" th:object="${Utilisateur}">
+        <div class="form-group">
+            <label>Nom</label>
+            <input type="text" class="form-control"  placeholder="Saisir votre nom" name="lastNameUser" id="lastNameUser">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label>Prenom</label>
+            <input type="text" class="form-control"   placeholder="Saisir votre prenom" name="firstNameUser" id="firstNameUser">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label>Login</label>
+            <input type="text" class="form-control"  placeholder="Saisir votre login" name="loginUser" id="loginUser">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label>Mot de passe</label>
+            <input type="password" class="form-control"  placeholder="mot de passe " name="pwdUser" id="pwdUser">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label>Role</label>
+            <select class="form-control" name="role">
+                <option value="USER" >Normal account</option>
+                <option value="ADMIN" >Administrator account</option>
+            </select>
+        </div><!-- form-group -->
+        <button class="btn btn-success btn-rounded btn-block" type="submit">Create Account</button>
+    </form>
+</div>
+
+</html>

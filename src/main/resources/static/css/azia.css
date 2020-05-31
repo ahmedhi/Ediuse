@@ -7541,7 +7541,7 @@ a.text-dark:hover, a.text-dark:focus {
 /* ###### 3.6 Forms ###### */
 .form-control {
   height: 38px;
-  border-radius: 0; }
+  border-radius: 1rem; }
   .form-control:focus {
     border-color: #97a3b9;
     box-shadow: none; }
@@ -7676,7 +7676,7 @@ a.text-dark:hover, a.text-dark:focus {
     opacity: .8; }
 
 .modal-content {
-  border-radius: 0;
+  border-radius: 1.5rem;
   border-width: 0; }
   .modal-content .close {
     font-size: 28px;
@@ -9874,7 +9874,8 @@ textarea.parsley-success:focus {
 
 .az-form-group {
   padding: 12px 15px;
-  border: 1px solid #cdd4e0; }
+  border: 1px solid #cdd4e0;
+  border-radius: 1rem;}
   .az-form-group.focus {
     border-color: #b4bdce;
     box-shadow: 0 0 0 2px rgba(91, 71, 251, 0.16); }
@@ -15228,7 +15229,8 @@ body {
 
 .card-dashboard-one {
   position: relative;
-  border-color: #cdd4e0; }
+  border-color: #cdd4e0;
+  border-radius: 1rem;}
   .card-dashboard-one .card-header {
     padding: 20px;
     background-color: transparent; }
@@ -15332,7 +15334,7 @@ body {
 
 .card-dashboard-two {
   height: 100%;
-  border-radius: 0;
+  border-radius: 1rem;
   border-color: #cdd4e0;
   background-color: rgba(255, 255, 255, 0.5); }
   .card-dashboard-two .card-header {
@@ -15376,7 +15378,7 @@ body {
 
 .card-dashboard-three {
   height: 150px;
-  border-radius: 0;
+  border-radius: 1rem;
   border-color: #cdd4e0;
   background-color: rgba(255, 255, 255, 0.5); }
   @media (min-width: 768px) {
@@ -15965,7 +15967,8 @@ body {
 
 .card-dashboard-ten {
   border-width: 0;
-  padding: 20px; }
+  padding: 20px;
+  border-radius: 1rem;}
   @media (min-width: 576px) {
     .card-dashboard-ten {
       width: calc(50% - 11px);
@@ -43656,4 +43659,20 @@ body {
 
 .fa-icone{
     margin-right: 0.8rem;
+}
+
+.primary-color{
+    color: #00909E;
+}
+
+.flex-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.medium-content{
+    width: 10rem;
+    margin: 0.3rem;
 }

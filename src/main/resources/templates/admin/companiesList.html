@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorate="~{layouts/layoutMaster}">
+
+<div layout:fragment="primaryContent_Header">
+
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-cog"></i> Companies management</h6>
+    </div>
+    <div class="btn-group">
+        <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>
+    </div>
+
+</div>
+
+<div layout:fragment="primaryContent_Body">
+
+    <table class="table" style="width:100%">
+        <thead>
+        <tr>
+            <th>Company name</th>
+            <th>ICE</th>
+            <th>IF</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="company : ${companies}">
+            <td th:text="${company.getNameCompany()}"></td>
+            <td th:text="${company.getIceCompany()}"></td>
+            <td th:text="${company.getIfCompany()}"></td>
+            <td>
+                <a th:href="'#companyEdit_' + ${ company.getIdCompany() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                    <i class="fal fa-info"></i>
+                </a>
+                <a th:href="'#companyDelete_' + ${ company.getIdCompany() }" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div th:each="company : ${companies}">
+        <!--Model delete company -->
+        <div th:id="'companyDelete_' + ${ company.getIdCompany() }" class="modal" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" >
+                <div class="modal-content modal-content-demo">
+                    <form method="post" th:action="@{/admin/company/delete}" th:object="${Utilisateur}">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span> </button>
+                            <input type="text" style="display: none" class="form-control" th:value="${ company.getIdCompany() }" name="idCompany">
+                            <img class="imglogin flex-content " src="/img/alerte.png"><br>
+                            <h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected company :   </h5>
+                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ company.getNameCompany() }"></h5><br>
+                            <div class="flex-content">
+                                <button type="submit" class="btn btn-danger btn-rounded">Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div><!-- modal-dialog -->
+        </div>
+
+
+        <div th:id="'companyEdit_' + ${ company.getIdCompany() }" class="modal" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modal-content-demo">
+
+                    <form method="post" th:action="@{/admin/company/update}" th:object="${Company}">
+                        <div class="modal-header">
+                            <h6 class="modal-title">Company preview</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" style="display: none" class="form-control" th:value="${ company.getIdCompany() }" name="idCompany">
+
+                            <div class="flex-content ">
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">Company Name</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the company name" th:value="${ company.getNameCompany() }" name="NameCompany">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">ICE</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the ICE" th:value="${ company.getIceCompany() }" name="iceCompany">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">IF</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Enter the first name" th:value="${ company.getIfCompany()}" name="ifCompany">
+                                    </div><!-- col -->
+                                </div><!-- row -->
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
+                            <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div><!-- modal-dialog -->
+        </div>
+    </div>
+
+</div>
+
+<div layout:fragment="secondaryContent_Header">
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-plus"></i> Add new company</h6>
+    </div>
+</div>
+
+<div layout:fragment="secondaryContent_Body">
+    <form method="post" th:action="@{/admin/company/add}" th:object="${Company}">
+        <div class="form-group">
+            <label>Company name</label>
+            <input type="text" class="form-control"  placeholder="Insert your company name" name="NameCompany" id="NameCompany">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label>ICE</label>
+            <input type="text" class="form-control"  placeholder="Insert your ICE" name="iceCompany" id="iceCompany">
+        </div><!-- form-group -->
+        <div class="form-group">
+            <label>IF</label>
+            <input type="text" class="form-control"  placeholder="Insert your IF" name="ifCompany" id="ifCompany">
+        </div><!-- form-group -->
+        <button class="btn btn-az-primary btn-block" type="submit">Create Companies</button>
+    </form>
+</div>
+
+</html>

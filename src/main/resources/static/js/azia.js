@@ -118,4 +118,10 @@ $(function(){
     $('body').removeClass('az-header-menu-show');
   })
 
+  /* DataTable Configuration */
+  $('table.table').DataTable();
+
+
+
+
 });
