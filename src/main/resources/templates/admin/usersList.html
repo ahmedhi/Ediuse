@@ -29,10 +29,10 @@
         </thead>
         <tbody>
             <tr th:each="user : ${users}">
-                <td th:text="${user.getLoginUser()}"></td>
-                <td th:text="${user.getPrenomUser()}"></td>
-                <td th:text="${user.getNomUser()}"></td>
-                <td th:text="${user.getRole()}"></td>
+                <td th:text="${ user.getLoginUser() }"></td>
+                <td th:text="${ user.getFirstNameUser() }"></td>
+                <td th:text="${ user.getLastNameUser() }"></td>
+                <td th:text="${ user.getRole() }"></td>
                 <td>
                     <a th:href="'#user_' + ${ user.getIdUser() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
                         <i class="fal fa-info"></i>
@@ -48,27 +48,28 @@
   
 
     <div th:each="user: ${users}">
-		      <!--Model delete user -->
-		     <div th:id="'deleteUser_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
-		            <div class="modal-dialog modal-dialog-centered" role="document" >
-		                <div class="modal-content modal-content-demo">
-		                  <form method="post" th:action="@{/admin/user/delete}" th:object="${Utilisateur}">
-		                           <div class="modal-body">
-		                      		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			                                <span aria-hidden="true">×</span> </button>
-		                            	<input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }" name="idUser">
-										<img class="imglogin flex-content " src="/img/alerte.png"><br>
-			                        	<h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected user :   </h5> 
-			                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ user.getNomUser() +' '+ user.getPrenomUser()  }"></h5><br>  
-			                            <div class="flex-content">
-		                            		<button type="submit" class="btn btn-danger btn-rounded">Delete</button>
-		                            	</div>
-		                        </div>
-		                    </form>
-		                </div>
-		            </div><!-- modal-dialog -->
-		        </div>
-		       <!--Model update user -->
+              <!--Model delete user -->
+             <div th:id="'deleteUser_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document" >
+                        <div class="modal-content modal-content-demo">
+                          <form method="post" th:action="@{/admin/user/delete}" th:object="${Utilisateur}">
+                               <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span> </button>
+                                    <input type="text" style="display: none" class="form-control" th:value="${ user.getIdUser() }" name="idUser">
+                                    <img class="imglogin flex-content " src="/img/alerte.png"><br>
+                                    <h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected user :   </h5>
+                                    <h5 style="color: #dc3545 ; text-align:center" th:text="${ user.getLastNameUser() +' '+ user.getFirstNameUser()  }"></h5><br>
+                                    <div class="flex-content">
+                                        <button type="submit" class="btn btn-danger btn-rounded">Delete</button>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- modal-dialog -->
+            </div>
+
+           <!--Model update user -->
 			<div th:id="'user_' + ${ user.getIdUser() }" class="modal" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content modal-content-demo">
@@ -98,7 +99,7 @@
                                         <label class="form-label mg-b-0">Lastnane</label>
                                     </div><!-- col -->
                                     <div class="medium-content">
-                                        <input type="text" class="form-control" placeholder="Enter the lastname" th:value="${ user.getNomUser() }" name="nomUser">
+                                        <input type="text" class="form-control" placeholder="Enter the lastname" th:value="${ user.getLastNameUser() }" name="lastNameUser">
                                     </div><!-- col -->
                                 </div><!-- row -->
 
@@ -107,7 +108,7 @@
                                         <label class="form-label mg-b-0">First Name</label>
                                     </div><!-- col -->
                                     <div class="medium-content">
-                                        <input type="text" class="form-control" placeholder="Enter the first name" th:value="${ user.getPrenomUser()}" name="prenomUser">
+                                        <input type="text" class="form-control" placeholder="Enter the first name" th:value="${ user.getFirstNameUser()}" name="firstNameUser">
                                     </div><!-- col -->
                                 </div><!-- row -->
 
@@ -136,7 +137,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
-                            <button type="button" class="btn btn-outline-info" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
                         </div>
                     </form>
 
@@ -157,11 +158,11 @@
     <form method="post" th:action="@{/admin/user/add}" th:object="${Utilisateur}">
         <div class="form-group">
             <label>Nom</label>
-            <input type="text" class="form-control"  placeholder="Saisir votre nom" name="nomUser" id="nomUser">
+            <input type="text" class="form-control"  placeholder="Saisir votre nom" name="lastNameUser" id="lastNameUser">
         </div><!-- form-group -->
         <div class="form-group">
             <label>Prenom</label>
-            <input type="text" class="form-control"   placeholder="Saisir votre prenom" name="prenomUser" id="prenomUser">
+            <input type="text" class="form-control"   placeholder="Saisir votre prenom" name="firstNameUser" id="firstNameUser">
         </div><!-- form-group -->
         <div class="form-group">
             <label>Login</label>

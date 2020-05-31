@@ -2,9 +2,9 @@ package org.sid.web;
 
 import javax.validation.Valid;
 
-import org.sid.dao.UtilisateurRepository;
-import org.sid.entities.Utilisateur;
-import org.sid.metier.UtilisateurMetierImpl;
+import org.sid.dao.UserRepository;
+import org.sid.entities.User;
+import org.sid.metier.UserMetierImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,12 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AccountController {
 
 	@Autowired
-	private UtilisateurRepository utilisateurRepository ;
-	@Autowired
-	private UtilisateurMetierImpl utilisateurMetier ;
+	private UserMetierImpl userMetier ;
 
 	public String users( Model model ){
-		model.addAttribute("users",this.utilisateurRepository.findAll());
+		model.addAttribute("users",this.userMetier.getAllUsers() );
 		return "index";
 	}
 
@@ -38,13 +36,13 @@ public class AccountController {
 	}
 
 	@PostMapping("signup")
-	public String createAccount(@Valid Utilisateur user, BindingResult  result , Model model) {
+	public String createAccount(@Valid User user, BindingResult  result , Model model) {
 		if(result.hasErrors()) {
 			return "/connexion/singup";
 		}
 
 		user.setRole( "USER" );
-		this.utilisateurMetier.createUser( user );
+		this.userMetier.createUser( user );
 
 		return "redirect:/";
 	}

@@ -1,8 +1,8 @@
 package org.sid;
 
-import org.sid.dao.EntrepriseRepository;
-import org.sid.dao.TypeDocRepository;
-import org.sid.dao.UtilisateurRepository;
+import org.sid.dao.CompanyRepository;
+import org.sid.dao.DocTypeRepository;
+import org.sid.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,11 +19,11 @@ public class EdiuseApplication implements CommandLineRunner{
 	
 
 	@Autowired
-	private UtilisateurRepository utilisateurRepository ;
+	private UserRepository utilisateurRepository ;
 	@Autowired
-	private EntrepriseRepository entrepriseRepository ;
+	private CompanyRepository companyRepository;
 	@Autowired
-	private TypeDocRepository typeDocRepository ;
+	private DocTypeRepository typeDocRepository ;
 
 	@Override
 	public void run(String... args) throws Exception {
