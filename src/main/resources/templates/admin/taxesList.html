@@ -140,7 +140,20 @@
 </div>
 
 <div layout:fragment="secondaryContent_Body">
-  <form method="post" th:action="@{/admin/doc/add}" th:object="${Utilisateur}" enctype="multipart/form-data">
+		<div class="alert alert-sucess alert-dismissible fade show" role="alert" th:if="${succesmessage}">
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   			 <span aria-hidden="true">&times;</span>
+   			   <strong th:text="${succesmessage}"></strong> 
+  			</button>
+		</div>
+		<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${errormessage}">
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+   			 <span aria-hidden="true">&times;</span>
+  			</button>
+  			<strong th:text="${errormessage}"></strong> 
+  			
+		</div>
+  <form method="post" th:action="@{/admin/upload}" th:object="${Utilisateur}" enctype="multipart/form-data">
         <div class="form-group">
             <label>File name</label>
             <input type="text" class="form-control"  placeholder="Name of file" name="nameFile" id="nameFile">
@@ -154,8 +167,8 @@
             </select>
         </div><!-- form-group -->
         <div class="form-group">
-            <label>Upload file</label>
-            <input type="file" class="form-control"  placeholder="Upload file" name="dataFile">
+            <label>Upload file (EXCEL or JSON  or CSV)</label>
+            <input type="file" class="form-control"  placeholder="Upload file" name="file	">
         </div><!-- form-group -->
         <button class="btn btn-az-primary btn-block" type="submit">Create tax return</button>
   </form>
