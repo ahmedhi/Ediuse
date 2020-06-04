@@ -17,7 +17,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin/")
@@ -27,6 +35,7 @@ public class AdminController {
     @Autowired private CompanyMetierImpl companyMetier;
     @Autowired private DocTypeMetierImpl typeDocMetier;
     @Autowired private TaxMetierImpl taxMetier;
+    @Autowired private ServletContext context ;
 
 
     @RequestMapping("users")
@@ -34,8 +43,43 @@ public class AdminController {
        model.addAttribute("users", userMetier.getAllUsers() );
         return "/admin/usersList";
     }
+    @RequestMapping("generatePdf")
+    public String generatePdf(HttpServletRequest request , HttpServletResponse response) {
+        List<User> users = userMetier.getAllUsers() ;
 
-    @RequestMapping("docs")
+        boolean isFlag = userMetier.generatePdf(users , context , request , response);
+        if(isFlag) {
+    		String fullPath = request.getServletContext().getRealPath("./src/main/resources/tmp/pdf/"+"users"+".pdf");
+    		filedownload(fullPath,response , "users.pdf");
+    	}     
+        return "/admin/usersList";
+        		}
+
+    private void filedownload(String fullPath, HttpServletResponse response, String fileName) {
+    	File file = new File(fullPath);
+    	final int BUFFER_SIZE = 4096 ;
+    	if(file.exists()) {
+    		try{
+    			FileInputStream inputStream = new FileInputStream (file);
+    			String mimeType = context.getMimeType(fullPath);
+    			response.setContentType(mimeType);
+    			response.setHeader("content-disposition","attachement;filename="+fileName);
+    			OutputStream outputStream  = response.getOutputStream();
+    			byte[] buffer = new byte[BUFFER_SIZE] ;
+    			int byteRead = -1 ;
+    			while((byteRead = inputStream.read(buffer)) != -1 ){
+    				outputStream.write(buffer, 0 , byteRead);
+    			}
+    			inputStream.close() ;
+    			outputStream.close();
+    			file.delete() ;
+    		}catch(Exception e ) {
+    			e.printStackTrace()	;
+    		}
+    	}
+    	
+	}
+	@RequestMapping("docs")
     public String docs( Model model) {
 		model.addAttribute("docs", typeDocMetier.getAllDocs() );
         return "/admin/docsList";
@@ -59,6 +103,7 @@ public class AdminController {
     	}
 		return "redirect:/admin/tax";	
     }
+    
     @PostMapping("/user/update")
     public String updateUser(@ModelAttribute("Utilisateur") User user){
         this.userMetier.updateUser( user);
