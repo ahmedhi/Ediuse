@@ -8,6 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class User implements Serializable{
@@ -18,21 +21,26 @@ public class User implements Serializable{
 	private String firstNameUser ;
 	private String pwdUser;
 	private String role ; // Admin  , user 
+	private String fileType ;
+	
+	
 	
 	@OneToMany(mappedBy="user",fetch=FetchType.LAZY)
 	private Collection<DocCompany> docCompanies ;
+	
+	@Transient
+	private MultipartFile file ;
 
 	public User() {
 	}
 
-	public User(Long idUser, String loginUser, String lastNameUser, String firstNameUser, String pwdUser, String role, Collection<DocCompany> docCompanies) {
-		this.idUser = idUser;
+	public User(String loginUser, String lastNameUser, String firstNameUser, String pwdUser, String role, String fileType ) {
 		this.loginUser = loginUser;
 		this.lastNameUser = lastNameUser;
 		this.firstNameUser = firstNameUser;
 		this.pwdUser = pwdUser;
 		this.role = role;
-		this.docCompanies = docCompanies;
+		this.fileType = fileType;
 	}
 
 	public Long getIdUser() {
@@ -90,4 +98,21 @@ public class User implements Serializable{
 	public void setDocCompanies(Collection<DocCompany> docCompanies) {
 		this.docCompanies = docCompanies;
 	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	public String getFileType() {
+		return fileType;
+	}
+
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
+	
 }

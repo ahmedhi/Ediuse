@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 @Entity
 public class DocCompany implements Serializable{
 	@Id @GeneratedValue
@@ -28,6 +31,9 @@ public class DocCompany implements Serializable{
 	private DocType docType ;
 
 	private Date dateUpload ;
+	
+	@Transient
+	private MultipartFile file ;
 
 	public DocCompany() {
 	}
@@ -87,5 +93,12 @@ public class DocCompany implements Serializable{
 
 	public void setDateUpload(Date dateUpload) {
 		this.dateUpload = dateUpload;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 }

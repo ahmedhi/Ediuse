@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -48,7 +49,16 @@ public class AdminController {
         this.userMetier.createUser( user );
         return "redirect:/admin/users";
     }
-
+    @PostMapping("/upload")
+    public String upload(@ModelAttribute User user , RedirectAttributes redirectAttributes ) {
+    	boolean isFlag = userMetier.saveDataFromUpload(user.getFile());
+    	if(isFlag) {
+    		redirectAttributes.addAttribute("succesmessage","File upload Successfully");
+    	}else {
+    		redirectAttributes.addAttribute("errormessage","File upload not done,  Please try again again !");
+    	}
+		return "redirect:/admin/tax";	
+    }
     @PostMapping("/user/update")
     public String updateUser(@ModelAttribute("Utilisateur") User user){
         this.userMetier.updateUser( user);
@@ -139,4 +149,5 @@ public class AdminController {
         this.taxMetier.deleteTax( tax );
         return "redirect:/admin/tax";
     }
+   
 }
