@@ -1,4 +1,4 @@
-package org.sid.security;
+package org.sid.config;
 
 import javax.sql.DataSource;
 

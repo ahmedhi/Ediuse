@@ -1,18 +1,22 @@
 package org.sid.metier;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
-import javax.validation.constraints.NotNull;
 
-import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
+import com.lowagie.text.DocumentException;
+
+import groovy.util.logging.Log;
+import lombok.RequiredArgsConstructor;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
@@ -20,34 +24,31 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.sid.dao.UserRepository;
-import org.sid.entities.DocCompany;
 import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfDocument;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfWriter;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 
 @Service
 @Transactional
+@Log
+@RequiredArgsConstructor
 public class UserMetierImpl implements IUserMetier {
+
+	@Autowired
+	private TemplateEngine templateEngine ;
 	@Autowired
 	UserRepository userRepository;
-
+	
+	
 	@Override
 	public User createUser(User user) {
 		return userRepository.save( user );
@@ -72,7 +73,42 @@ public class UserMetierImpl implements IUserMetier {
 	public void deleteUser(User user) {
 		userRepository.delete(user);
 	}
+
+	public void createpdf() {
+		try {
+				Context context = new Context() ;
+				context.setVariable ("name","developeradda.com");
+				String processHtml = templateEngine.process("403", context);
+				OutputStream outputStream = new FileOutputStream("message.pdf");
+				ITextRenderer renderer = new ITextRenderer();
+				renderer.setDocumentFromString (processHtml);
+				renderer.layout();
+				renderer.createPDF(outputStream,false);
+				renderer.finishPDF();
+				outputStream.close();
+		} catch (Exception e) {
+				e.printStackTrace();
+		}
+		
+	}
 	
+	@Override
+	public InputStreamResource generateT1() {
+	    Context context = new Context();
+	    context.setVariable("Name","ASKOUR");
+		//context.setVariables((Map<String, Object>) users);
+		String html = templateEngine.process("modeleT1", context);
+		System.out.println(html);
+		try {
+			HtmlConverter.convertToPdf(html, new FileOutputStream("target/modeleT1.pdf"));
+			return new InputStreamResource( new FileInputStream("target/modeleT1.pdf"));
+		} catch (IOException e) {
+			//log.log(Level.SEVERE,e.getMessage(),e);
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	@Override
 	public boolean saveDataFromUpload(MultipartFile file) {
 		boolean isFlag = false ; 
@@ -88,46 +124,35 @@ public class UserMetierImpl implements IUserMetier {
 	}
 
 	@Override
-	public boolean generatePdf(List<User> users, ServletContext context, HttpServletRequest request, HttpServletResponse response) throws IOException {
-		//PdfReader reader = new PdfReader(file_src);
-		// pageNumber = 1
+	public boolean generatePdf(List<User> users, ServletContext context, HttpServletRequest request, HttpServletResponse response){
 
-		//Document document = new  Document(PageSize.A4, 15 , 15 , 45 , 30 );
-		//String file_src = "./src/main/resources/tmp/pdf/";
+		Document document = new  Document(PageSize.A4, 15 , 15 , 45 , 30 );
 
-
-		//Document document = new Document(reader);
 		try {
-		/*	String filePath  = context.getRealPath("./src/main/resources/tmp/pdf");
-			File file = new File(filePath);
-			boolean exists = new File(filePath).exists();
+			String filePath  = context.getRealPath("/resources/tmp");
+			String fileSrc  = context.getRealPath("/resources/tmp");
+			PdfReader pdfReader = new PdfReader("/resources/tmp/test.pdf");
+
+			//Modify file using PdfReader
+			PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileOutputStream("HelloWorld-modified.pdf"));
+
+			File file = new File(fileSrc);
+			boolean exists = new File(fileSrc).exists();
 		    if(!exists) {
 		    	new File(filePath).mkdirs();
-			}*/
-			//new File(file_src).mkdirs();
-			String file_src  = context.getRealPath("./src/main/resources/tmp/pdf");
-			String filePath  = context.getRealPath("./src/main/resources/tmp/pdf");
-			//PdfReader reader = new PdfReader(file_src+"/user.pdf");
-			PdfReader reader = new PdfReader(file_src+"/user.pdf");
-			//PdfWriter writer = new PdfWriter(filePath, new FileOutputStream(file_src+"/"+"users"+".pdf"));
-			PdfWriter writer = PdfWriter.getInstance(new Document(), new FileOutputStream(filePath+"/"+"users"+".pdf"));
-			//PdfDocument pdfDocument = new PdfDocument(reader, writer);
-			//Document document = new Document(pdfDocument);
-			//PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file_src+"/"+"users"+".pdf"));
-				//PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file_src));
-
+			}
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath+"/"+"users"+".pdf"));
 			document.open() ;
 				
 				Font mainFont  = FontFactory.getFont("Arial",10, BaseColor.BLACK);
-				
-				/*Paragraph paragraph  = new Paragraph("All users",mainFont);
+				Paragraph paragraph  = new Paragraph("All users",mainFont);
 				paragraph.setAlignment(Element.ALIGN_CENTER);
 				paragraph.setIndentationLeft(50);
 				paragraph.setIndentationRight(50);
 				paragraph.setSpacingAfter(10);
 			
 				
-				document.add(paragraph);*/
+				document.add(paragraph);
 				User utilisateur = new User();
 				for(User user : users ) {
 					utilisateur = user;
@@ -139,13 +164,13 @@ public class UserMetierImpl implements IUserMetier {
 				test.setSpacingAfter(500);
 				document.add(test);
 
-			/*Paragraph taxe  = new Paragraph(utilisateur.getRole(),mainFont);
+			Paragraph taxe  = new Paragraph(utilisateur.getRole(),mainFont);
 			test.setAlignment(Element.ALIGN_CENTER);
 			test.setIndentationLeft(30);
 			test.setIndentationRight(150);
 			test.setSpacingAfter(300);
-			document.add(taxe);*/
-				/*
+			document.add(taxe);
+
 				PdfPTable table = new PdfPTable(4);
 				table.setWidthPercentage(100);
 				table.setSpacingBefore(10f);
@@ -231,8 +256,10 @@ public class UserMetierImpl implements IUserMetier {
 					table.addCell(RoleValue);
 				}
 				
-				document.add(table);*/
+				document.add(table);
 				document.close();
+				pdfStamper.close();
+
 				writer.close();
 				return true ;
 		}catch(Exception e ) {
