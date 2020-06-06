@@ -83,6 +83,7 @@ public class UserMetierImpl implements IUserMetier {
 				ITextRenderer renderer = new ITextRenderer();
 				renderer.setDocumentFromString (processHtml);
 				renderer.layout();
+		        //Image image = Image.getInstance ("img/logo_empty.png"); 
 				renderer.createPDF(outputStream,false);
 				renderer.finishPDF();
 				outputStream.close();
