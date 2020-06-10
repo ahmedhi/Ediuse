@@ -55,11 +55,13 @@ public class AdminController {
     }
 
     @RequestMapping(value="generateModeleT1", produces="application/pdf")
-    public ResponseEntity createT1(){
+      public ResponseEntity createT1(Model model){
     	//Map<String,Object> data = null ;
         List<User> users = userMetier.getAllUsers() ;
-    	 //Map<String , Object> data;
-    	InputStreamResource ressource = userMetier.generateT1();
+        model.addAttribute("users", userMetier.getAllUsers() );
+        //return "modeleT1";
+        //Map<String , Object> data;
+    	InputStreamResource ressource = userMetier.generateT1(users);
     	if(ressource != null ) {
     		return  ResponseEntity.ok().body(ressource);
     	}
@@ -67,47 +69,6 @@ public class AdminController {
     		return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
     	}
     }
-    @RequestMapping(value="createPdf", produces="application/pdf")
-    public void createPdf() {
-       userMetier.createpdf();      
-       System.out.println("creation avec succes");
-    }
-
-    @RequestMapping("generatePdf")
-    public void generatePdf(HttpServletRequest request , HttpServletResponse response) {
-        List<User> users = userMetier.getAllUsers() ;
-
-        boolean isFlag = userMetier.generatePdf(users , context , request , response);
-        if(isFlag) {
-    		String fullPath = request.getServletContext().getRealPath("/resources/tmp/"+"users"+".pdf");
-    		filedownload(fullPath,response , "users.pdf");
-    	}     
-    }
-
-    private void filedownload(String fullPath, HttpServletResponse response, String fileName) {
-    	File file = new File(fullPath);
-    	final int BUFFER_SIZE = 4096 ;
-    	if(file.exists()) {
-    		try{
-    			FileInputStream inputStream = new FileInputStream (file);
-    			String mimeType = context.getMimeType(fullPath);
-    			response.setContentType(mimeType);
-    			response.setHeader("content-disposition","attachement;filename="+fileName);
-    			OutputStream outputStream  = response.getOutputStream();
-    			byte[] buffer = new byte[BUFFER_SIZE] ;
-    			int byteRead = -1 ;
-    			while((byteRead = inputStream.read(buffer)) != -1 ){
-    				outputStream.write(buffer, 0 , byteRead);
-    			}
-    			inputStream.close() ;
-    			outputStream.close();
-    			file.delete() ;
-    		}catch(Exception e ) {
-    			e.printStackTrace()	;
-    		}
-    	}
-    	
-	}
 
 	@RequestMapping("docs")
     public String docs( Model model) {

@@ -20,10 +20,9 @@ public interface IUserMetier {
 	User getUserById(long id);
 	void deleteUser(User user);
 	//InputStreamResource generateT1( Map<String , Object> data );
-	InputStreamResource generateT1();
+	InputStreamResource generateT1(List<User> users);
 	public boolean saveDataFromUpload(MultipartFile file);
-    boolean generatePdf(List<User> users, ServletContext context, HttpServletRequest request, HttpServletResponse response) ;
-    public void createpdf();
+ 
     
     
 }
