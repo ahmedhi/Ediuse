@@ -16,8 +16,6 @@ public class DocCompany implements Serializable{
 	@Id @GeneratedValue
 	private Long idDoc ;
 
-	private String nameFile ;
-
 	@ManyToOne
 	@JoinColumn(name="company")
 	private Company company ;
@@ -38,9 +36,8 @@ public class DocCompany implements Serializable{
 	public DocCompany() {
 	}
 
-	public DocCompany(Long idDoc, String nameFile, Company company, User user, DocType docType, Date dateUpload) {
+	public DocCompany(Long idDoc, Company company, User user, DocType docType, Date dateUpload) {
 		this.idDoc = idDoc;
-		this.nameFile = nameFile;
 		this.company = company;
 		this.user = user;
 		this.docType = docType;
@@ -53,14 +50,6 @@ public class DocCompany implements Serializable{
 
 	public void setIdDoc(Long idDoc) {
 		this.idDoc = idDoc;
-	}
-
-	public String getNameFile() {
-		return nameFile;
-	}
-
-	public void setNameFile(String nameFile) {
-		this.nameFile = nameFile;
 	}
 
 	public Company getCompany() {

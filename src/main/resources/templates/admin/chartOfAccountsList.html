@@ -7,7 +7,7 @@
 <div layout:fragment="primaryContent_Header">
 
     <div>
-        <h6 class="card-title"><i class="fa-icone fas fa-badge-percent"></i> Tax return management</h6>
+        <h6 class="card-title"><i class="fa-icone fas fa-badge-percent"></i> Chart of accounts</h6>
     </div>
     <div class="btn-group">
         <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>
@@ -17,57 +17,22 @@
 
 <div layout:fragment="secondaryContent_Header">
     <div>
-        <h6 class="card-title"><i class="fa-icone fas fa-layer-plus"></i> Tax setting</h6>
+        <h6 class="card-title"><i class="fa-icone fas fa-file-invoice-dollar"></i> Chart of accounts</h6>
     </div>
 </div>
 
 <div layout:fragment="secondaryContent_Body">
-    <form method="post" th:action="@{/admin/update}" th:object="${Utilisateur}" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" th:action="@{admin/chartOfAccounts/add}" >
         <div class="form-group">
-            <label>File name</label>
-            <input type="text" class="form-control"  placeholder="Name of file" name="nameFile" id="idDoc">
-        </div>
-        <div class="form-group">
-            <label>Upload file (EXCEL or JSON  or CSV)</label>
+            <label>Upload file Excel</label>
             <input type="file" class="form-control"  placeholder="Upload file" name="file	">
         </div>
-        <button class="btn btn-az-primary btn-block" type="submit">Create tax return</button>
+        <button class="btn btn-az-primary btn-block" type="submit">Create new accounts</button>
     </form>
 
 </div>
 
 <div layout:fragment="primaryContent_Body">
-
-    <table class="table" style="width:100% ; text-align:center">
-        <thead>
-        <tr>
-            <th>Ref</th>
-            <th>Company Name</th>
-            <th>Upload date</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:each="tax : ${taxes}">
-                <td th:text="${ tax.getIdDoc() + 1323 }"></td>
-                <td th:text="${ tax.getCompany().getNameCompany() }"></td>
-                <td>
-                    <a th:href="'#taxEdit_' + ${ tax.getIdDoc() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
-                        <i class="fal fa-info"></i>
-                    </a>
-                    <a th:href="'#taxDelete_' + ${ tax.getIdDoc() }" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <hr>
-
-    <div>
-        <h6 class="card-title"><i class="fa-icone fas fa-file-invoice-dollar"></i> Chart of accounts</h6>
-    </div>
 
     <table class="table not-sort-3" style="width:100% ; text-align:center">
         <thead>
@@ -84,10 +49,10 @@
             <td th:text="${ account.getRefAccount() }"></td>
             <td class="tx-left" th:text="${ account.getWording() }"></td>
             <td>
-                <a th:href="'#taxEdit_' + ${ account.getIdChartOfAccounts() }" class="modal-effect btn btn-info btn-rounded btn-light-table" data-toggle="modal" data-effect="effect-fall">
+                <a th:href="'#accountEdit_' + ${ account.getIdChartOfAccounts() }" class="modal-effect btn btn-info btn-rounded btn-light-table" data-toggle="modal" data-effect="effect-fall">
                     <i class="fal fa-info"></i>
                 </a>
-                <a th:href="'#taxDelete_' + ${ account.getIdChartOfAccounts() }" class="modal-effect btn btn-danger btn-rounded btn-light-table" data-toggle="modal" data-effect="effect-fall">
+                <a th:href="'#accountDelete_' + ${ account.getIdChartOfAccounts() }" class="modal-effect btn btn-danger btn-rounded btn-light-table" data-toggle="modal" data-effect="effect-fall">
                     <i class="far fa-trash-alt"></i>
                 </a>
             </td>
@@ -95,19 +60,19 @@
         </tbody>
     </table>
  	
-    <div th:each="tax :  ${taxes}">
+    <div th:each="account :  ${chartOfAccounts}">
 	     <!--Model delete Type document -->
-	     <div th:id="'taxDelete_' + ${ tax.getIdDoc() }" class="modal" style="display: none;" aria-hidden="true">
+	     <div th:id="'accountDelete_' + ${ account.getIdChartOfAccounts() }" class="modal" style="display: none;" aria-hidden="true">
 	            <div class="modal-dialog modal-dialog-centered" role="document" >
 	                <div class="modal-content modal-content-demo">
-	                  <form method="post" th:action="@{/admin/tax/delete}" th:object="${Tax}">
+	                  <form method="post" >
 	                           <div class="modal-body">
 	                      		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		                                <span aria-hidden="true">×</span> </button>
-	                            	<input type="text" style="display: none" class="form-control" th:value="${ tax.getIdDoc() }" name="idDoc">
+	                            	<input type="text" style="display: none" class="form-control" th:value="${ account.getIdChartOfAccounts() }" name="idChartOfAccounts">
 									<img class="imglogin flex-content " src="/img/alerte.png"><br>
-		                        	<h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected tax return :   </h5>
-		                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ tax.getIdDoc() + 1323 }"></h5><br>
+		                        	<h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected account :   </h5>
+		                            <h5 style="color: #dc3545 ; text-align:center" th:text="${ account.getRefAccount() }"></h5><br>
 		                            <div class="flex-content">
 	                            		<button type="submit" class="btn btn-danger btn-rounded">Delete</button>
 	                            	</div>
@@ -117,61 +82,50 @@
 	            </div><!-- modal-dialog -->
 	        </div>
 	     <!--Model update type document -->   
-	     <div th:id="'taxEdit_' + ${ tax.getIdDoc() }" class="modal" style="display: none;" aria-hidden="true">
+	     <div th:id="'accountEdit_' + ${ account.getIdChartOfAccounts() }" class="modal" style="display: none;" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content modal-content-demo">
 
-                    <form method="post" th:action="@{/admin/tax/update}" th:object="${Tax}">
+                    <form method="post" >
                         <div class="modal-header">
-                            <h6 class="modal-title">Tax return preview</h6>
+                            <h6 class="modal-title">Chart of account preview</h6>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" style="display: none" class="form-control" th:value="${ tax.getIdDoc() }" name="idDoc">
+                            <input type="text" style="display: none" class="form-control" th:value="${ account.getIdChartOfAccounts() }" name="idChartOfAccounts">
 
                             <div class="flex-content ">
                                 <div class="flex-content">
                                     <div class="medium-content">
-                                        <label class="form-label mg-b-0">Reference</label>
+                                        <label class="form-label mg-b-0">Class</label>
                                     </div><!-- col -->
                                     <div class="medium-content">
-                                        <input type="text" class="form-control" placeholder="Name Type Doc"  th:value="${ tax.getIdDoc() + 1323}" readonly>
-                                    </div><!-- col -->
-                                </div><!-- row -->
-
-                                <div class="flex-content">
-                                    <div class="medium-content">
-                                        <label class="form-label mg-b-0">Company name</label>
-                                    </div><!-- col -->
-                                    <div class="medium-content">
-                                        <input type="text" class="form-control" placeholder="Company name" th:value="${ tax.getCompany().getNameCompany() }" readonly>
+                                        <input type="text" class="form-control" placeholder="Ref account"  th:value="${ account.getRefClass() }" name="refClass">
                                     </div><!-- col -->
                                 </div><!-- row -->
-
                                 <div class="flex-content">
                                     <div class="medium-content">
-                                        <label class="form-label mg-b-0">Company ICE</label>
+                                        <label class="form-label mg-b-0">Account</label>
                                     </div><!-- col -->
                                     <div class="medium-content">
-                                        <input type="text" class="form-control" placeholder="Company ICE" th:value="${ tax.getCompany().getIceCompany() }" readonly>
+                                        <input type="text" class="form-control" placeholder="Ref account"  th:value="${ account.getRefAccount() }" name="refAccount">
                                     </div><!-- col -->
                                 </div><!-- row -->
-
                                 <div class="flex-content">
                                     <div class="medium-content">
-                                        <label class="form-label mg-b-0">Upload date</label>
+                                        <label class="form-label mg-b-0">Wording</label>
                                     </div><!-- col -->
                                     <div class="medium-content">
-                                        <input type="text" class="form-control" placeholder="Upload date" th:value="${ tax.getDateUpload() }" readonly>
+                                        <input type="text" class="form-control" placeholder="Ref account"  th:value="${ account.getWording() }" name="wording">
                                     </div><!-- col -->
                                 </div><!-- row -->
                             </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
-                                <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
+                            <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
                         </div>
                     </form>
 

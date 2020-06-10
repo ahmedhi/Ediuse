@@ -121,7 +121,18 @@ $(function(){
   /* DataTable Configuration */
   $('table.table').DataTable();
 
+  $('table.table.not-sort-3').DataTable({
+    destroy: true,
+    columnDefs: [ {
+      "targets": 3,
+      "orderable": false
+    } ]
+  });
 
-
+  /* Year picker */
+  $('.yearselect').yearselect({
+    start: 2000,
+    end: 2020,
+  });
 
 });

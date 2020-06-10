@@ -16,9 +16,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private DataSource dataSource ;
+
 	@Override
 	protected void configure (AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("admin").password("{noop}password").roles("USER","ADMIN");
+		auth.inMemoryAuthentication().withUser("admin").password("{noop}password").roles("ADMIN");
 		auth.inMemoryAuthentication().withUser("user").password("{noop}password").roles("USER");
 		auth.jdbcAuthentication().dataSource(dataSource)
 		.usersByUsernameQuery("select login_user as principal ,pwd_user as credentials, type_user as role from Utilisateur where login_user=?")

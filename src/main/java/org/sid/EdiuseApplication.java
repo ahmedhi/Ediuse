@@ -13,7 +13,6 @@ import org.springframework.context.ApplicationContext;
 public class EdiuseApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
-
 		ApplicationContext ctx = SpringApplication.run(EdiuseApplication.class, args);
 	}
 	

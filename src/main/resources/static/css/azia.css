@@ -43676,3 +43676,16 @@ body {
     width: 10rem;
     margin: 0.3rem;
 }
+
+.flex-spaceBetween{
+    justify-content: space-between;
+}
+
+.w-5rem{
+    width: 5rem;
+}
+
+.btn-light-table{
+    padding: 0.5rem 0.3rem;
+    min-height: initial;
+}

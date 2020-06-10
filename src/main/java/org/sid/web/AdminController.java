@@ -1,9 +1,6 @@
 package org.sid.web;
 
-import org.sid.entities.Company;
-import org.sid.entities.DocCompany;
-import org.sid.entities.DocType;
-import org.sid.entities.User;
+import org.sid.entities.*;
 import org.sid.metier.CompanyMetierImpl;
 import org.sid.metier.TaxMetierImpl;
 import org.sid.metier.DocTypeMetierImpl;
@@ -51,7 +48,7 @@ public class AdminController {
     }
     @PostMapping("/upload")
     public String upload(@ModelAttribute User user , RedirectAttributes redirectAttributes ) {
-    	boolean isFlag = userMetier.saveDataFromUpload(user.getFile());
+    	boolean isFlag = taxMetier.addChartOfAccounts(user.getFile());
     	if(isFlag) {
     		redirectAttributes.addAttribute("succesmessage","File upload Successfully");
     	}else {
@@ -147,6 +144,35 @@ public class AdminController {
     @PostMapping("/tax/delete")
     public String deleteTax(@ModelAttribute("Tax") DocCompany tax){
         this.taxMetier.deleteTax( tax );
+        return "redirect:/admin/tax";
+    }
+
+    @RequestMapping("/chartOfAccounts")
+    public String chartOfAccounts( Model model ) {
+        model.addAttribute("chartOfAccounts", taxMetier.getAllChartOfAccounts() );
+        return "/admin/chartOfAccountsList";
+    }
+
+    @PostMapping("/chartOfAccounts/add")
+    public String addchartOfAccounts(@ModelAttribute("Tax") ChartOfAccounts chartOfAccounts , RedirectAttributes redirectAttributes ) {
+        boolean isFlag = taxMetier.addChartOfAccounts(chartOfAccounts.getFile());
+        if(isFlag) {
+            redirectAttributes.addAttribute("succesmessage","File upload Successfully");
+        }else {
+            redirectAttributes.addAttribute("errormessage","File upload not done,  Please try again again !");
+        }
+        return "redirect:/admin/tax";
+    }
+
+    @PostMapping("/chartOfAccounts/update")
+    public String updatechartOfAccounts(@ModelAttribute("Tax") ChartOfAccounts tax){
+        //this.taxMetier.updateTax( tax );
+        return "redirect:/admin/tax";
+    }
+
+    @PostMapping("/chartOfAccounts/delete")
+    public String deletechartOfAccounts(@ModelAttribute("Tax") ChartOfAccounts tax){
+        //this.taxMetier.deleteTax( tax );
         return "redirect:/admin/tax";
     }
    

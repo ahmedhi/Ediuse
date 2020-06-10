@@ -15,6 +15,27 @@
 
 </div>
 
+<div layout:fragment="secondaryContent_Header">
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-layer-plus"></i> Tax setting</h6>
+    </div>
+</div>
+
+<div layout:fragment="secondaryContent_Body">
+    <form method="post" th:action="@{/admin/update}" th:object="${Utilisateur}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>File name</label>
+            <input type="text" class="form-control"  placeholder="Name of file" name="nameFile" id="idDoc">
+        </div>
+        <div class="form-group">
+            <label>Upload file (EXCEL or JSON  or CSV)</label>
+            <input type="file" class="form-control"  placeholder="Upload file" name="file	">
+        </div>
+        <button class="btn btn-az-primary btn-block" type="submit">Create tax return</button>
+    </form>
+
+</div>
+
 <div layout:fragment="primaryContent_Body">
 
     <table class="table" style="width:100% ; text-align:center">
@@ -22,17 +43,14 @@
         <tr>
             <th>Ref</th>
             <th>Company Name</th>
-            <th>File name</th>
-            <th>Doc type</th>
             <th>Upload date</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
             <tr th:each="tax : ${taxes}">
                 <td th:text="${ tax.getIdDoc() + 1323 }"></td>
                 <td th:text="${ tax.getCompany().getNameCompany() }"></td>
-                <td th:text="${ tax.getNameFile() }"></td>
-                <td th:text="${ tax.getDocType().getNameTypeDoc() }"></td>
                 <td>
                     <a th:href="'#taxEdit_' + ${ tax.getIdDoc() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
                         <i class="fal fa-info"></i>
@@ -44,8 +62,38 @@
             </tr>
         </tbody>
     </table>
-    
-     
+
+    <hr>
+
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-file-invoice-dollar"></i> Chart of accounts</h6>
+    </div>
+
+    <table class="table not-sort-3" style="width:100% ; text-align:center">
+        <thead>
+        <tr>
+            <th>Class</th>
+            <th>Account</th>
+            <th>Wording</th>
+            <th class="wd-10p">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${chartOfAccounts}">
+            <td th:text="${ account.getRefClass() }"></td>
+            <td th:text="${ account.getRefAccount() }"></td>
+            <td class="tx-left" th:text="${ account.getWording() }"></td>
+            <td>
+                <a th:href="'#taxEdit_' + ${ account.getIdChartOfAccounts() }" class="modal-effect btn btn-info btn-rounded btn-light-table" data-toggle="modal" data-effect="effect-fall">
+                    <i class="fal fa-info"></i>
+                </a>
+                <a th:href="'#taxDelete_' + ${ account.getIdChartOfAccounts() }" class="modal-effect btn btn-danger btn-rounded btn-light-table" data-toggle="modal" data-effect="effect-fall">
+                    <i class="far fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
  	
     <div th:each="tax :  ${taxes}">
 	     <!--Model delete Type document -->
@@ -132,46 +180,6 @@
         </div>
     </div>
 
-</div>
-<div layout:fragment="secondaryContent_Header">
-    <div>
-        <h6 class="card-title"><i class="fa-icone fas fa-user-plus"></i> Add new types</h6>
-    </div>
-</div>
-
-<div layout:fragment="secondaryContent_Body">
-		<div class="alert alert-sucess alert-dismissible fade show" role="alert" th:if="${succesmessage}">
-  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-   			 <span aria-hidden="true">&times;</span>
-   			   <strong th:text="${succesmessage}"></strong> 
-  			</button>
-		</div>
-		<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${errormessage}">
-  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-   			 <span aria-hidden="true">&times;</span>
-  			</button>
-  			<strong th:text="${errormessage}"></strong> 
-  			
-		</div>
-  <form method="post" th:action="@{/admin/upload}" th:object="${Utilisateur}" enctype="multipart/form-data">
-        <div class="form-group">
-            <label>File name</label>
-            <input type="text" class="form-control"  placeholder="Name of file" name="nameFile" id="nameFile">
-        </div><!-- form-group -->
-        <div class="form-group">
-            <label>Company name</label>
-            <select class="form-control" name="role">
-                <div th:each="company : ${ companies }">
-                    <option th:name="idCompany" th:value="${company.getIdCompany()}" th:text="${company.getNameCompany()}">Administrator</option>
-                </div>
-            </select>
-        </div><!-- form-group -->
-        <div class="form-group">
-            <label>Upload file (EXCEL or JSON  or CSV)</label>
-            <input type="file" class="form-control"  placeholder="Upload file" name="file	">
-        </div><!-- form-group -->
-        <button class="btn btn-az-primary btn-block" type="submit">Create tax return</button>
-  </form>
 </div>
 
 </html>
