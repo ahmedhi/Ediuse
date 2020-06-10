@@ -10,7 +10,10 @@
         <h6 class="card-title"><i class="fa-icone fas fa-user-cog"></i> Users management</h6>
     </div>
     <div class="btn-group">
-        <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>
+       <!-- <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>-->
+        <a th:href="@{'/admin/generateModeleT1'}" class="modal-effect btn btn-warning btn-rounded" >
+            <i class="fal fa-file-pdf"></i> Generate Pdf
+        </a>
     </div>
 
 </div>
@@ -40,6 +43,7 @@
                      <a th:href="'#deleteUser_' + ${ user.getIdUser() }" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
                         <i class="far fa-trash-alt"></i>
                     </a>
+
                 </td>
             </tr>
         </tbody>

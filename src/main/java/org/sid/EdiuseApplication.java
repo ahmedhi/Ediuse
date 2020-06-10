@@ -15,8 +15,6 @@ public class EdiuseApplication implements CommandLineRunner{
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(EdiuseApplication.class, args);
 	}
-	
-
 	@Autowired
 	private UserRepository utilisateurRepository ;
 	@Autowired

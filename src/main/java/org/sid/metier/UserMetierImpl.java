@@ -1,13 +1,21 @@
 package org.sid.metier;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
+import java.io.*;
+import java.util.*;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
+
+import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
+import com.lowagie.text.DocumentException;
+
+import groovy.util.logging.Log;
+import lombok.RequiredArgsConstructor;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -16,22 +24,31 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.sid.dao.UserRepository;
-import org.sid.entities.DocCompany;
 import org.sid.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 
 @Service
 @Transactional
+@Log
+@RequiredArgsConstructor
 public class UserMetierImpl implements IUserMetier {
+
+	@Autowired
+	private TemplateEngine templateEngine ;
 	@Autowired
 	UserRepository userRepository;
-
+	
+	
 	@Override
 	public User createUser(User user) {
 		return userRepository.save( user );
@@ -56,7 +73,25 @@ public class UserMetierImpl implements IUserMetier {
 	public void deleteUser(User user) {
 		userRepository.delete(user);
 	}
+
 	
+	@Override
+	public InputStreamResource generateT1(List<User> users) {
+	    Context context = new Context();
+	    context.setVariable(null,users);
+		//context.setVariables((Map<String, Object>) users);
+		String html = templateEngine.process("modeleT1", context);
+		System.out.println(html);
+		try {
+			HtmlConverter.convertToPdf(html, new FileOutputStream("target/modeleT1.pdf"));
+			return new InputStreamResource( new FileInputStream("target/modeleT1.pdf"));
+		} catch (IOException e) {
+			//log.log(Level.SEVERE,e.getMessage(),e);
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	@Override
 	public boolean saveDataFromUpload(MultipartFile file) {
 		boolean isFlag = false ; 
@@ -70,7 +105,6 @@ public class UserMetierImpl implements IUserMetier {
 		}
 		return isFlag ;
 	}
-
 	private boolean readDataFromExcel(MultipartFile file) {
 		Workbook workbook = getWorkBook(file);
 		Sheet sheet =  workbook.getSheetAt(0);

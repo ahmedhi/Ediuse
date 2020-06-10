@@ -6,33 +6,68 @@ import org.sid.metier.TaxMetierImpl;
 import org.sid.metier.DocTypeMetierImpl;
 import org.sid.metier.UserMetierImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import lombok.RequiredArgsConstructor;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin/")
+@RequiredArgsConstructor
 public class AdminController {
 
     @Autowired private UserMetierImpl userMetier;
     @Autowired private CompanyMetierImpl companyMetier;
     @Autowired private DocTypeMetierImpl typeDocMetier;
     @Autowired private TaxMetierImpl taxMetier;
+    @Autowired private ServletContext context ;
 
-
+    
     @RequestMapping("users")
     public String users( Model model) {
        model.addAttribute("users", userMetier.getAllUsers() );
         return "/admin/usersList";
     }
 
-    @RequestMapping("docs")
+    @RequestMapping(value="generateModeleT1", produces="application/pdf")
+      public ResponseEntity createT1(Model model){
+    	//Map<String,Object> data = null ;
+        List<User> users = userMetier.getAllUsers() ;
+        model.addAttribute("users", userMetier.getAllUsers() );
+        //return "modeleT1";
+        //Map<String , Object> data;
+    	InputStreamResource ressource = userMetier.generateT1(users);
+    	if(ressource != null ) {
+    		return  ResponseEntity.ok().body(ressource);
+    	}
+    	else {
+    		return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+    	}
+    }
+
+	@RequestMapping("docs")
     public String docs( Model model) {
 		model.addAttribute("docs", typeDocMetier.getAllDocs() );
         return "/admin/docsList";
@@ -56,6 +91,7 @@ public class AdminController {
     	}
 		return "redirect:/admin/tax";	
     }
+    
     @PostMapping("/user/update")
     public String updateUser(@ModelAttribute("Utilisateur") User user){
         this.userMetier.updateUser( user);

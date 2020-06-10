@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml"
+       xmlns:layout="http://www.w3.org/1999/xhtml">
+
+<body>	
+      <h1 style="width:55rem;margin-left: -5rem;background-color: #11a1af;color:#fff;text-align:center;padding-top: 1rem;padding-bottom: 1rem;">Modele T1</h1>
+       <img src="img/logo_empty.png" style="width: 8rem; height: 8rem;">
+        <br>
+    <table style="width:100%;text-align: center ;  border: 1px ; ">
+        <thead>
+            <tr style="background-color: #11a1af;color: white;padding: 1rem">
+                <th >Firt Name</th>
+                <th>Last Name</th>
+                <th>Login</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody style="color:#658a7f;">
+            <tr th:each="user : ${users}" style="border: 1px ;">
+                <td th:text= "${ user.getFirstNameUser() }" > </td>
+                <td th:text= "${ user.getLastNameUser() }" >  </td>
+                <td th:text= "${ user.getLoginUser() }" >  </td>
+                <td th:text= "${ user.getRole() }" >  </td>
+            </tr>
+            <tr >
+                <td > ASKOUR </td>
+                <td >  Hamza</td>
+                <td > Askhamza </td>
+                <td > Admin </td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>
