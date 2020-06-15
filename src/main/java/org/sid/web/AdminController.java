@@ -163,7 +163,7 @@ public class AdminController {
         }
         long id = tax.getCompany().getIdCompany();
         Company tmpCompany = companyMetier.findCompanyById( id );
-        List<Balance> tmp = taxMetier.addBalance( tax.getFile() , tmpCompany);
+        List<Balance> tmp = taxMetier.addBalance( tax.getFile() , tmpCompany , tax.getYearDoc());
         //tax.setCompany( tmpCompany );
         //this.taxMetier.createTax( tax );
         return "redirect:/admin/tax";

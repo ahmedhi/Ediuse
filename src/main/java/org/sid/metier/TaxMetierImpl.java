@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.time.Year;
 import java.util.*;
 
 @Service
@@ -70,9 +71,9 @@ public class TaxMetierImpl implements ITaxMetier {
     }
 
     @Override
-    public List<Balance> addBalance(MultipartFile file , Company company) {
+    public List<Balance> addBalance(MultipartFile file , Company company , Year year) {
         //Create DocCompany
-        DocCompany tmp = docCompanyRepository.save( new DocCompany( company , null , new Date() ));
+        DocCompany tmp = docCompanyRepository.save( new DocCompany( company , null , new Date() , year));
         //Read data from excel file
         List<Balance> dataBalance = readBalanceFromExcel( file , tmp.getIdDoc() );
         dataBalance.forEach( this::addBalance );

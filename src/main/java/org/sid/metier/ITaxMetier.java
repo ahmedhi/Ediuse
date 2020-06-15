@@ -6,6 +6,7 @@ import org.sid.entities.Company;
 import org.sid.entities.DocCompany;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.Year;
 import java.util.List;
 
 public interface ITaxMetier {
@@ -21,7 +22,7 @@ public interface ITaxMetier {
     List<ChartOfAccounts> getAllChartOfAccounts();
 
     Balance addBalance(Balance balance );
-    List<Balance> addBalance(MultipartFile file , Company company);
+    List<Balance> addBalance(MultipartFile file , Company company , Year year);
 
     Balance updateBalance( Balance balance );
     List<Balance> updateBalance( MultipartFile file );

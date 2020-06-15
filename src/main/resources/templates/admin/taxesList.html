@@ -37,6 +37,11 @@
             <label>Upload file (EXCEL)</label>
             <input type="file" class="form-control"  placeholder="Upload file" name="file	">
         </div>
+        <div class="form-group">
+            <label>Année du bilan</label>
+            <select class="form-control yearselect" name="yearDoc"></select>
+
+        </div>
         <button class="btn btn-az-primary btn-block" type="submit">Create tax return</button>
     </form>
 
@@ -49,7 +54,7 @@
         <tr>
             <th>Ref</th>
             <th>Company Name</th>
-            <th>Upload date</th>
+            <th>Year</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -57,7 +62,7 @@
             <tr th:each="tax : ${taxes}">
                 <td th:text="${ tax.getIdDoc() + 1323 }"></td>
                 <td th:text="${ tax.getCompany().getNameCompany() }"></td>
-                <td th:text="${ tax.getDateUpload() }"></td>
+                <td th:text="${ tax.getYearDoc() }"></td>
                 <td>
                     <a th:href="'#taxEdit_' + ${ tax.getIdDoc() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
                         <i class="fal fa-info"></i>
@@ -131,6 +136,15 @@
                                     </div><!-- col -->
                                     <div class="medium-content">
                                         <input type="text" class="form-control" placeholder="Company ICE" th:value="${ tax.getCompany().getIceCompany() }" readonly>
+                                    </div><!-- col -->
+                                </div><!-- row -->
+
+                                <div class="flex-content">
+                                    <div class="medium-content">
+                                        <label class="form-label mg-b-0">Year</label>
+                                    </div><!-- col -->
+                                    <div class="medium-content">
+                                        <input type="text" class="form-control" placeholder="Year" th:value="${ tax.getYearDoc() }" readonly>
                                     </div><!-- col -->
                                 </div><!-- row -->
 

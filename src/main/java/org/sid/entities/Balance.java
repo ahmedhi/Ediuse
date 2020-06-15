@@ -14,7 +14,7 @@ public class Balance implements Serializable {
     private String libelleBalance;
     private double soldeBalance;
     private int typeBalance;
-        // typeBalance = 0 débit | 1 crédit
+        // typeBalance = 1 débit | 0 crédit
 
     public Balance() {
     }

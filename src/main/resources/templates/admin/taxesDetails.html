@@ -7,11 +7,37 @@
 <div layout:fragment="primaryContent_Header">
 
     <div>
-        <h6 class="card-title"><i class="fa-icone fas fa-badge-percent"></i> Balance</h6>
+        <h6 class="card-title"><i class="fa-icone fas fa-badge-percent"></i> Balance </h6>
     </div>
     <div class="btn-group">
-        <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>
+        <a href="" class="btn active btn-outline-info btn-rounded"><i class="fa-icone fas fa-badge-percent"></i> Generate Bilan</a>
+        <a href="" class="btn active btn-outline-warning btn-rounded"><i class="fa-icone fas fa-badge-percent"></i> Generate CPC</a>
+        <a href="" class="btn active btn-outline-success btn-rounded"><i class="fa-icone fas fa-badge-percent"></i> Generate EDI file</a>
     </div>
+
+</div>
+
+<div layout:fragment="primaryContent_Body">
+
+    <table class="table" style="width:100% ; text-align:center">
+        <thead>
+        <tr>
+            <th>Compte</th>
+            <th>Libellé</th>
+            <th>Solde</th>
+            <th>Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${balanceArray}">
+            <td th:text="${ row.getCompteBalance() }"></td>
+            <td th:text="${ row.getLibelleBalance() }"></td>
+            <td th:text="${ row.getSoldeBalance() }"></td>
+            <td th:if="${ row.getTypeBalance() == 0 }" >Crédit</td>
+            <td th:if="${ row.getTypeBalance() == 1 }" >Débit</td>
+        </tr>
+        </tbody>
+    </table>
 
 </div>
 
@@ -52,6 +78,15 @@
 
         <div class="flex-content">
             <div class="medium-content">
+                <label class="form-label mg-b-0">Year</label>
+            </div>
+            <div class="medium-content">
+                <input type="text" class="form-control" placeholder="Upload date" th:value="${ Tax.getYearDoc() }" readonly>
+            </div>
+        </div>
+
+        <div class="flex-content">
+            <div class="medium-content">
                 <label class="form-label mg-b-0">Upload date</label>
             </div>
             <div class="medium-content">
@@ -59,43 +94,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div layout:fragment="primaryContent_Body">
-
-    <table class="table" style="width:100% ; text-align:center">
-        <thead>
-        <tr>
-            <th>Compte</th>
-            <th>Libellé</th>
-            <th>Solde</th>
-            <th>Type</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:each="row : ${balanceArray}">
-                <td th:text="${ row.getCompteBalance() }"></td>
-                <td th:text="${ row.getLibelleBalance() }"></td>
-                <td th:text="${ row.getSoldeBalance() }"></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <hr>
-
-    <div class="flex-content">
-        <div>
-            <a href="" class="btn btn-outline-info btn-rounded">Generate Bilan</a>
-        </div>
-        <div>
-            <a href="" class="btn btn-outline-warning btn-rounded">Generate CPC</a>
-        </div>
-        <div>
-            <a href="" class="btn btn-outline-success btn-rounded">Generate EDI file</a>
-        </div>
-    </div>
-
 </div>
 
 </html>

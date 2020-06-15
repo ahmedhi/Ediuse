@@ -15233,7 +15233,8 @@ body {
   border-radius: 1rem;}
   .card-dashboard-one .card-header {
     padding: 20px;
-    background-color: transparent; }
+    background-color: transparent;
+    align-items: center !important;}
     @media (min-width: 576px) {
       .card-dashboard-one .card-header {
         display: flex;
