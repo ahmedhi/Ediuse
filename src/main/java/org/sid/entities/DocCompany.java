@@ -24,10 +24,6 @@ public class DocCompany implements Serializable{
 	@JoinColumn(name="user")
 	private User user ;
 
-	@ManyToOne
-	@JoinColumn(name="docType")
-	private DocType docType ;
-
 	private Date dateUpload ;
 	
 	@Transient
@@ -36,11 +32,16 @@ public class DocCompany implements Serializable{
 	public DocCompany() {
 	}
 
-	public DocCompany(Long idDoc, Company company, User user, DocType docType, Date dateUpload) {
+	public DocCompany(Company company, User user, Date dateUpload) {
+		this.company = company;
+		this.user = user;
+		this.dateUpload = dateUpload;
+	}
+
+	public DocCompany(Long idDoc, Company company, User user, Date dateUpload) {
 		this.idDoc = idDoc;
 		this.company = company;
 		this.user = user;
-		this.docType = docType;
 		this.dateUpload = dateUpload;
 	}
 
@@ -68,14 +69,6 @@ public class DocCompany implements Serializable{
 		this.user = user;
 	}
 
-	public DocType getDocType() {
-		return docType;
-	}
-
-	public void setDocType(DocType docType) {
-		this.docType = docType;
-	}
-
 	public Date getDateUpload() {
 		return dateUpload;
 	}
@@ -83,6 +76,7 @@ public class DocCompany implements Serializable{
 	public void setDateUpload(Date dateUpload) {
 		this.dateUpload = dateUpload;
 	}
+
 	public MultipartFile getFile() {
 		return file;
 	}

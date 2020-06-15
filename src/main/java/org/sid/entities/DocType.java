@@ -15,17 +15,14 @@ public class DocType implements Serializable  {
 	private Long idTypeDoc ; 
 	private String nameTypeDoc ; // Excel , txt ...
 	private String pathDoc;
-	@OneToMany(mappedBy="docType",fetch=FetchType.LAZY)
-	private Collection <DocCompany> docCompanies ;
 
 	public DocType() {
 	}
 
-	public DocType(Long idTypeDoc, String nameTypeDoc, String pathDoc, Collection<DocCompany> docCompanies) {
+	public DocType(Long idTypeDoc, String nameTypeDoc, String pathDoc) {
 		this.idTypeDoc = idTypeDoc;
 		this.nameTypeDoc = nameTypeDoc;
 		this.pathDoc = pathDoc;
-		this.docCompanies = docCompanies;
 	}
 
 	public Long getIdTypeDoc() {
@@ -50,13 +47,5 @@ public class DocType implements Serializable  {
 
 	public void setPathDoc(String pathDoc) {
 		this.pathDoc = pathDoc;
-	}
-
-	public Collection<DocCompany> getDocCompanies() {
-		return docCompanies;
-	}
-
-	public void setDocCompanies(Collection<DocCompany> docCompanies) {
-		this.docCompanies = docCompanies;
 	}
 }

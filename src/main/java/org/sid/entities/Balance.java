@@ -10,9 +10,6 @@ public class Balance implements Serializable {
     @GeneratedValue
     private Long idBalance;
     private Long refBalance;
-    @ManyToOne
-    @JoinColumn(name="company")
-    private Company companyBalance;
     private Long compteBalance;
     private String libelleBalance;
     private double soldeBalance;
@@ -22,9 +19,8 @@ public class Balance implements Serializable {
     public Balance() {
     }
 
-    public Balance( Long refBalance, Company companyBalance, Long compteBalance, String libelleBalance, double soldeBalance, int typeBalance) {
+    public Balance( Long refBalance, Long compteBalance, String libelleBalance, double soldeBalance, int typeBalance) {
         this.refBalance = refBalance;
-        this.companyBalance = companyBalance;
         this.compteBalance = compteBalance;
         this.libelleBalance = libelleBalance;
         this.soldeBalance = soldeBalance;
@@ -45,14 +41,6 @@ public class Balance implements Serializable {
 
     public void setRefBalance(Long refBalance) {
         this.refBalance = refBalance;
-    }
-
-    public Company getCompanyBalance() {
-        return companyBalance;
-    }
-
-    public void setCompanyBalance(Company companyBalance) {
-        this.companyBalance = companyBalance;
     }
 
     public Long getCompteBalance() {

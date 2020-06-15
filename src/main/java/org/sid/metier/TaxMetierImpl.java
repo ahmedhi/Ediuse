@@ -1,8 +1,5 @@
 package org.sid.metier;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
@@ -12,22 +9,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.sid.dao.BalanceRepository;
 import org.sid.dao.ChartOfAccountsRepository;
 import org.sid.dao.DocCompanyRepository;
-import org.sid.entities.Balance;
-import org.sid.entities.ChartOfAccounts;
-import org.sid.entities.DocCompany;
-import org.sid.entities.User;
+import org.sid.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
-import java.io.Console;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Transactional
@@ -57,6 +45,11 @@ public class TaxMetierImpl implements ITaxMetier {
     }
 
     @Override
+    public DocCompany getById( Long Id ){
+        return docCompanyRepository.findTopByIdDoc( Id );
+    }
+
+    @Override
     public boolean addChartOfAccounts(MultipartFile file) {
         boolean isFlag = false ;
         String extension = FilenameUtils.getExtension(file.getOriginalFilename());
@@ -73,13 +66,17 @@ public class TaxMetierImpl implements ITaxMetier {
 
     @Override
     public Balance addBalance(Balance balance) {
-        Balance tmp = balanceRepository.save( balance );
-        return null;
+        return balanceRepository.save( balance );
     }
 
     @Override
-    public List<Balance> addBalance(MultipartFile file) {
-        return readBalanceFromExcel( file );
+    public List<Balance> addBalance(MultipartFile file , Company company) {
+        //Create DocCompany
+        DocCompany tmp = docCompanyRepository.save( new DocCompany( company , null , new Date() ));
+        //Read data from excel file
+        List<Balance> dataBalance = readBalanceFromExcel( file , tmp.getIdDoc() );
+        dataBalance.forEach( this::addBalance );
+        return dataBalance;
     }
 
     @Override
@@ -97,7 +94,12 @@ public class TaxMetierImpl implements ITaxMetier {
         return null;
     }
 
-    private ArrayList<Balance> readBalanceFromExcel( MultipartFile file ){
+    @Override
+    public List<Balance> getBalance(Long ref) {
+        return balanceRepository.findByRefBalance( ref );
+    }
+
+    private ArrayList<Balance> readBalanceFromExcel( MultipartFile file , Long Ref){
         ArrayList<Balance> tmp = new ArrayList<Balance>();
         Workbook workbook = getWorkBook(file);
         Sheet sheet =  workbook.getSheetAt(0);
@@ -117,7 +119,7 @@ public class TaxMetierImpl implements ITaxMetier {
             }
             else type = 1;
 
-            tmp.add( new Balance( null , null , compte , libelle , solde , type ) );
+            tmp.add( new Balance( Ref , compte , libelle , solde , type ) );
         }
         return tmp;
     }

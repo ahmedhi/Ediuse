@@ -2,6 +2,7 @@ package org.sid.metier;
 
 import org.sid.entities.Balance;
 import org.sid.entities.ChartOfAccounts;
+import org.sid.entities.Company;
 import org.sid.entities.DocCompany;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,6 +13,7 @@ public interface ITaxMetier {
     DocCompany createTax(DocCompany docCompany);
     DocCompany updateTax(DocCompany docCompany);
     void deleteTax( DocCompany docCompany);
+    DocCompany getById( Long Id );
     List<DocCompany> getAllTaxes();
 
     boolean addChartOfAccounts(MultipartFile file);
@@ -19,11 +21,13 @@ public interface ITaxMetier {
     List<ChartOfAccounts> getAllChartOfAccounts();
 
     Balance addBalance(Balance balance );
-    List<Balance> addBalance( MultipartFile file );
+    List<Balance> addBalance(MultipartFile file , Company company);
 
     Balance updateBalance( Balance balance );
     List<Balance> updateBalance( MultipartFile file );
 
     Balance deleteBalance( Balance balance );
+
+    List<Balance> getBalance(Long ref );
 
 }

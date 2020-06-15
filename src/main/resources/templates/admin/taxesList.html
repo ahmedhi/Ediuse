@@ -29,7 +29,9 @@
         </div>
         <div class="form-group">
             <label>Company (beta)</label>
-            <input type="text" class="form-control"  placeholder="Name of file" >
+            <select class="form-control" name="company">
+                <option th:each="company : ${ companies }" th:value="${company.getIdCompany()}" th:text="${company.getNameCompany()}"></option>
+            </select>
         </div>
         <div class="form-group">
             <label>Upload file (EXCEL)</label>
@@ -55,6 +57,7 @@
             <tr th:each="tax : ${taxes}">
                 <td th:text="${ tax.getIdDoc() + 1323 }"></td>
                 <td th:text="${ tax.getCompany().getNameCompany() }"></td>
+                <td th:text="${ tax.getDateUpload() }"></td>
                 <td>
                     <a th:href="'#taxEdit_' + ${ tax.getIdDoc() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
                         <i class="fal fa-info"></i>
@@ -140,10 +143,12 @@
                                     </div><!-- col -->
                                 </div><!-- row -->
                             </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
-                                <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
-                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <a th:href="@{'/admin/tax/details/' + ${ tax.getIdDoc() } }" class="btn btn-info btn-rounded">Details</a>
+                            <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
+                            <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
                         </div>
                     </form>
 
