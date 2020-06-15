@@ -15,14 +15,14 @@ public class Balance implements Serializable {
     private Company companyBalance;
     private Long compteBalance;
     private String libelleBalance;
-    private Long soldeBalance;
+    private double soldeBalance;
     private int typeBalance;
         // typeBalance = 0 débit | 1 crédit
 
     public Balance() {
     }
 
-    public Balance( Long refBalance, Company companyBalance, Long compteBalance, String libelleBalance, Long soldeBalance, int typeBalance) {
+    public Balance( Long refBalance, Company companyBalance, Long compteBalance, String libelleBalance, double soldeBalance, int typeBalance) {
         this.refBalance = refBalance;
         this.companyBalance = companyBalance;
         this.compteBalance = compteBalance;
@@ -71,11 +71,11 @@ public class Balance implements Serializable {
         this.libelleBalance = libelleBalance;
     }
 
-    public Long getSoldeBalance() {
+    public double getSoldeBalance() {
         return soldeBalance;
     }
 
-    public void setSoldeBalance(Long soldeBalance) {
+    public void setSoldeBalance(double soldeBalance) {
         this.soldeBalance = soldeBalance;
     }
 

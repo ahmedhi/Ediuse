@@ -22,13 +22,17 @@
 </div>
 
 <div layout:fragment="secondaryContent_Body">
-    <form method="post" th:action="@{/admin/update}" th:object="${Utilisateur}" enctype="multipart/form-data">
+    <form method="post" th:action="@{/admin/tax/add}" th:object="${Tax}" enctype="multipart/form-data">
         <div class="form-group">
             <label>File name</label>
             <input type="text" class="form-control"  placeholder="Name of file" name="nameFile" id="idDoc">
         </div>
         <div class="form-group">
-            <label>Upload file (EXCEL or JSON  or CSV)</label>
+            <label>Company (beta)</label>
+            <input type="text" class="form-control"  placeholder="Name of file" >
+        </div>
+        <div class="form-group">
+            <label>Upload file (EXCEL)</label>
             <input type="file" class="form-control"  placeholder="Upload file" name="file	">
         </div>
         <button class="btn btn-az-primary btn-block" type="submit">Create tax return</button>

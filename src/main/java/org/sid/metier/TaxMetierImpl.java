@@ -107,12 +107,12 @@ public class TaxMetierImpl implements ITaxMetier {
             Row row = rows.next();
 
             //Read from file the Cel that we need
-            Long compte = (long) row.getCell( 0 ).getNumericCellValue();
+            Long compte = Long.parseLong( row.getCell( 0 ).getStringCellValue() );
             String libelle = row.getCell(1).getStringCellValue();
-            Long solde = (long) row.getCell(6).getNumericCellValue();
+            double solde = row.getCell(6).getNumericCellValue();
             int type;
-            if( solde == null ){
-                solde = (long) row.getCell(6).getNumericCellValue();
+            if( solde == 0 ){
+                solde = row.getCell(7).getNumericCellValue();
                 type = 0;
             }
             else type = 1;

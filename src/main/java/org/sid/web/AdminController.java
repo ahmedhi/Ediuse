@@ -164,9 +164,9 @@ public class AdminController {
         if( result.hasErrors() ){
             return "admin/usersList";
         }
-
-        Company tmpCompany = companyMetier.findCompanyById((Long) model.getAttribute( "idCompany" ));
-        tax.setCompany( tmpCompany );
+        List<Balance> tmp = taxMetier.addBalance( tax.getFile() );
+        //Company tmpCompany = companyMetier.findCompanyById((Long) model.getAttribute( "idCompany" ));
+        //tax.setCompany( tmpCompany );
         this.taxMetier.createTax( tax );
         return "redirect:/admin/docs";
     }
