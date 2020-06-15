@@ -62,38 +62,6 @@
             </tr>
         </tbody>
     </table>
-
-    <hr>
-
-    <div>
-        <h6 class="card-title"><i class="fa-icone fas fa-file-invoice-dollar"></i> Chart of accounts</h6>
-    </div>
-
-    <table class="table not-sort-3" style="width:100% ; text-align:center">
-        <thead>
-        <tr>
-            <th>Class</th>
-            <th>Account</th>
-            <th>Wording</th>
-            <th class="wd-10p">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="account : ${chartOfAccounts}">
-            <td th:text="${ account.getRefClass() }"></td>
-            <td th:text="${ account.getRefAccount() }"></td>
-            <td class="tx-left" th:text="${ account.getWording() }"></td>
-            <td>
-                <a th:href="'#taxEdit_' + ${ account.getIdChartOfAccounts() }" class="modal-effect btn btn-info btn-rounded btn-light-table" data-toggle="modal" data-effect="effect-fall">
-                    <i class="fal fa-info"></i>
-                </a>
-                <a th:href="'#taxDelete_' + ${ account.getIdChartOfAccounts() }" class="modal-effect btn btn-danger btn-rounded btn-light-table" data-toggle="modal" data-effect="effect-fall">
-                    <i class="far fa-trash-alt"></i>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
  	
     <div th:each="tax :  ${taxes}">
 	     <!--Model delete Type document -->

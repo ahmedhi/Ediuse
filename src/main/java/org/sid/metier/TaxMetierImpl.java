@@ -9,8 +9,10 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.sid.dao.BalanceRepository;
 import org.sid.dao.ChartOfAccountsRepository;
 import org.sid.dao.DocCompanyRepository;
+import org.sid.entities.Balance;
 import org.sid.entities.ChartOfAccounts;
 import org.sid.entities.DocCompany;
 import org.sid.entities.User;
@@ -22,6 +24,7 @@ import javax.transaction.Transactional;
 import java.io.Console;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -31,6 +34,7 @@ import java.util.List;
 public class TaxMetierImpl implements ITaxMetier {
     @Autowired private DocCompanyRepository docCompanyRepository;
     @Autowired private ChartOfAccountsRepository chartOfAccountsRepository;
+    @Autowired private BalanceRepository balanceRepository;
 
     @Override
     public DocCompany createTax(DocCompany docCompany) {
@@ -65,6 +69,57 @@ public class TaxMetierImpl implements ITaxMetier {
     @Override
     public List<ChartOfAccounts> getAllChartOfAccounts() {
         return chartOfAccountsRepository.findAll();
+    }
+
+    @Override
+    public Balance addBalance(Balance balance) {
+        Balance tmp = balanceRepository.save( balance );
+        return null;
+    }
+
+    @Override
+    public List<Balance> addBalance(MultipartFile file) {
+        return readBalanceFromExcel( file );
+    }
+
+    @Override
+    public Balance updateBalance(Balance balance) {
+        return null;
+    }
+
+    @Override
+    public List<Balance> updateBalance(MultipartFile file) {
+        return null;
+    }
+
+    @Override
+    public Balance deleteBalance(Balance balance) {
+        return null;
+    }
+
+    private ArrayList<Balance> readBalanceFromExcel( MultipartFile file ){
+        ArrayList<Balance> tmp = new ArrayList<Balance>();
+        Workbook workbook = getWorkBook(file);
+        Sheet sheet =  workbook.getSheetAt(0);
+        Iterator<Row> rows = sheet.iterator();
+        rows.next();
+        while(rows.hasNext()) {
+            Row row = rows.next();
+
+            //Read from file the Cel that we need
+            Long compte = (long) row.getCell( 0 ).getNumericCellValue();
+            String libelle = row.getCell(1).getStringCellValue();
+            Long solde = (long) row.getCell(6).getNumericCellValue();
+            int type;
+            if( solde == null ){
+                solde = (long) row.getCell(6).getNumericCellValue();
+                type = 0;
+            }
+            else type = 1;
+
+            tmp.add( new Balance( null , null , compte , libelle , solde , type ) );
+        }
+        return tmp;
     }
 
     private boolean readDataFromExcel(MultipartFile file) {
