@@ -1,12 +1,12 @@
 package org.sid.entities;
 
-public class bilan {
+public class Bilan {
 	private String libelle ;
 	private double brut ; 
 	private double amort ;
 	private double net ;
 	private  boolean type  ;
-	public bilan(String libelle, double brut, double amort, double net , boolean type) {
+	public Bilan(String libelle, double brut, double amort, double net , boolean type) {
 		super();
 		this.libelle = libelle;
 		this.brut = brut;
@@ -14,7 +14,13 @@ public class bilan {
 		this.net = net;
 		this.type = type ;
 	}
-	public bilan() {
+	public Bilan(String libelle, double solde, boolean type) {
+		super();
+		this.libelle = libelle;
+		this.brut = solde;
+		this.type = type ;
+	}
+	public Bilan() {
 		super();
 	}
 
