@@ -339,7 +339,7 @@ public class AdminController {
         		
         		if(val.charAt(0) == '5' &&  val.charAt(1) == '5' &&  val.charAt(2) == '2') {ICE += tmp.get(i).getSoldeBalance();}
         		if(val.charAt(0) == '5' &&  val.charAt(1) == '5' &&  val.charAt(2) == '3') {ICT += tmp.get(i).getSoldeBalance();}
-        		if(val.charAt(0) == '5' &&  val.charAt(1) == '1' &&  val.charAt(2) == '1') {IB += tmp.get(i).getSoldeBalance();}
+        		if(val.charAt(0) == '5' &&  val.charAt(1) == '1' &&  val.charAt(2) == '4') {IB += tmp.get(i).getSoldeBalance();}
 
 
         }
