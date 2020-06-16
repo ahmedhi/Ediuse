@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorate="~{layouts/layoutMaster}">
+
+<div layout:fragment="content">
+	
+		<table class="table-bordered mg-b-0" style="width: 100%;text-align:center">
+				  <thead>
+				    <tr>
+				      <th scope="col">Actif</th>
+				      <th scope="col">Brut</th>
+				      <th scope="col">Amortissement & provisions</th>
+				      <th scope="col">Net</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+					<tr th:each="item : ${bilan}">
+			          <td th:if="${item.getType() == true}" th:text="${ item.getLibelle()}" style="font-weight: bold;background-color: #cfdede;text-align:left"></td>
+			          <td th:if="${item.getType() == false}" th:text="${ item.getLibelle() }" style="text-align:left"></td>
+			          <td th:if="${item.getBrut() == 0 && item.getType() == true }" style="font-weight: bold;background-color: #cfdede;"> - </td> 
+			          <td th:if="${item.getBrut() == 0 && item.getType() == false }"> - </td>
+			          <td th:if="${item.getBrut() != 0 && item.getType() == true}" th:text="${ item.getBrut() }" style="font-weight: bold;background-color: #cfdede"></td>
+			          <td th:if="${item.getBrut() != 0 && item.getType() == false}" th:text="${ item.getBrut() }"></td>
+			          <td th:if="${item.getAmort() == 0 &&  item.getType() == true }" style="font-weight: bold;background-color: #cfdede;" >- </td>
+			          <td th:if="${item.getAmort() == 0 &&  item.getType() == false }">- </td>
+			          <td th:if="${item.getAmort() == -999}" style="background-color:#cfdede"></td>
+			          <td th:if="${item.getAmort() != 0 && item.getAmort() != -999 && item.getType() == true }" th:text="${item.getAmort()}" style="font-weight: bold;background-color: #cfdede;"></td>
+			          <td th:if="${item.getAmort() != 0 && item.getAmort() != -999 && item.getType() == false }" th:text="${item.getAmort()}"></td>
+			          <td th:if="${item.getNet() == 0 && item.getType() == true}" style="font-weight: bold;background-color: #cfdede;" > -  </td> 
+			          <td th:if="${item.getNet() == 0 && item.getType() == false}"> -  </td> 
+			          <td th:if="${item.getNet() != 0 &&  item.getType() == true }" th:text="${ item.getNet() }" style="font-weight: bold;background-color: #cfdede;"></td>
+			          <td th:if="${item.getNet() != 0 &&  item.getType() == false }" th:text="${ item.getNet() }"></td> 
+			        </tr>
+				  </tbody>
+		</table>
+ 
+</div>
+
+
+</html>
