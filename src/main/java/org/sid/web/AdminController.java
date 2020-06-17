@@ -168,8 +168,16 @@ public class AdminController {
         }
         List<Balance> tmp = taxMetier.addBalance( tax.getFile() );
        
-        Company tmpCompany = companyMetier.findCompanyById((Long) model.getAttribute( "idCompany" ));
-        tax.setCompany( tmpCompany );
+        /*Company tmpCompany = companyMetier.findCompanyById((Long) model.getAttribute( "idCompany" ));
+        tax.setCompany( tmpCompany );*/
+        List<Bilan> bilanActif = taxMetier.generateBilanActif(tmp);
+        List<Bilan> bilanPassif = taxMetier.generateBilanActif(tmp);
+        //List<Bilan> cpc = taxMetier.generateBilanActif(tmp);
+
+        model.addAttribute("bilanActif", bilanActif );
+        model.addAttribute("bilanPassif", bilanPassif );
+        //model.addAttribute("cpc", cpc );
+        // return "/documents/cpc";
 
         return "/documents/bilan";
     }
