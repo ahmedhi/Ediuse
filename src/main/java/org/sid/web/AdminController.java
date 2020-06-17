@@ -174,8 +174,6 @@ public class AdminController {
         return "/documents/bilan";
     }
 
-
-    
     @PostMapping("/tax/update")
     public String updateTax(@ModelAttribute("Tax") DocCompany tax){
         this.taxMetier.updateTax( tax );
