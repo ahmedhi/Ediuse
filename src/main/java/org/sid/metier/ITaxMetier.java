@@ -1,6 +1,7 @@
 package org.sid.metier;
 
 import org.sid.entities.Balance;
+import org.sid.entities.Bilan;
 import org.sid.entities.ChartOfAccounts;
 import org.sid.entities.DocCompany;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,5 +26,10 @@ public interface ITaxMetier {
     List<Balance> updateBalance( MultipartFile file );
 
     Balance deleteBalance( Balance balance );
+    
+    List<Bilan> generateBilanActif(List<Balance> balance) ;
+    List<Bilan> generateBilanPassif(List<Balance> balance) ;
+    List<Bilan> generateCPC(List<Balance> balance) ;
+
 
 }
