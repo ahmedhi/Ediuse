@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorate="~{layouts/layoutDocs}">
+
+<div layout:fragment="primaryContent_Header">
+	<div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-cog"></i> CPC </h6>
+    </div>
+   
+    <div class="btn-group">
+       <!-- <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>-->
+        <a th:href="@{'/admin/generateModeleT1'}" class="modal-effect btn btn-warning btn-rounded active" >
+            <i class="fal fa-file-pdf"></i> Download CPC
+        </a>
+    </div>
+</div>
+	
+<div layout:fragment="primaryContent_Body">
+	
+		<table class="table-bordered mg-b-0" style="width: 100%;text-align:center">
+				  <thead style="color:#3cadad">
+				    <tr>
+				      <th scope="col">Nature</th>
+				      <th scope="col">Operations propres a l'exercice</th>
+				      <th scope="col">Operations concernant l'exercice precedent</th>
+				      <th scope="col">Totaux de l'exercice</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+					<tr th:each="item : ${cpc}">
+			          <td th:if="${item.getType() == true}" th:text="${ item.getLibelle()}" style="font-weight: bold;background-color: #cfdede;text-align:left"></td>
+			          <td th:if="${item.getType() == false}" th:text="${ item.getLibelle() }" style="text-align:left"></td>
+			          <td th:if="${item.getBrut() == 0 && item.getType() == true }" style="font-weight: bold;background-color: #cfdede;"> - </td> 
+			          <td th:if="${item.getBrut() == 0 && item.getType() == false }"> - </td>
+			          <td th:if="${item.getBrut() != 0 && item.getType() == true}" th:text="${ item.getBrut() }" style="font-weight: bold;background-color: #cfdede"></td>
+			          <td th:if="${item.getBrut() != 0 && item.getType() == false}" th:text="${ item.getBrut() }"></td>
+			          <td th:if="${item.getAmort() == 0 &&  item.getType() == true }" style="font-weight: bold;background-color: #cfdede;" >- </td>
+			          <td th:if="${item.getAmort() == 0 &&  item.getType() == false }">- </td>
+			          <td th:if="${item.getAmort() == -999}" style="background-color:#cfdede"></td>
+			          <td th:if="${item.getAmort() != 0 && item.getAmort() != -999 && item.getType() == true }" th:text="${item.getAmort()}" style="font-weight: bold;background-color: #cfdede;"></td>
+			          <td th:if="${item.getAmort() != 0 && item.getAmort() != -999 && item.getType() == false }" th:text="${item.getAmort()}"></td>
+			          <td th:if="${item.getNet() == 0 && item.getType() == true}" style="font-weight: bold;background-color: #cfdede;" > -  </td> 
+			          <td th:if="${item.getNet() == 0 && item.getType() == false}"> -  </td> 
+			          <td th:if="${item.getNet() != 0 &&  item.getType() == true }" th:text="${ item.getNet() }" style="font-weight: bold;background-color: #cfdede;"></td>
+			          <td th:if="${item.getNet() != 0 &&  item.getType() == false }" th:text="${ item.getNet() }"></td> 
+			        </tr>
+				  </tbody>
+		</table>
+ 
+</div>
+
+</html>

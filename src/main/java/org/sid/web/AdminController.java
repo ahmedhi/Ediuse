@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -151,21 +152,26 @@ public class AdminController {
 
     @RequestMapping("/tax")
     public String tax( Model model ) {
-        model.addAttribute("taxes", taxMetier.getAllTaxes() );
-        model.addAttribute("companies", companyMetier.getAllCompany() );
+       /* model.addAttribute("taxes", taxMetier.getAllTaxes() );
+        model.addAttribute("companies", companyMetier.getAllCompany() );*/
         return "/admin/taxesList";
     }
+    
 
     @PostMapping("/tax/add")
     public String addTax(@Valid DocCompany tax , BindingResult result , Model model ){
         if( result.hasErrors() ){
             return "admin/tax";
         }
+        List<Balance> tmp = taxMetier.addBalance( tax.getFile() );
         long id = tax.getCompany().getIdCompany();
         Company tmpCompany = companyMetier.findCompanyById( id );
         List<Balance> tmp = taxMetier.addBalance( tax.getFile() , tmpCompany , tax.getYearDoc());
-        //tax.setCompany( tmpCompany );
-        //this.taxMetier.createTax( tax );
+        List<Bilan> bilanActif = taxMetier.generateBilanActif(tmp);
+        List<Bilan> bilanPassif = taxMetier.generateBilanActif(tmp);
+        model.addAttribute("bilanActif", bilanActif );
+        model.addAttribute("bilanPassif", bilanPassif );
+        //From origin/Features/Task2 return "/documents/bilan";
         return "redirect:/admin/tax";
     }
 
