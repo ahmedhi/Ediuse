@@ -4,6 +4,7 @@ import org.sid.entities.*;
 import org.sid.metier.CompanyMetierImpl;
 import org.sid.metier.TaxMetierImpl;
 import org.sid.metier.DocTypeMetierImpl;
+import org.sid.metier.PartSocialMetierImpl;
 import org.sid.metier.UserMetierImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -43,8 +44,10 @@ public class AdminController {
     @Autowired private CompanyMetierImpl companyMetier;
     @Autowired private DocTypeMetierImpl typeDocMetier;
     @Autowired private TaxMetierImpl taxMetier;
+    @Autowired private PartSocialMetierImpl partMetier;
     @Autowired private ServletContext context ;
 
+    public double capital ;
     
     @RequestMapping("users")
     public String users( Model model) {
@@ -131,7 +134,62 @@ public class AdminController {
         model.addAttribute("companies", companyMetier.getAllCompany() );
         return "/admin/companiesList";
     }
+    @RequestMapping("partSocial")
+    public String partSocial( Model model ) {
+    	List<Double> total = new ArrayList() ;
+    	double lastEx = 0 , ExActuel = 0 , Souscrit = 0 , Appele = 0 , libere = 0 ;
+        List<PartSocial> parts = partMetier.getAllParts();
+        for(int i = 0 ; i < parts.size(); i++) {
+        	lastEx += parts.get(i).getExercicePrec();
+        	ExActuel += parts.get(i).getExerciceActuel();
+        	Souscrit += parts.get(i).getMontantCapitalSouscrit();
+        	Appele += parts.get(i).getMontantCapitalAppele();
+        	libere += parts.get(i).getMontantCapitalLibere();
+        }
+        total.add(lastEx );  total.add(ExActuel); total.add(Souscrit);
+        total.add(Appele);  total.add(libere); total.add(capital) ;
+        model.addAttribute("parts",parts );
+        model.addAttribute("total",total);
+        return "/documents/partSocial";
+    }
+   
+    @PostMapping("/partSocial/add")
+    public String addPart(@Valid PartSocial part , BindingResult result , Model model ){
+        if( result.hasErrors() ){
+            return "redirect:/admin/partSocial";
+        }
+        this.partMetier.addCapitalSocial(part);
+        return "redirect:/admin/partSocial"; 
+    }
+   /* @PostMapping("/partSocial/add")
+    public String addPart(@ModelAttribute("PartCapitalSocial") PartCapitalSocial part){
+        this.partMetier.addCapitalSocial(part);
+        return "redirect:/admin/partSocial";
+    }
+    */
+    @PostMapping("/partSocial/update")
+    public String updatePart(@ModelAttribute("PartCapitalSocial") PartSocial part ){
+        this.partMetier.updateCapitalSocial(part);
+        return "redirect:/admin/partSocial"; 
+    }
 
+
+    @PostMapping("/partSocial/addCapital")
+    public String addCapital(@Valid PartSocial part , BindingResult result , Model model ){
+        if( result.hasErrors() ){
+            return "/documents/partSocial";
+        }
+        capital = part.getPartSocial();
+        return "redirect:/admin/partSocial";
+    }
+    
+    @PostMapping("/partSocial/delete")
+    public String deletePart(@ModelAttribute("PartCapitalSocial") PartSocial part){
+        this.partMetier.deletePart(part);
+        return "redirect:/admin/partSocial";
+    }
+
+    
     @PostMapping("/company/add")
     public String addCompany(@Valid Company cmp , BindingResult result , Model model ){
         if( result.hasErrors() ){
