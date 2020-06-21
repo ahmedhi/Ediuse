@@ -22,7 +22,7 @@ public class Company implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="capitalSocial")
-	private PartCapitalSocial capitalSocial ;
+	private PartSocial capitalSocial ;
 	
 	public Company() {
 	}

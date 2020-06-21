@@ -138,7 +138,7 @@ public class AdminController {
     public String partSocial( Model model ) {
     	List<Double> total = new ArrayList() ;
     	double lastEx = 0 , ExActuel = 0 , Souscrit = 0 , Appele = 0 , libere = 0 ;
-        List<PartCapitalSocial> parts = partMetier.getAllParts();
+        List<PartSocial> parts = partMetier.getAllParts();
         for(int i = 0 ; i < parts.size(); i++) {
         	lastEx += parts.get(i).getExercicePrec();
         	ExActuel += parts.get(i).getExerciceActuel();
@@ -154,22 +154,44 @@ public class AdminController {
     }
    
     @PostMapping("/partSocial/add")
-    public String addPart(@Valid PartCapitalSocial part , BindingResult result , Model model ){
+    public String addPart(@Valid PartSocial part , BindingResult result , Model model ){
         if( result.hasErrors() ){
             return "redirect:/admin/partSocial";
         }
         this.partMetier.addCapitalSocial(part);
         return "redirect:/admin/partSocial"; 
     }
+   /* @PostMapping("/partSocial/add")
+    public String addPart(@ModelAttribute("PartCapitalSocial") PartCapitalSocial part){
+        this.partMetier.addCapitalSocial(part);
+        return "redirect:/admin/partSocial";
+    }
+    */
+    @PostMapping("/partSocial/update")
+    public String updatePart(@Valid PartSocial part , BindingResult result , Model model ){
+        if( result.hasErrors() ){
+            return "redirect:/admin/partSocial";
+        }
+        this.partMetier.updateCapitalSocial(part);
+        return "redirect:/admin/partSocial"; 
+    }
+
 
     @PostMapping("/partSocial/addCapital")
-    public String addCapital(@Valid PartCapitalSocial part , BindingResult result , Model model ){
+    public String addCapital(@Valid PartSocial part , BindingResult result , Model model ){
         if( result.hasErrors() ){
             return "/documents/partSocial";
         }
         capital = part.getPartSocial();
         return "redirect:/admin/partSocial";
     }
+    
+    @PostMapping("/partSocial/delete")
+    public String deletePart(@ModelAttribute("PartCapitalSocial") PartSocial part){
+        this.partMetier.deletePart(part);
+        return "redirect:/admin/partSocial";
+    }
+
     
     @PostMapping("/company/add")
     public String addCompany(@Valid Company cmp , BindingResult result , Model model ){

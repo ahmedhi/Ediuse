@@ -10,13 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class PartCapitalSocial  implements Serializable {
-
+public class PartSocial  implements Serializable  {
 	@Id  @GeneratedValue
 	private Long idPart ; 
-	private String firstNameAssocie ; 
-	private String lastNameAssocie ; 
-	private String identifiantFiscal ; 
+	private String fullName ;
+	private String idFiscale ; 
 	private String cin ;
 	private String adress  ; 
 	private Double exercicePrec ; 
@@ -29,16 +27,15 @@ public class PartCapitalSocial  implements Serializable {
 	private Collection<Company> company ;
 	
 	
-	public PartCapitalSocial() {
+	public PartSocial() {
 		super();
 	}
-	public PartCapitalSocial(String fistNameAssocie, String lastNameAssocie, String numIF, String cIN, String adress,
+	public PartSocial(String fullName , String idf, String cIN, String adress,
 			Double exercicePrec, Double exerciceActuel, double partSocial, double montantCapitalSouscrit,
 			double montantCapitalAppele, double montantCapitalLibere ) {
 		super();
-		this.firstNameAssocie = fistNameAssocie;
-		this.lastNameAssocie = lastNameAssocie;
-		this.identifiantFiscal = numIF;
+		this.fullName =  fullName ;
+		this.idFiscale = idf;
 		this.cin = cIN;
 		this.adress = adress;
 		this.exercicePrec = exercicePrec;
@@ -54,23 +51,19 @@ public class PartCapitalSocial  implements Serializable {
 	public void setIdPart(Long idCapital) {
 		this.idPart = idCapital;
 	}
-	public String getFirstNameAssocie() {
-		return firstNameAssocie;
+	
+	public String getFullName() {
+		return fullName;
 	}
-	public void setFisrNameAssocie(String fisrNameAssocie) {
-		this.firstNameAssocie = fisrNameAssocie;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
-	public String getLastNameAssocie() {
-		return lastNameAssocie;
+	
+	public String getIdFiscale() {
+		return idFiscale;
 	}
-	public void setLastNameAssocie(String lastNameAssocie) {
-		this.lastNameAssocie = lastNameAssocie;
-	}
-	public String getIf() {
-		return identifiantFiscal;
-	}
-	public void setIf(String numIF) {
-		this.identifiantFiscal = numIF;
+	public void setIdFiscale(String idf) {
+		this.idFiscale = idf;
 	}
 	public String getCin() {
 		return cin;
@@ -128,5 +121,5 @@ public class PartCapitalSocial  implements Serializable {
 		this.company = company;
 	}
 	
-	
+
 }

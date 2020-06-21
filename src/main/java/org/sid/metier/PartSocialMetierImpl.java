@@ -5,7 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.sid.dao.PartCapitalSocialRepository;
-import org.sid.entities.PartCapitalSocial;
+import org.sid.entities.PartSocial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,27 +17,27 @@ public class PartSocialMetierImpl implements IPartSocialMetier   {
 	private PartCapitalSocialRepository partRepository ;
 	
 	@Override
-	public PartCapitalSocial addCapitalSocial(PartCapitalSocial capital) {
+	public PartSocial addCapitalSocial(PartSocial capital) {
 		return partRepository.save( capital );
 	}
 
 	@Override
-	public PartCapitalSocial updateCapitalSocial(PartCapitalSocial capital) {
+	public PartSocial updateCapitalSocial(PartSocial capital) {
 		return this.partRepository.save(capital);
 	}
 
 	@Override
-	public List<PartCapitalSocial> getAllParts() {
+	public List<PartSocial> getAllParts() {
 		return partRepository.findAll() ;
 	}
 
 	@Override
-	public PartCapitalSocial getPartById(long id) {
+	public PartSocial getPartById(long id) {
 		return partRepository.findById(id);
 	}
 
 	@Override
-	public void deletePart(PartCapitalSocial capital) {
+	public void deletePart(PartSocial capital) {
 		partRepository.delete(capital);
 	}
 

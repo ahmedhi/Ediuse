@@ -38,8 +38,8 @@
         </thead>
         <tbody >
         	<tr th:each="part : ${parts}">
-        		 <td th:text="${ part.getFirstNameAssocie() +' ' + part.getLastNameAssocie() }"></td>
-                 <td th:text="${ part.getIf() }"></td>
+        		 <td th:text="${ part.getFullName() }"></td>
+                 <td th:text="${ part.getIdFiscale() }"></td>
                  <td th:text="${ part.getCin() }"></td>
                  <td th:text="${ part.getAdress() }"></td>
                  <td th:text="${ part.getExercicePrec() }"></td>
@@ -49,10 +49,10 @@
                  <td th:text="${ part.getMontantCapitalAppele() }"></td>
                  <td th:text="${ part.getMontantCapitalLibere() }"></td>
                  <td> 
-					<a th:href="''" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
+					<a th:href="'#update_'+${part.getIdPart()}" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
                         <i class="fal fa-info"></i>
                     </a>
-                     <a th:href="''" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                     <a th:href="'#delete_'+${part.getIdPart()}" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
                         <i class="far fa-trash-alt"></i>
                     </a>
 				 </td>
@@ -74,7 +74,131 @@
                  <td></td>
         </tfooter>
     </table>
+    
+<div th:each="part : ${parts}">
+	<!--Model delete part Social -->
+ 		<div th:id="'delete_' + ${part.getIdPart()}" class="modal" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document" >
+                        <div class="modal-content modal-content-demo">
+                          <form method="post" th:action="@{/admin/partSocial/delete}" th:object="${PartCapitalSocial}">
+                               <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span> </button>
+                					<input type="text" style="display: none" class="form-control" th:value="${part.getIdPart()}" name="idPart">
+                                    <img class="imglogin flex-content " src="/img/alerte.png"><br>
+                                    <h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected Part Social :   </h5>
+                                    <h5 style="color: #dc3545 ; text-align:center" th:text="${ part.getFullName() }"></h5><br>
+                                    <div class="flex-content">
+                                        <button type="submit" class="btn btn-danger btn-rounded">Delete</button>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- modal-dialog -->
+            </div>
+    
+	 <!--Model update part Social -->
+			<div th:id="'update_' + ${part.getIdPart()}" class="modal" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modal-content-demo">
+ 					 <div class="modal-header">
+                            <h6 class="modal-title">Part Social preview</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                      </div>
+                <form method="post" th:action="@{/admin/partSocial/update}" th:object="${PartCapitalSocial}" >
+                      
+                  <div class="modal-body">
+                 <input type="text" style="display: none" class="form-control" th:value="${part.getIdPart()}" name="idPart">
+                    
+				    <div class="row">
+				       <div class="col-6">
+					        <div class="form-group">
+					            <label>Full name</label>
+					            <input type="text" class="form-control"  th:value="${part.getFullName()}" placeholder=" Full Name " name="fullName" >
+					        </div>
+				        </div>
+				        <div class="col-6">
+					    	<div class="form-group">
+					            <label>Adress</label>
+					            <input type="text" class="form-control"  th:value="${part.getAdress()}"  placeholder=" Adress" name="adress">
+					        </div>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	
+				   	<div class="col-6">
+				    		<div class="form-group">
+					            <label>IF</label>
+					            <input type="text" class="form-control"  th:value="${part.getIdFiscale()}"  placeholder="IF" name="idFiscale">
+					        </div>
+				    	</div>
+				    	
+				    </div>
+				    <div class="row">
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>CIN</label>
+					            <input type="text" class="form-control"  th:value="${part.getCin()}" placeholder=" CIN" name="cin">
+					        </div>
+				    	</div>
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Part Social (DH)</label>getMontantCapitalLiber
+					            <input type="text" class="form-control"  th:value="${part.getPartSocial()}"  placeholder=" Part Social" name="partSocial">
+					        </div>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Montant du capital Souscrit (DH)</label>
+					            <input type="text" class="form-control" th:value="${part.getMontantCapitalSouscrit()}" placeholder=" Montant du capitale Souscrit" name="montantCapitalSouscrit">
+					        </div>
+				    	</div>
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Montant du capital Appele (DH)</label>
+					            <input type="text" class="form-control" th:value="${part.getMontantCapitalAppele()}" placeholder=" Montant du capitale Appele" name="montantCapitalAppele">
+					        </div>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="col-6">
+				    		<div class="form-group">
+					            <label>Montant du capital libere (DH)</label>
+					            <input type="text" class="form-control" th:value="${part.getMontantCapitalLibere()}"  placeholder=" Montant du capitale libere" name="montantCapitalLibere">
+					        </div>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Nombre de titre de l'exercice Precedent (DH)</label>
+					            <input type="text" class="form-control" th:value="${part.getExercicePrec()}"  placeholder="Nombre de titre de l'exercice Precedent" name="exercicePrec">
+					        </div>
+				    	</div>
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Nombre de titre de l'exercice Actuel (DH)</label>
+					            <input type="text" class="form-control"  th:value="${part.getExerciceActuel()}"  placeholder="Nombre de titre de l'exercice Actuel" name="exerciceActuel">
+					        </div>
+				    	</div>
+				    </div>
+				 </div>
+				    
+				    
+ 						<div class="modal-footer">
+                            <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
+                            <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
+                        </div>				
+                 </form>
 
+                </div>
+            </div><!-- modal-dialog -->
+        </div>
+    </div>
    
 
 </div>
@@ -90,19 +214,13 @@
 <div layout:fragment="primaryContent_Body">
     <form method="post" th:action="@{/admin/partSocial/add}" th:object="${PartCapitalSocial}" >
     <div class="row">
-       <div class="col-4">
+       <div class="col-6">
 	        <div class="form-group">
-	            <label>First name</label>
-	            <input type="text" class="form-control"  placeholder=" First name" name="firstNameAssocie" >
+	            <label>Full name</label>
+	            <input type="text" class="form-control"  placeholder=" Full name" name="fullName">
 	        </div>
         </div>
-        <div class="col-4">
-	        <div class="form-group">
-	            <label>Last name</label>
-	            <input type="text" class="form-control"  placeholder=" last name" name="lastNameAssocie" >
-	        </div>
-        </div>
-        <div class="col-4">
+        <div class="col-6">
 	    	<div class="form-group">
 	            <label>Adress</label>
 	            <input type="text" class="form-control"  placeholder=" Adress" name="adress">
@@ -113,7 +231,7 @@
     	<div class="col-4">
 	    	<div class="form-group">
 	            <label>IF</label>
-	            <input type="text" class="form-control"  placeholder="IF" name="identifiantFiscal">
+	            <input type="text" class="form-control"  placeholder="IF" name="idFiscale">
 	        </div>
     	</div>
     	<div class="col-4">
@@ -180,7 +298,5 @@
 			    </div>
 		    </div>
    		</form>
-   		
-</div>
-
+	</div>
 </html>
