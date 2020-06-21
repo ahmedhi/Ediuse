@@ -71,6 +71,7 @@ public class XMLMetierImpl implements IXMLMetier{
 
         //Groupe Valeurs Tableau
         Element grpValue = doc.createElement("groupeValeursTableau");
+            //BILAN ACTIF
             Element valuesTab = doc.createElement("ValeursTableau");
                 //tableau info
                 tmp = doc.createElement("tableau");
@@ -138,6 +139,121 @@ public class XMLMetierImpl implements IXMLMetier{
                         }
                     }
             valuesTab.appendChild( tmp );
+
+            /*----------------------------------------------------------------------------*/
+
+            //BILAN PASSIF
+            valuesTab = doc.createElement("ValeursTableau");
+                //tableau info
+                tmp = doc.createElement("tableau");
+                valueTab = doc.createElement("id");
+                valueTab.setTextContent("BILAN PASSIF");
+                tmp.appendChild( valueTab );
+            valuesTab.appendChild( tmp );
+                //groupeValeurs
+                tmp = doc.createElement("groupeValeurs");
+                //ValeurCellule
+                    for(Bilan balance : liasse.getBilanPassif()){
+                        // create a new valeurCellule component
+                            Element valeurCellule = doc.createElement("ValeurCellule");
+                                //create a new sub-component for cellule
+                                valueTab = doc.createElement("cellule");
+                                    /**
+                                     * Add EDI code
+                                     * Actuellement nous avons pas la table des codes EDI
+                                     * Nous avons décidé en tant qu'équipe dev AskBri
+                                     * d'insérer le libellé de la ligne et son type dans le code
+                                     */
+                                    //Add a sub-component of EdiCode
+                                    Element subElement = doc.createElement("codeEdi");
+                                    subElement.setTextContent(balance.getLibelle());
+                                // Add codeEdi to cellule
+                                valueTab.appendChild(subElement);
+                                //Add cellule to valeurCellule
+                            valeurCellule.appendChild(valueTab);
+
+                                //Add new sub-component for valeur
+                                valueTab = doc.createElement("valeur");
+                                valueTab.setTextContent(String.valueOf(balance.getBrut()));
+                            //Add Valeur to valeurCellule
+                            valeurCellule.appendChild(valueTab);
+
+                            //Add all component to groupeValeurs
+                            tmp.appendChild(valeurCellule);
+            }
+            valuesTab.appendChild( tmp );
+
+            /*---------------------------------------------------------*/
+
+            //BILAN ACTIF
+            valuesTab = doc.createElement("ValeursTableau");
+                //tableau info
+                tmp = doc.createElement("tableau");
+                valueTab = doc.createElement("id");
+                valueTab.setTextContent("BILAN ACTIF");
+                tmp.appendChild( valueTab );
+            valuesTab.appendChild( tmp );
+                //groupeValeurs
+                tmp = doc.createElement("groupeValeurs");
+                //ValeurCellule
+                for(Bilan balance : liasse.getCpc()){
+                // create a new valeurCellule component
+                for( int i = 0 ; i < 3 ; i++ ) {
+                    Element valeurCellule = doc.createElement("ValeurCellule");
+                    //create a new sub-component for cellule
+                    valueTab = doc.createElement("cellule");
+                    /**
+                     * Add EDI code
+                     * Actuellement nous avons pas la table des codes EDI
+                     * Nous avons décidé en tant qu'équipe dev AskBri
+                     * d'insérer le libellé de la ligne et son type dans le code
+                     */
+                    //Add a sub-component of EdiCode
+                    Element subElement = doc.createElement("codeEdi");
+                    switch ( i ){
+                        case 0: {
+                            subElement.setTextContent(balance.getLibelle() + " Propre à l'exercice");
+                            break;
+                        }
+                        case 1: {
+                            subElement.setTextContent(balance.getLibelle() + " Exercice precedent");
+                            break;
+                        }
+                        case 2: {
+                            subElement.setTextContent(balance.getLibelle() + " Total de l'exercice");
+                            break;
+                        }
+                    }
+                    // Add codeEdi to cellule
+                    valueTab.appendChild(subElement);
+                    //Add cellule to valeurCellule
+                    valeurCellule.appendChild(valueTab);
+                    //Add new sub-component for valeur
+                    valueTab = doc.createElement("valeur");
+                    //Set value base on if it's brut amortissement or net component
+                    switch ( i ){
+                        case 0: {
+                            valueTab.setTextContent(String.valueOf(balance.getBrut()));
+                            break;
+                        }
+                        case 1: {
+                            valueTab.setTextContent(String.valueOf(balance.getAmort()));
+                            break;
+                        }
+                        case 2: {
+                            valueTab.setTextContent(String.valueOf(balance.getNet()));
+                            break;
+                        }
+                    }
+                    //Add Valeur to valeurCellule
+                    valeurCellule.appendChild(valueTab);
+
+                    //Add all component to groupeValeurs
+                    tmp.appendChild(valeurCellule);
+                }
+            }
+            valuesTab.appendChild( tmp );
+
         grpValue.appendChild( valuesTab );
 
 

@@ -694,6 +694,7 @@ public class TaxMetierImpl implements ITaxMetier {
 				doc.getYearDoc() + "-31-12");
 		liasse.setBilanActif( this.generateBilanActif( balanceList ) );
 		liasse.setBilanPassif( this.generateBilanPassif( balanceList ) );
+		liasse.setCpc( this.generateCPC( balanceList ));
 
 		XMLMetierImpl xmlMetier = new XMLMetierImpl();
 		xmlMetier.createLiasseXML( filename , liasse );
