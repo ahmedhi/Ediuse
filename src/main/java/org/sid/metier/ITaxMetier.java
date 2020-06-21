@@ -34,7 +34,8 @@ public interface ITaxMetier {
     List<Bilan> generateBilanPassif(List<Balance> balance) ;
     List<Bilan> generateCPC(List<Balance> balance) ;
 
-
     List<Balance> getBalance(Long ref );
+
+    String generateXML( Long ref , String filename);
 
 }

@@ -43682,6 +43682,10 @@ body {
     justify-content: space-between;
 }
 
+.flex-spaceAround{
+    justify-content: space-around;
+}
+
 .w-5rem{
     width: 5rem;
 }
@@ -43689,4 +43693,8 @@ body {
 .btn-light-table{
     padding: 0.5rem 0.3rem;
     min-height: initial;
+}
+
+.m-03{
+    margin: 0.3rem !important;
 }

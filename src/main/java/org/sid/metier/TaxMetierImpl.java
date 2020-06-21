@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.time.Year;
 import java.util.*;
 
@@ -288,8 +290,6 @@ public class TaxMetierImpl implements ITaxMetier {
 	        		if(val.charAt(0) == '5' &&  val.charAt(1) == '9' &&  val.charAt(2) == '1'  &&  val.charAt(3) == '4') {TBamort += tmp.get(i).getSoldeBalance();}
 	        		if(val.charAt(0) == '5' &&  val.charAt(1) == '1' &&  val.charAt(2) == '6') {TCRbrut+= tmp.get(i).getSoldeBalance();}
 	        		if(val.charAt(0) == '5' &&  val.charAt(1) == '9' &&  val.charAt(2) == '1'  &&  val.charAt(3) == '1') {TCRamort += tmp.get(i).getSoldeBalance();}
-	        		
-	        		
 
 	        }
 	        
@@ -680,5 +680,29 @@ public class TaxMetierImpl implements ITaxMetier {
 	        Bilan BTG = new Bilan(" TOTAL GENERAL I + II + III",TotalGeneral,true); bilanPassif.add(BTG);
 	        
 		return bilanPassif;
+	}
+
+	@Override
+	public String generateXML( Long ref , String filename ){
+		List<Balance> balanceList = this.getBalance( ref );
+		Liasse liasse = new Liasse( 3 , "827387772","2020-04-06","2021-04-06");
+		liasse.setBilanActif( this.generateBilanActif( balanceList ) );
+		liasse.setBilanPassif( this.generateBilanPassif( balanceList ) );
+
+		this.generateLiasse( filename , liasse );
+
+		return filename + ".xml";
+	}
+
+	public XML generateLiasse( String fileName , Liasse liasse ){
+		XML result = null;
+		try {
+			result = new XML( fileName );
+			result.getLiasse( liasse);
+		} catch (ParserConfigurationException | IOException e) {
+			e.printStackTrace();
+		}
+
+		return result;
 	}
 }

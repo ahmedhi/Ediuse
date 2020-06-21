@@ -10,9 +10,10 @@
         <h6 class="card-title"><i class="fa-icone fas fa-badge-percent"></i> Balance </h6>
     </div>
     <div class="btn-group">
-        <a href="" class="btn active btn-outline-info btn-rounded"><i class="fa-icone fas fa-badge-percent"></i> Generate Bilan</a>
-        <a href="" class="btn active btn-outline-warning btn-rounded"><i class="fa-icone fas fa-badge-percent"></i> Generate CPC</a>
-        <a href="" class="btn active btn-outline-success btn-rounded"><i class="fa-icone fas fa-badge-percent"></i> Generate EDI file</a>
+        <a href="" class="btn active btn-outline-success btn-rounded">
+            <i class="fa-icone fas fa-badge-percent"></i>
+            Export as CSV file
+        </a>
     </div>
 
 </div>
@@ -94,6 +95,22 @@
             </div>
         </div>
     </div>
+
+    <div class="flex-content flex-spaceAround">
+        <a th:href="@{'/admin/tax/bilan/' + ${ Tax.getIdDoc() } }" class="btn btn-info btn-rounded m-03">
+            <i class="fa-icone fas fa-badge-percent"></i>
+            Generate Bilan
+        </a>
+        <a href="" class="btn btn-info btn-rounded m-03">
+            <i class="fa-icone fas fa-badge-percent"></i>
+            Generate CPC
+        </a>
+        <a th:href="@{'/admin/tax/details/xml/' + ${ Tax.getIdDoc() } }" class="btn btn-info btn-rounded m-03">
+            <i class="fa-icone fas fa-badge-percent"></i>
+            Export as XML file
+        </a>
+    </div>
+
 </div>
 
 </html>

@@ -27,6 +27,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -152,8 +155,8 @@ public class AdminController {
 
     @RequestMapping("/tax")
     public String tax( Model model ) {
-       /* model.addAttribute("taxes", taxMetier.getAllTaxes() );
-        model.addAttribute("companies", companyMetier.getAllCompany() );*/
+        model.addAttribute("taxes", taxMetier.getAllTaxes() );
+        model.addAttribute("companies", companyMetier.getAllCompany() );
         return "/admin/taxesList";
     }
     
@@ -163,15 +166,10 @@ public class AdminController {
         if( result.hasErrors() ){
             return "admin/tax";
         }
-        List<Balance> tmp = taxMetier.addBalance( tax.getFile() );
         long id = tax.getCompany().getIdCompany();
         Company tmpCompany = companyMetier.findCompanyById( id );
-        List<Balance> tmp = taxMetier.addBalance( tax.getFile() , tmpCompany , tax.getYearDoc());
-        List<Bilan> bilanActif = taxMetier.generateBilanActif(tmp);
-        List<Bilan> bilanPassif = taxMetier.generateBilanActif(tmp);
-        model.addAttribute("bilanActif", bilanActif );
-        model.addAttribute("bilanPassif", bilanPassif );
-        //From origin/Features/Task2 return "/documents/bilan";
+        taxMetier.addBalance( tax.getFile() , tmpCompany , tax.getYearDoc());
+
         return "redirect:/admin/tax";
     }
 
@@ -180,6 +178,40 @@ public class AdminController {
         model.addAttribute("Tax", taxMetier.getById(id) );
         model.addAttribute("balanceArray", taxMetier.getBalance(id));
         return "admin/taxesDetails";
+    }
+
+    @RequestMapping("/tax/details/xml/{id}")
+    public void downloadPDFResource( HttpServletRequest request, HttpServletResponse response, @PathVariable long id )
+    {
+        String fileName = taxMetier.generateXML( id , "testxml");
+        //Authorized user will download the file
+        //String dataDirectory = request.getServletContext().getRealPath("/WEB-INF/downloads/pdf/");
+        Path file = Paths.get("tmp/", fileName);
+        if (Files.exists(file))
+        {
+            response.setContentType("application/pdf");
+            response.addHeader("Content-Disposition", "attachment; filename="+fileName);
+            try
+            {
+                Files.copy(file, response.getOutputStream());
+                response.getOutputStream().flush();
+            }
+            catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    @GetMapping("tax/bilan/{id}")
+    public String bilanTax( @PathVariable long id , Model model){
+        List<Balance> tmp = taxMetier.getBalance( id );
+
+        List<Bilan> bilanActif = taxMetier.generateBilanActif(tmp);
+        List<Bilan> bilanPassif = taxMetier.generateBilanActif(tmp);
+
+        model.addAttribute("bilanActif", bilanActif );
+        model.addAttribute("bilanPassif", bilanPassif );
+        return "/documents/bilan";
     }
 
     @PostMapping("/tax/update")

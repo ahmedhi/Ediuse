@@ -24,6 +24,5 @@ public class EdiuseApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-
 	}
 }
