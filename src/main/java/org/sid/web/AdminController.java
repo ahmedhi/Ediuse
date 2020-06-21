@@ -168,10 +168,7 @@ public class AdminController {
     }
     */
     @PostMapping("/partSocial/update")
-    public String updatePart(@Valid PartSocial part , BindingResult result , Model model ){
-        if( result.hasErrors() ){
-            return "redirect:/admin/partSocial";
-        }
+    public String updatePart(@ModelAttribute("PartCapitalSocial") PartSocial part ){
         this.partMetier.updateCapitalSocial(part);
         return "redirect:/admin/partSocial"; 
     }
