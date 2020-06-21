@@ -40,71 +40,21 @@ public class XML {
         this.path = path;
     }
 
-    public void getLiasse(Liasse liasse){
 
-        try{
-            Document doc;
-            /**
-             * Create a new file if not exist
-             */
-            if(!file.exists()){
-                Files.createDirectories(file.toPath().getParent());
-                Files.createFile(file.toPath());
-            }
-            doc = createLiasse(liasse);
-
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(file);
-            transformer.transform(source, result);
-        }catch (TransformerException | IOException e){
-            e.printStackTrace();
-        }
+    public File getFile() {
+        return file;
     }
 
-    private Document createLiasse( Liasse liasse ){
-        Document doc = builder.newDocument();
+    public void setFile(File file) {
+        this.file = file;
+    }
 
-        Element liasseSuite = doc.createElement("Liasse");
+    public DocumentBuilder getBuilder() {
+        return builder;
+    }
 
-        //modele
-        Element modeleSuite = doc.createElement("modele");
-        Element tmp = doc.createElement( "id");
-        tmp.setTextContent( String.valueOf(liasse.getId()) );
-        modeleSuite.appendChild( tmp );
-
-        //resultatFiscal
-        Element resultatFiscalSuite = doc.createElement("resultatFiscal");
-        tmp = doc.createElement("identifiantFiscal");
-        tmp.setTextContent( liasse.getIF() );
-        resultatFiscalSuite.appendChild( tmp );
-        tmp = doc.createElement("exerciceFiscalDu");
-        tmp.setTextContent( liasse.getStartDate() );
-        resultatFiscalSuite.appendChild( tmp );
-        tmp = doc.createElement( "exerciceFiscalAu" );
-        tmp.setTextContent( liasse.getEndDate() );
-        resultatFiscalSuite.appendChild( tmp );
-
-        //Groupe Valeurs Tableau
-        Element grpValue = doc.createElement("groupeValeursTableau");
-        Element valuesTab = doc.createElement("ValeursTableau");
-        //tableau info
-        tmp = doc.createElement("tableau");
-        Element valueTab = doc.createElement("id");
-        valueTab.setTextContent("NOT DEFINE");
-        tmp.appendChild( valueTab );
-        //groupeValeurs
-        tmp = doc.createElement("groupeValeurs");
-
-
-        //Add init xml
-        doc.appendChild(liasseSuite);
-        liasseSuite.appendChild(modeleSuite); //add model
-        liasseSuite.appendChild( resultatFiscalSuite ); //add resultatFisacal
-        return doc;
+    public void setBuilder(DocumentBuilder builder) {
+        this.builder = builder;
     }
 
 }

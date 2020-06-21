@@ -184,8 +184,6 @@ public class AdminController {
     public void downloadPDFResource( HttpServletRequest request, HttpServletResponse response, @PathVariable long id )
     {
         String fileName = taxMetier.generateXML( id , "testxml");
-        //Authorized user will download the file
-        //String dataDirectory = request.getServletContext().getRealPath("/WEB-INF/downloads/pdf/");
         Path file = Paths.get("tmp/", fileName);
         if (Files.exists(file))
         {

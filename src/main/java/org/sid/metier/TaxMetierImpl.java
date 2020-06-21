@@ -23,6 +23,7 @@ import java.util.*;
 @Service
 @Transactional
 public class TaxMetierImpl implements ITaxMetier {
+	// Repository
     @Autowired private DocCompanyRepository docCompanyRepository;
     @Autowired private ChartOfAccountsRepository chartOfAccountsRepository;
     @Autowired private BalanceRepository balanceRepository;
@@ -685,24 +686,18 @@ public class TaxMetierImpl implements ITaxMetier {
 	@Override
 	public String generateXML( Long ref , String filename ){
 		List<Balance> balanceList = this.getBalance( ref );
-		Liasse liasse = new Liasse( 3 , "827387772","2020-04-06","2021-04-06");
+		DocCompany doc =  docCompanyRepository.findTopByIdDoc( ref );
+		Company company = doc.getCompany();
+		Liasse liasse = new Liasse( 3 ,
+				company.getIfCompany(),
+				doc.getYearDoc() + "-01-01",
+				doc.getYearDoc() + "-31-12");
 		liasse.setBilanActif( this.generateBilanActif( balanceList ) );
 		liasse.setBilanPassif( this.generateBilanPassif( balanceList ) );
 
-		this.generateLiasse( filename , liasse );
+		XMLMetierImpl xmlMetier = new XMLMetierImpl();
+		xmlMetier.createLiasseXML( filename , liasse );
 
 		return filename + ".xml";
-	}
-
-	public XML generateLiasse( String fileName , Liasse liasse ){
-		XML result = null;
-		try {
-			result = new XML( fileName );
-			result.getLiasse( liasse);
-		} catch (ParserConfigurationException | IOException e) {
-			e.printStackTrace();
-		}
-
-		return result;
 	}
 }
