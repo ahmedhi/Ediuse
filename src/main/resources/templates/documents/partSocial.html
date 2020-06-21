@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorate="~{layouts/layoutDocs}">
+
+<div layout:fragment="secondaryContent_Header">
+
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-cog"></i> Part Capital Social</h6>
+    </div>
+     <div class="btn-group">
+        <button class="btn active"><i class="fa-icone fas fa-file-csv"></i> Export as .csv</button>
+    </div>
+   
+</div>
+
+<div layout:fragment="secondaryContent_Body">
+        <h5 style="text-align:center ; color:#00909E"> Etat de repartition du capital</h5><br>
+  
+        <h5 style="text-align:center; color:#00909E"> Montant du capital DH : <b th:text="${total.get(5)}"></b>  </h5>
+           
+
+    <table class="table" style="width:100%">
+        <thead style="color:#00909E ; align-text:center">
+	        <tr>
+	            <th>Full Name</th>
+	            <th>IF</th>
+	            <th>ICE</th>
+	            <th>Adress</th>
+	            <th>Exercice N-1</th>
+	            <th>Exercice N </th>
+	            <th>Part social</th>
+		        <th>C.souscrit</th>
+		        <th>C.Appele</th>
+		        <th>C.libere</th>  
+	        </tr>
+        </thead>
+        <tbody >
+        	<tr th:each="part : ${parts}">
+        		 <td th:text="${ part.getFirstNameAssocie() +' ' + part.getLastNameAssocie() }"></td>
+                 <td th:text="${ part.getIf() }"></td>
+                 <td th:text="${ part.getCin() }"></td>
+                 <td th:text="${ part.getAdress() }"></td>
+                 <td th:text="${ part.getExercicePrec() }"></td>
+                 <td th:text="${ part.getExerciceActuel() }"></td>
+                 <td th:text="${ part.getPartSocial() }"></td>
+                 <td th:text="${ part.getMontantCapitalSouscrit() }"></td>
+                 <td th:text="${ part.getMontantCapitalAppele() }"></td>
+                 <td th:text="${ part.getMontantCapitalLibere() }"></td>
+                 <td> 
+					<a th:href="''" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                        <i class="fal fa-info"></i>
+                    </a>
+                     <a th:href="''" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+				 </td>
+                 
+        	</tr>
+        
+        </tbody>
+        <tfooter>
+         		 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td th:text="${total.get(0)}"  style="font-weight: bold;">0</td>
+                 <td th:text="${total.get(1)}"  style="font-weight: bold;">0</td>
+                 <td></td>
+                 <td th:text="${total.get(2)}"  style="font-weight: bold;">0</td>
+                 <td th:text="${total.get(3)}"  style="font-weight: bold;">0</td>
+                 <td th:text="${total.get(4)}"  style="font-weight: bold;">0</td>
+                 <td></td>
+        </tfooter>
+    </table>
+
+   
+
+</div>
+
+ 
+<div layout:fragment="primaryContent_Header">
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-user-plus"></i> Add new associate</h6>
+    </div>
+</div>
+
+
+<div layout:fragment="primaryContent_Body">
+    <form method="post" th:action="@{/admin/partSocial/add}" th:object="${PartCapitalSocial}" >
+    <div class="row">
+       <div class="col-4">
+	        <div class="form-group">
+	            <label>First name</label>
+	            <input type="text" class="form-control"  placeholder=" First name" name="firstNameAssocie" >
+	        </div>
+        </div>
+        <div class="col-4">
+	        <div class="form-group">
+	            <label>Last name</label>
+	            <input type="text" class="form-control"  placeholder=" last name" name="lastNameAssocie" >
+	        </div>
+        </div>
+        <div class="col-4">
+	    	<div class="form-group">
+	            <label>Adress</label>
+	            <input type="text" class="form-control"  placeholder=" Adress" name="adress">
+	        </div>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-4">
+	    	<div class="form-group">
+	            <label>IF</label>
+	            <input type="text" class="form-control"  placeholder="IF" name="identifiantFiscal">
+	        </div>
+    	</div>
+    	<div class="col-4">
+	    	<div class="form-group">
+	            <label>CIN</label>
+	            <input type="text" class="form-control"  placeholder=" CIN" name="cin">
+	        </div>
+    	</div>
+    	<div class="col-4">
+	    	<div class="form-group">
+	            <label>Part Social (DH)</label>
+	            <input type="text" class="form-control"  placeholder=" Part Social" name="partSocial">
+	        </div>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-4">
+	    	<div class="form-group">
+	            <label>Montant du capital Souscrit (DH)</label>
+	            <input type="text" class="form-control"  placeholder=" Montant du capitale Souscrit" name="montantCapitalSouscrit">
+	        </div>
+    	</div>
+    	<div class="col-4">
+	    	<div class="form-group">
+	            <label>Montant du capital Appele (DH)</label>
+	            <input type="text" class="form-control"  placeholder=" Montant du capitale Appele" name="montantCapitalAppele">
+	        </div>
+    	</div>
+    	<div class="col-4">
+	    	<div class="form-group">
+	            <label>Montant du capital libere (DH)</label>
+	            <input type="text" class="form-control"  placeholder=" Montant du capitale libere" name="montantCapitalLibere">
+	        </div>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-6">
+	    	<div class="form-group">
+	            <label>Nombre de titre de l'exercice Precedent (DH)</label>
+	            <input type="text" class="form-control"  placeholder="Nombre de titre de l'exercice Precedent" name="exercicePrec">
+	        </div>
+    	</div>
+    	<div class="col-6">
+	    	<div class="form-group">
+	            <label>Nombre de titre de l'exercice Actuel (DH)</label>
+	            <input type="text" class="form-control"  placeholder="Nombre de titre de l'exercice Actuel" name="exerciceActuel">
+	        </div>
+    	</div>
+    </div>
+    
+        <button class="btn btn-az-primary btn-block" style="    width: 20%; margin-left: auto;  margin-right: auto;" type="submit">Add associates</button>
+    </form>
+    <hr>
+         <form method="post" th:action="@{/admin/partSocial/addCapital}" th:object="${PartCapitalSocial}" >
+            <div class="row" >
+		    	<div class="col-6">
+			    	<div class="form-group">
+			            <label>Montant du Capital (DH)</label>
+			            <input type="text" class="form-control"  placeholder="Capital" name="partSocial">
+			        </div>
+		    	</div>
+			    <div class="col-6">
+				    	<button class="btn btn-az-primary btn-block" style="width: 40%;margin-top:1.5rem;margin-left:12rem" type="submit">Add Capital</button>
+			    </div>
+		    </div>
+   		</form>
+   		
+</div>
+
+</html>
