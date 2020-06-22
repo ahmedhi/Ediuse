@@ -270,6 +270,14 @@ public class AdminController {
         return "/documents/bilan";
     }
 
+    @GetMapping("tax/cpc/{id}")
+    public String cpcTax( @PathVariable long id , Model model ){
+        List<Balance> tmp = taxMetier.getBalance( id );
+
+        model.addAttribute( "cpc" , taxMetier.generateCPC( tmp ));
+        return "/documents/cpc";
+    }
+
     @PostMapping("/tax/update")
     public String updateTax(@ModelAttribute("Tax") DocCompany tax){
         this.taxMetier.updateTax( tax );

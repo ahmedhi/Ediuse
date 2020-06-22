@@ -1,9 +1,8 @@
 package org.sid.metier;
 
-import org.sid.entities.Balance;
-import org.sid.entities.Bilan;
-import org.sid.entities.Liasse;
-import org.sid.entities.XML;
+import org.sid.dao.PartCapitalSocialRepository;
+import org.sid.entities.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -16,14 +15,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class XMLMetierImpl implements IXMLMetier{
-
-    XML xml;
+    @Autowired PartCapitalSocialRepository partCapitalSocialRepository;
+    //XML xml;
+    Document doc;
 
     @Override
-    public void createLiasseXML( String fileName , Liasse liasse) {
+    public XML createXMLFile(String fileName) {
+        XML xml = null;
         try {
             xml = new XML( fileName );
-            Document doc;
             File file = xml.getFile();
             /**
              * Create a new file if not exist
@@ -32,18 +32,34 @@ public class XMLMetierImpl implements IXMLMetier{
                 Files.createDirectories(file.toPath().getParent());
                 Files.createFile(file.toPath());
             }
-            doc = createLiasse( xml , liasse);
+        } catch (ParserConfigurationException | IOException e) {
+            e.printStackTrace();
+        }
 
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
+        return xml;
+    }
+
+    @Override
+    public void writeInXMLFile( File file ){
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = null;
+        try {
+            transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(file);
             transformer.transform(source, result);
-        } catch (ParserConfigurationException | IOException | TransformerException e) {
+        } catch (TransformerException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void createLiasseXML( String fileName , Liasse liasse) {
+        XML xml = createXMLFile( fileName );
+        doc = createLiasse( xml , liasse);
+        writeInXMLFile( xml.getFile() );
     }
 
     private Document createLiasse( XML xml , Liasse liasse ){
@@ -254,6 +270,77 @@ public class XMLMetierImpl implements IXMLMetier{
             }
             valuesTab.appendChild( tmp );
 
+            /*---------------------------------------------------------*/
+
+            //ETAT RECAPITULATIF
+            valuesTab = doc.createElement("ValeursTableau");
+                //tableau info
+                tmp = doc.createElement("tableau");
+                valueTab = doc.createElement("id");
+                valueTab.setTextContent("Etat récapitulatif");
+                tmp.appendChild( valueTab );
+            valuesTab.appendChild( tmp );
+                //groupeValeurs
+                tmp = doc.createElement("groupeValeurs");
+                //ValeurCellule
+                for(Bilan balance : liasse.getCpc()){
+                    // create a new valeurCellule component
+                    for( int i = 0 ; i < 3 ; i++ ) {
+                        Element valeurCellule = doc.createElement("ValeurCellule");
+                        //create a new sub-component for cellule
+                        valueTab = doc.createElement("cellule");
+                        /**
+                         * Add EDI code
+                         * Actuellement nous avons pas la table des codes EDI
+                         * Nous avons décidé en tant qu'équipe dev AskBri
+                         * d'insérer le libellé de la ligne et son type dans le code
+                         */
+                        //Add a sub-component of EdiCode
+                        Element subElement = doc.createElement("codeEdi");
+                        switch ( i ){
+                            case 0: {
+                                subElement.setTextContent(balance.getLibelle() + " Propre à l'exercice");
+                                break;
+                            }
+                            case 1: {
+                                subElement.setTextContent(balance.getLibelle() + " Exercice precedent");
+                                break;
+                            }
+                            case 2: {
+                                subElement.setTextContent(balance.getLibelle() + " Total de l'exercice");
+                                break;
+                            }
+                        }
+                        // Add codeEdi to cellule
+                        valueTab.appendChild(subElement);
+                        //Add cellule to valeurCellule
+                        valeurCellule.appendChild(valueTab);
+                        //Add new sub-component for valeur
+                        valueTab = doc.createElement("valeur");
+                        //Set value base on if it's brut amortissement or net component
+                        switch ( i ){
+                            case 0: {
+                                valueTab.setTextContent(String.valueOf(balance.getBrut()));
+                                break;
+                            }
+                            case 1: {
+                                valueTab.setTextContent(String.valueOf(balance.getAmort()));
+                                break;
+                            }
+                            case 2: {
+                                valueTab.setTextContent(String.valueOf(balance.getNet()));
+                                break;
+                            }
+                        }
+                        //Add Valeur to valeurCellule
+                        valeurCellule.appendChild(valueTab);
+
+                        //Add all component to groupeValeurs
+                        tmp.appendChild(valeurCellule);
+                    }
+                }
+            valuesTab.appendChild( tmp );
+
         grpValue.appendChild( valuesTab );
 
 
@@ -264,4 +351,6 @@ public class XMLMetierImpl implements IXMLMetier{
         liasseSuite.appendChild( grpValue ); //add groupeValeursTableau
         return doc;
     }
+
+
 }
