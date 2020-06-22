@@ -3,11 +3,7 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class PartSocial  implements Serializable  {
@@ -23,8 +19,9 @@ public class PartSocial  implements Serializable  {
 	private double montantCapitalSouscrit ;
 	private double montantCapitalAppele ;
 	private double montantCapitalLibere ;
-	@OneToMany(mappedBy="capitalSocial",fetch=FetchType.LAZY)
-	private Collection<Company> company ;
+	@ManyToOne
+	@JoinColumn(name="company")
+	private Company company ;
 	
 	
 	public PartSocial() {
@@ -114,10 +111,10 @@ public class PartSocial  implements Serializable  {
 	public void setMontantCapitalLibere(double montantCapitalLibere) {
 		this.montantCapitalLibere = montantCapitalLibere;
 	}
-	public Collection<Company> getCompany() {
+	public Company getCompany() {
 		return company;
 	}
-	public void setCompany(Collection<Company> company) {
+	public void setCompany(Company company) {
 		this.company = company;
 	}
 	

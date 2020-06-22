@@ -1,11 +1,13 @@
 package org.sid.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Liasse {
     int id;
     String IF , StartDate, EndDate;
     List<Bilan> bilanActif, bilanPassif, cpc;
+    List<PartSocial> partSocial;
 
     public Liasse(int id, String IF, String startDate, String endDate) {
         this.id = id;
@@ -68,5 +70,48 @@ public class Liasse {
 
     public void setCpc(List<Bilan> cpc) {
         this.cpc = cpc;
+    }
+
+    public List<PartSocial> getPartSocial() {
+        //return partSocial;
+        ArrayList<PartSocial> tmp = new ArrayList<PartSocial>();
+
+        tmp.add( new PartSocial("HILALI Ahmed",
+                                "" ,
+                                "AA49490" ,
+                                "Lorem text data everyDay" ,
+                                100.0 ,
+                                100.0 ,
+                                100 ,
+                                100 ,
+                                100 ,
+                                100 ));
+
+        tmp.add( new PartSocial("ASKOUR Hamza",
+                "" ,
+                "AA002E90" ,
+                "Lorem text data everyDay" ,
+                100.0 ,
+                100.0 ,
+                100 ,
+                100 ,
+                100 ,
+                100 ));
+
+        tmp.add( new PartSocial("AFFACH Nahid",
+                "" ,
+                "AAQ3211" ,
+                "Lorem text data everyDay" ,
+                100.0 ,
+                100.0 ,
+                100 ,
+                100 ,
+                100 ,
+                100 ));
+        return tmp;
+    }
+
+    public void setPartSocial(List<PartSocial> partSocial) {
+        this.partSocial = partSocial;
     }
 }

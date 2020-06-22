@@ -201,12 +201,12 @@ public class XMLMetierImpl implements IXMLMetier{
 
             /*---------------------------------------------------------*/
 
-            //BILAN ACTIF
+            //CPC
             valuesTab = doc.createElement("ValeursTableau");
                 //tableau info
                 tmp = doc.createElement("tableau");
                 valueTab = doc.createElement("id");
-                valueTab.setTextContent("BILAN ACTIF");
+                valueTab.setTextContent("CPC");
                 tmp.appendChild( valueTab );
             valuesTab.appendChild( tmp );
                 //groupeValeurs
@@ -283,61 +283,128 @@ public class XMLMetierImpl implements IXMLMetier{
                 //groupeValeurs
                 tmp = doc.createElement("groupeValeurs");
                 //ValeurCellule
-                for(Bilan balance : liasse.getCpc()){
+                int index = 1;
+                for(PartSocial partSocial : liasse.getPartSocial()){
                     // create a new valeurCellule component
-                    for( int i = 0 ; i < 3 ; i++ ) {
+                    for( int i = 0 ; i < 10 ; i++ ) {
                         Element valeurCellule = doc.createElement("ValeurCellule");
-                        //create a new sub-component for cellule
-                        valueTab = doc.createElement("cellule");
-                        /**
-                         * Add EDI code
-                         * Actuellement nous avons pas la table des codes EDI
-                         * Nous avons décidé en tant qu'équipe dev AskBri
-                         * d'insérer le libellé de la ligne et son type dans le code
-                         */
-                        //Add a sub-component of EdiCode
-                        Element subElement = doc.createElement("codeEdi");
-                        switch ( i ){
-                            case 0: {
-                                subElement.setTextContent(balance.getLibelle() + " Propre à l'exercice");
-                                break;
+                            //create a new sub-component for cellule
+                            valueTab = doc.createElement("cellule");
+                            /**
+                             * Add EDI code
+                             * Actuellement nous avons pas la table des codes EDI
+                             * Nous avons décidé en tant qu'équipe dev AskBri
+                             * d'insérer le libellé de la ligne et son type dans le code
+                             */
+                            //Add a sub-component of EdiCode
+                            Element subElement = doc.createElement("codeEdi");
+                            switch ( i ){
+                                case 0: {
+                                    subElement.setTextContent("Nom et prénom des principaux associés");
+                                    break;
+                                }
+                                case 1: {
+                                    subElement.setTextContent("N° IF");
+                                    break;
+                                }
+                                case 2: {
+                                    subElement.setTextContent("N° CIN | CE");
+                                    break;
+                                }
+                                case 3: {
+                                    subElement.setTextContent("Adresse");
+                                    break;
+                                }
+                                case 4: {
+                                    subElement.setTextContent("NOMBRE DE TITRES : Exercice précédent");
+                                    break;
+                                }
+                                case 5: {
+                                    subElement.setTextContent("NOMBRE DE TITRES : Exercice actuel");
+                                    break;
+                                }
+                                case 6: {
+                                    subElement.setTextContent("Valeur nominale de chaque action ou part sociale");
+                                    break;
+                                }
+                                case 7: {
+                                    subElement.setTextContent("MONTANT DU CAPITAL : Souscrit");
+                                    break;
+                                }
+                                case 8: {
+                                    subElement.setTextContent("MONTANT DU CAPITAL : Appelé");
+                                    break;
+                                }
+                                case 9: {
+                                    subElement.setTextContent("MONTANT DU CAPITAL : libéré");
+                                    break;
+                                }
                             }
-                            case 1: {
-                                subElement.setTextContent(balance.getLibelle() + " Exercice precedent");
-                                break;
-                            }
-                            case 2: {
-                                subElement.setTextContent(balance.getLibelle() + " Total de l'exercice");
-                                break;
-                            }
-                        }
-                        // Add codeEdi to cellule
-                        valueTab.appendChild(subElement);
+                            // Add codeEdi to cellule
+                            valueTab.appendChild(subElement);
                         //Add cellule to valeurCellule
                         valeurCellule.appendChild(valueTab);
-                        //Add new sub-component for valeur
-                        valueTab = doc.createElement("valeur");
-                        //Set value base on if it's brut amortissement or net component
-                        switch ( i ){
-                            case 0: {
-                                valueTab.setTextContent(String.valueOf(balance.getBrut()));
-                                break;
+                            //Add new sub-component for valeur
+                            valueTab = doc.createElement("valeur");
+                            //Set value base on if it's brut amortissement or net component
+                            switch ( i ){
+                                case 0: {
+                                    valueTab.setTextContent( partSocial.getFullName() );
+                                    break;
+                                }
+                                case 1: {
+                                    if( partSocial.getCompany() == null )
+                                        valueTab.setTextContent( "Company not set" );
+                                    else
+                                        valueTab.setTextContent( partSocial.getCompany().getIfCompany() );
+                                    break;
+                                }
+                                case 2: {
+                                    valueTab.setTextContent( partSocial.getCin() );
+                                    break;
+                                }
+                                case 3: {
+                                    valueTab.setTextContent( partSocial.getAdress() );
+                                    break;
+                                }
+                                case 4: {
+                                    valueTab.setTextContent( String.valueOf( partSocial.getExercicePrec() ) );
+                                    break;
+                                }
+                                case 5: {
+                                    valueTab.setTextContent(String.valueOf( partSocial.getExerciceActuel() ));
+                                    break;
+                                }
+                                case 6: {
+                                    valueTab.setTextContent(String.valueOf( partSocial.getPartSocial() ));
+                                    break;
+                                }
+                                case 7: {
+                                    valueTab.setTextContent(String.valueOf( partSocial.getMontantCapitalSouscrit() ));
+                                    break;
+                                }
+                                case 8: {
+                                    valueTab.setTextContent(String.valueOf( partSocial.getMontantCapitalAppele() ));
+                                    break;
+                                }
+                                case 9: {
+                                    valueTab.setTextContent(String.valueOf( partSocial.getMontantCapitalLibere() ));
+                                    break;
+                                }
                             }
-                            case 1: {
-                                valueTab.setTextContent(String.valueOf(balance.getAmort()));
-                                break;
-                            }
-                            case 2: {
-                                valueTab.setTextContent(String.valueOf(balance.getNet()));
-                                break;
-                            }
-                        }
                         //Add Valeur to valeurCellule
+                        valeurCellule.appendChild(valueTab);
+
+                            //create a new sub-component for numeroLigne
+                            valueTab = doc.createElement("numeroLigne");
+                            valueTab.setTextContent( String.valueOf(index) );
+                        // Add numéroLigne to valeurCellule
                         valeurCellule.appendChild(valueTab);
 
                         //Add all component to groupeValeurs
                         tmp.appendChild(valeurCellule);
                     }
+                    index++;
                 }
             valuesTab.appendChild( tmp );
 
