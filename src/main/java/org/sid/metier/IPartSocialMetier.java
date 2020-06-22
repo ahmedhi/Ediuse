@@ -12,5 +12,4 @@ public interface IPartSocialMetier {
 	List<PartSocial> getAllParts();
 	PartSocial getPartById(long id);
 	void deletePart(PartSocial capital);
-	
 }

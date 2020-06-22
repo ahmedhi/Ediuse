@@ -20,9 +20,6 @@ public class Company implements Serializable{
 	@OneToMany(mappedBy="company",fetch=FetchType.LAZY)
 	private Collection <DocCompany> docCompanies;
 
-	@ManyToOne
-	@JoinColumn(name="capitalSocial")
-	private PartSocial capitalSocial ;
 	
 	public Company() {
 	}

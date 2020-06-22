@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Meta -->
+    <meta name="author" content="AskBri">
+
+    <title>Ediuse</title>
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link href="../static/lib/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet"
+    	th:href="@{/lib/@fortawesome/fontawesome-free/css/all.min.css}">
+    <link href="../static/lib/ionicons/css/ionicons.min.css" rel="stylesheet"
+    	th:href="@{/lib/ionicons/css/ionicons.min.css}">
+    <link href="../static/lib/typicons.font/typicons.css" rel="stylesheet"
+    	th:href="@{/lib/typicons.font/typicons.css}">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" href="../static/css/azia.css"
+    	th:href="@{/css/azia.css}">
+
+</head>
+<body>	
+      <div class="az-header">
+          <div class="container">
+              <div class="az-header-left">
+                  <a href="#" class="az-logo">
+                      <img src="/img/logo_empty.png" class="imglogin small">
+                      <span>Ediuse</span>
+                  </a>
+                  <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
+              </div><!-- az-header-left -->
+              <div class="az-header-menu">
+                      <div class="az-header-menu-header">
+                          <a href="#" class="az-logo"><span></span> azia</a>
+                          <a href="" class="close">&times;</a>
+                      </div><!-- az-header-menu-header -->
+                      <ul class="nav">
+                              <li class="nav-item ">
+                                  <a href="" class="nav-link"><i class="fa-icone fas fa-tachometer-alt-fast"></i> Dashboard</a>
+                              </li>
+                              <li class="nav-item">
+                                <a href="" class="nav-link with-sub"><i class="fa-icone fal fa-user-shield"></i> Administration</a>
+                                <div class="az-menu-sub">
+                                  <nav class="nav">
+                                      <a th:href="@{/admin/users}" class="nav-link ">Users</a>
+                                      <a th:href="@{/admin/companies}" class="nav-link ">Companies</a>
+                                      <a th:href="@{/admin/docs}" class="nav-link ">Docs types</a>
+                                      <a th:href="@{/admin/tax}" class="nav-link ">Tax return</a>
+                                      <a th:href="@{/admin/chartOfAccounts}" class="nav-link ">Chart of accounts</a>
+                                  </nav>
+                                </div><!-- az-menu-sub -->
+                              </li>
+                              <li class="nav-item">
+                                  <a href="" class="nav-link with-sub"><i class="fa-icone fal fa-sliders-v"></i> Configuration</a>
+                                  <div class="az-menu-sub">
+                                      <nav class="nav">
+                                          <a href="#" class="nav-link ">Rate</a>
+                                          <a href="#" class="nav-link ">Parameters</a>
+                                      </nav>
+                                  </div><!-- az-menu-sub -->
+                              </li>
+                              <li class="nav-item">
+                                <a href="" class="nav-link"><i class="fa-icone fal fa-history"></i> Tarball</a>
+                              </li>
+                      </ul>
+              </div><!-- az-header-menu -->
+              <div class="az-header-right">
+                      <div class="dropdown az-profile-menu">
+                              <a href="" class="az-img-user"><img src="https://via.placeholder.com/500" alt=""></a>
+                              <div class="dropdown-menu">
+                                  <div class="az-dropdown-header d-sm-none">
+                                    <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                                  </div>
+                                  <div class="az-header-profile">
+                                      <div class="az-img-user">
+                                          <img src="https://via.placeholder.com/500" alt="">
+                                      </div><!-- az-img-user -->
+                                      <h6>[[${#httpServletRequest.remoteUser}]]</h6>
+                                      <span>Premium Member</span>
+                                  </div><!-- az-header-profile -->
+
+                                  <a th:href="@{/}" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
+                              </div><!-- dropdown-menu -->
+                      </div>
+              </div><!-- az-header-right -->
+
+          </div><!-- container -->
+      </div><!-- az-header -->
+
+      <div class="az-content az-content-dashboard">
+            <div class="container">
+                <div class="az-content-body">
+
+                    <div layout:fragment="content">
+
+
+                        <div class="row row-sm mg-b-20">
+                            <div class="col-lg-7 ht-lg-100p">
+                                <div class="card card-dashboard-one">
+                                    <div class="card-header" layout:fragment="primaryContent_Header">
+
+                                    </div><!-- card-header -->
+                                    <div class="card-body p-3" layout:fragment="primaryContent_Body">
+
+
+
+                                    </div><!-- card-body -->
+                                </div><!-- card -->
+                            </div><!-- col -->
+                            <div class="col-lg-5 mg-t-20 mg-lg-t-0">
+                                <div class="row row-sm">
+                                    <div class="col-sm-12">
+                                        <div class="card card-dashboard-two">
+                                            <div class="card-body">
+
+                                                <div class="card card-dashboard-ten bg-purple">
+                                                    <h6 class="az-content-label">Statistics </h6>
+                                                    <div class="card-body" style="justify-content: space-around;">
+                                                        <div style="flex-basis: inherit">
+                                                            <h6><i class="fa-icone fas fa-users-crown"></i> 1,137</h6>
+                                                            <label>Global users</label>
+                                                        </div>
+                                                        <div style="flex-basis: inherit">
+                                                            <h6><i class="fa-icone fas fa-building"></i> 1,000</h6>
+                                                            <label>Companies</label>
+                                                        </div>
+                                                        <div style="flex-basis: inherit">
+                                                            <h6><i class="fa-icone fas fa-file-export"></i> 953</h6>
+                                                            <label>Exported file</label>
+                                                        </div>
+                                                    </div><!-- card-body -->
+                                                </div>
+
+                                            </div><!-- card-body -->
+                                        </div><!-- card -->
+                                    </div><!-- col -->
+                                    <div class="col-sm-12 mg-t-20">
+                                        <div class="card card-dashboard-one">
+                                            <div class="card-header" layout:fragment="secondaryContent_Header">
+
+
+
+                                            </div>
+                                            <div class="p-3" layout:fragment="secondaryContent_Body">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div><!-- row -->
+                            </div><!--col -->
+                        </div><!-- row -->
+                        <div class="mg-t-20">
+                            <div class="card card-dashboard-one">
+                            		<div class="card-header" layout:fragment="thirdContent_Header">
+
+
+
+                            		</div>
+ 									<div class="card-body p-3" layout:fragment="thirdContent_Body">
+
+
+
+                                    </div><!-- card-body -->
+							</div>
+						</div>
+                    </div>
+
+                </div><!-- az-content-body -->
+            </div>
+      </div><!-- az-content -->
+
+      <div class="az-footer ht-40">
+          <div class="container ht-100p pd-t-0-f">
+              <span>&copy; 2020 Ediuse | make by AskBri</span>
+          </div><!-- container -->
+      </div><!-- az-footer -->
+
+
+<script src="../static/lib/jquery/jquery.min.js"
+        th:src="@{/lib/jquery/jquery.min.js}"></script>
+
+<!-- FontAwesome -->
+<script defer src="../static/lib/@fortawesome/fontawesome-free/js/brands.js"
+        th:src="@{/lib/@fortawesome/fontawesome-free/js/brands.js}"></script>
+<script defer src="../static/lib/@fortawesome/fontawesome-free/js/solid.js"
+        th:src="@{/lib/@fortawesome/fontawesome-free/js/solid.js}"></script>
+<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="../static/lib/bootstrap/js/bootstrap.bundle.min.js"
+        th:src="@{/lib/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script src="../static/lib/ionicons/ionicons.js"
+        th:src="@{/lib/ionicons/ionicons.js}"></script>
+<script src="../static/js/year-select.js"
+      th:src="@{/js/year-select.js}"></script>
+
+<script src="../static/js/azia.js"
+        th:src="@{/js/azia.js}"></script>
+	
+</body>
+</html>

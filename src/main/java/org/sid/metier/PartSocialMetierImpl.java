@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.sid.dao.PartCapitalSocialRepository;
+import org.sid.dao.UserRepository;
 import org.sid.entities.PartSocial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class PartSocialMetierImpl implements IPartSocialMetier   {
 
+	
 	@Autowired
 	private PartCapitalSocialRepository partRepository ;
 	
@@ -40,5 +42,7 @@ public class PartSocialMetierImpl implements IPartSocialMetier   {
 	public void deletePart(PartSocial capital) {
 		partRepository.delete(capital);
 	}
+
+	
 
 }

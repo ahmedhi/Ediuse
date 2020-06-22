@@ -14,7 +14,6 @@ public class PartSocial  implements Serializable  {
 	@Id  @GeneratedValue
 	private Long idPart ; 
 	private String fullName ;
-	private String idFiscale ; 
 	private String cin ;
 	private String adress  ; 
 	private Double exercicePrec ; 
@@ -23,19 +22,17 @@ public class PartSocial  implements Serializable  {
 	private double montantCapitalSouscrit ;
 	private double montantCapitalAppele ;
 	private double montantCapitalLibere ;
-	@OneToMany(mappedBy="capitalSocial",fetch=FetchType.LAZY)
-	private Collection<Company> company ;
+	private long idCompany ;
 	
 	
 	public PartSocial() {
 		super();
 	}
-	public PartSocial(String fullName , String idf, String cIN, String adress,
+	public PartSocial(String fullName , String cIN, String adress,
 			Double exercicePrec, Double exerciceActuel, double partSocial, double montantCapitalSouscrit,
 			double montantCapitalAppele, double montantCapitalLibere ) {
 		super();
 		this.fullName =  fullName ;
-		this.idFiscale = idf;
 		this.cin = cIN;
 		this.adress = adress;
 		this.exercicePrec = exercicePrec;
@@ -59,12 +56,6 @@ public class PartSocial  implements Serializable  {
 		this.fullName = fullName;
 	}
 	
-	public String getIdFiscale() {
-		return idFiscale;
-	}
-	public void setIdFiscale(String idf) {
-		this.idFiscale = idf;
-	}
 	public String getCin() {
 		return cin;
 	}
@@ -114,11 +105,11 @@ public class PartSocial  implements Serializable  {
 	public void setMontantCapitalLibere(double montantCapitalLibere) {
 		this.montantCapitalLibere = montantCapitalLibere;
 	}
-	public Collection<Company> getCompany() {
-		return company;
+	public long getIdCompany() {
+		return idCompany;
 	}
-	public void setCompany(Collection<Company> company) {
-		this.company = company;
+	public void setIdCompany(long company) {
+		this.idCompany = company;
 	}
 	
 
