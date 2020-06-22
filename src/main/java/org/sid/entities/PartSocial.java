@@ -10,7 +10,6 @@ public class PartSocial  implements Serializable  {
 	@Id  @GeneratedValue
 	private Long idPart ; 
 	private String fullName ;
-	private String idFiscale ; 
 	private String cin ;
 	private String adress  ; 
 	private Double exercicePrec ; 
@@ -27,12 +26,11 @@ public class PartSocial  implements Serializable  {
 	public PartSocial() {
 		super();
 	}
-	public PartSocial(String fullName , String idf, String cIN, String adress,
+	public PartSocial(String fullName , String cIN, String adress,
 			Double exercicePrec, Double exerciceActuel, double partSocial, double montantCapitalSouscrit,
 			double montantCapitalAppele, double montantCapitalLibere ) {
 		super();
 		this.fullName =  fullName ;
-		this.idFiscale = idf;
 		this.cin = cIN;
 		this.adress = adress;
 		this.exercicePrec = exercicePrec;
@@ -56,12 +54,6 @@ public class PartSocial  implements Serializable  {
 		this.fullName = fullName;
 	}
 	
-	public String getIdFiscale() {
-		return idFiscale;
-	}
-	public void setIdFiscale(String idf) {
-		this.idFiscale = idf;
-	}
 	public String getCin() {
 		return cin;
 	}

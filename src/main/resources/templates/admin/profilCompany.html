@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmls:layout="http://www.ultraq.net.nz/thymleaf/layout"
+      layout:decorate="~{layouts/layoutProfil}">
+
+<div layout:fragment="primaryContent_Header">
+
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-badge-percent"></i> Reparition of Part Social </h6>
+    </div>
+
+</div>
+
+<div layout:fragment="primaryContent_Body">
+
+   <form method="post" th:action="@{/admin/partSocial/add}" th:object="${PartCapitalSocial}" >
+    <div class="row">
+       <div class="col-4">
+	        <div class="form-group">
+	            <label>Full name</label>
+	            <input type="text" class="form-control"  placeholder=" Full name" name="fullName">
+	        </div>
+        </div>
+        <div class="col-4">
+	    	<div class="form-group">
+	            <label>Adress</label>
+	            <input type="text" class="form-control"  placeholder=" Adress" name="adress">
+	        </div>
+    	</div>
+    	<div class="col-4">
+	    	<div class="form-group">
+	            <label>CIN</label>
+	            <input type="text" class="form-control"  placeholder=" CIN" name="cin">
+	        </div>
+    	</div>
+    </div>
+    <div class="row">
+    	
+    	<div class="col-6">
+	    	<div class="form-group">
+	            <label>Part Social (DH)</label>
+	            <input type="text" class="form-control"  placeholder=" Part Social" name="partSocial">
+	        </div>
+    	</div>
+    	<div class="col-6">
+	    	<div class="form-group">
+	            <label>Montant du capital Souscrit (DH)</label>
+	            <input type="text" class="form-control"  placeholder=" Montant du capitale Souscrit" name="montantCapitalSouscrit">
+	        </div>
+    	</div>
+    </div>
+    <div class="row">
+    	
+    	<div class="col-6">
+	    	<div class="form-group">
+	            <label>Montant du capital Appele (DH)</label>
+	            <input type="text" class="form-control"  placeholder=" Montant du capitale Appele" name="montantCapitalAppele">
+	        </div>
+    	</div>
+    	<div class="col-6">
+	    	<div class="form-group">
+	            <label>Montant du capital libere (DH)</label>
+	            <input type="text" class="form-control"  placeholder=" Montant du capitale libere" name="montantCapitalLibere">
+	        </div>
+    	</div>
+    </div>
+    <div class="row">
+    	<div class="col-6">
+	    	<div class="form-group">
+	            <label>Nombre de titre de l'exercice Precedent (DH)</label>
+	            <input type="text" class="form-control"  placeholder="Nombre de titre de l'exercice Precedent" name="exercicePrec">
+	        </div>
+    	</div>
+    	<div class="col-6">
+	    	<div class="form-group">
+	            <label>Nombre de titre de l'exercice Actuel (DH)</label>
+	            <input type="text" class="form-control"  placeholder="Nombre de titre de l'exercice Actuel" name="exerciceActuel">
+	        </div>
+    	</div>
+    <input type="text" style="display: none" class="form-control" th:value="${count.get(1)}" name="idCompany">
+    	
+    </div>
+    
+        <button class="btn btn-az-primary btn-block" style="    width: 40%; margin-left: auto;  margin-right: auto;" type="submit">Add associates</button>
+    </form>
+    <hr>
+         <form method="post" th:action="@{/admin/partSocial/addCapital}" th:object="${PartCapitalSocial}" >
+            <div class="row" >
+		    	<div class="col-6">
+			    	<div class="form-group">
+			            <label>Montant du Capital (DH)</label>
+			            <input type="text" class="form-control"  placeholder="Capital" name="partSocial">
+			        </div>
+		    	</div>
+			    <div class="col-6">
+				    	<button class="btn btn-az-primary btn-block" style="width: 40%;margin-top:1.5rem;margin-left:10rem" type="submit">Add Capital</button>
+			    </div>
+		    </div>
+   		</form>
+
+</div>
+
+<div layout:fragment="secondaryContent_Header">
+    <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-layer-plus"></i> Company information</h6>
+    </div>
+</div>
+
+<div layout:fragment="secondaryContent_Body">
+    <div class="flex-content " th:each="company : ${companies}">
+       
+        <div class="flex-content">
+            <div class="medium-content">
+                <label class="form-label mg-b-0">Company name</label>
+            </div>
+            <div class="medium-content">
+                <input type="text" class="form-control" placeholder="Company name" th:value="${company.getNameCompany()}" readonly>
+            </div>
+        </div>
+
+        <div class="flex-content">
+            <div class="medium-content">
+                <label class="form-label mg-b-0">Company ICE</label>
+            </div>
+            <div class="medium-content">
+                <input type="text" class="form-control" placeholder="Company ICE" th:value="${company.getIceCompany()}" readonly>
+            </div>
+        </div>
+        
+         <div class="flex-content">
+            <div class="medium-content">
+                <label class="form-label mg-b-0">Company IF</label>
+            </div>
+            <div class="medium-content">
+                <input type="text" class="form-control" placeholder="Company ICE" th:value="${company.getIceCompany()}" readonly>
+            </div>
+        </div>
+        
+        <div class="flex-content">
+            <div class="medium-content">
+                <label class="form-label mg-b-0">Capital</label>
+            </div>
+            <div class="medium-content">
+                <input type="text" class="form-control" placeholder="capital" th:value="${total.get(5)}" readonly>
+            </div>
+        </div>
+        
+         <div class="flex-content">
+            <div class="medium-content">
+                <label class="form-label mg-b-0">Number Of Associate</label>
+            </div>
+            <div class="medium-content">
+                <input type="text" class="form-control" placeholder="number of associete" th:value="${count.get(0)}"  readonly>
+            </div>
+        </div>
+    </div>
+</div>
+ <div layout:fragment="thirdContent_Header">
+ 	 <div>
+        <h6 class="card-title"><i class="fa-icone fas fa-badge-percent"></i> Part Social </h6>
+    </div>
+    <div class="btn-group">
+        <a href="" class="btn active btn-outline-info btn-rounded"><i class="fa-icone fas fa-badge-percent"></i> Generate Etat de repartition du capital</a>
+    </div>
+ </div>
+ <div layout:fragment="thirdContent_Body">
+	 <h5 style="text-align:center ; color:#00909E"> Etat de repartition du capital</h5><br>
+  
+        <h5 style="text-align:center; color:#00909E"> Montant du capital DH : <b th:text="${total.get(5)}"></b>  </h5>
+           
+
+    <table class="table" style="width:100%">
+        <thead style="color:#00909E ; align-text:center">
+	        <tr>
+	            <th>Full Name</th>
+	            <th>ICE</th>
+	            <th>Adress</th>
+	            <th>Exercice N-1</th>
+	            <th>Exercice N </th>
+	            <th>Part social</th>
+		        <th>C.souscrit</th>
+		        <th>C.Appele</th>
+		        <th>C.libere</th>  
+	        </tr>
+        </thead>
+        <tbody >
+        	<tr th:each="part : ${parts}">
+        		 <td th:text="${ part.getFullName() }"></td>
+                 <td th:text="${ part.getCin() }"></td>
+                 <td th:text="${ part.getAdress() }"></td>
+                 <td th:text="${ part.getExercicePrec() }"></td>
+                 <td th:text="${ part.getExerciceActuel() }"></td>
+                 <td th:text="${ part.getPartSocial() }"></td>
+                 <td th:text="${ part.getMontantCapitalSouscrit() }"></td>
+                 <td th:text="${ part.getMontantCapitalAppele() }"></td>
+                 <td th:text="${ part.getMontantCapitalLibere() }"></td>
+                 <td> 
+					<a th:href="'#update_'+${part.getIdPart()}" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                        <i class="fal fa-info"></i>
+                    </a>
+                     <a th:href="'#delete_'+${part.getIdPart()}" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+				 </td>
+                 
+        	</tr>
+        
+        </tbody>
+        <tfooter>
+         		 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td th:text="${total.get(0)}"  style="font-weight: bold;">0</td>
+                 <td th:text="${total.get(1)}"  style="font-weight: bold;">0</td>
+                 <td></td>
+                 <td th:text="${total.get(2)}"  style="font-weight: bold;">0</td>
+                 <td th:text="${total.get(3)}"  style="font-weight: bold;">0</td>
+                 <td th:text="${total.get(4)}"  style="font-weight: bold;">0</td>
+                 <td></td>
+        </tfooter>
+    </table>
+    
+<div th:each="part : ${parts}">
+	<!--Model delete part Social -->
+ 		<div th:id="'delete_' + ${part.getIdPart()}" class="modal" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document" >
+                        <div class="modal-content modal-content-demo">
+                          <form method="post" th:action="@{/admin/partSocial/delete}" th:object="${PartCapitalSocial}">
+                               <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span> </button>
+                					<input type="text" style="display: none" class="form-control" th:value="${part.getIdPart()}" name="idPart">
+                                    <img class="imglogin flex-content " src="/img/alerte.png"><br>
+                                    <h5 style="color:#17a2b8 ; text-align:center"> are you sure, you want to dalete the selected Part Social :   </h5>
+                                    <h5 style="color: #dc3545 ; text-align:center" th:text="${ part.getFullName() }"></h5><br>
+                                    <div class="flex-content">
+                                        <button type="submit" class="btn btn-danger btn-rounded">Delete</button>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- modal-dialog -->
+            </div>
+    
+	 <!--Model update part Social -->
+			<div th:id="'update_' + ${part.getIdPart()}" class="modal" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modal-content-demo">
+ 					 <div class="modal-header">
+                            <h6 class="modal-title">Part Social preview</h6>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                      </div>
+                <form method="post" th:action="@{/admin/partSocial/update}" th:object="${PartCapitalSocial}" >
+                      
+                  <div class="modal-body">
+                 <input type="text" style="display: none" class="form-control" th:value="${part.getIdPart()}" name="idPart">
+                    
+				    <div class="row">
+				       <div class="col-4">
+					        <div class="form-group">
+					            <label>Full name</label>
+					            <input type="text" class="form-control"  th:value="${part.getFullName()}" placeholder=" Full Name " name="fullName" >
+					        </div>
+				        </div>
+				        <div class="col-4">
+					    	<div class="form-group">
+					            <label>Adress</label>
+					            <input type="text" class="form-control"  th:value="${part.getAdress()}"  placeholder=" Adress" name="adress">
+					        </div>
+				    	</div>
+				    	<div class="col-4">
+					    	<div class="form-group">
+					            <label>CIN</label>
+					            <input type="text" class="form-control"  th:value="${part.getCin()}" placeholder=" CIN" name="cin">
+					        </div>
+				    	</div>
+				    </div>
+				    
+				    <div class="row">
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Part Social (DH)</label>
+					            <input type="text" class="form-control"  th:value="${part.getPartSocial()}"  placeholder=" Part Social" name="partSocial">
+					        </div>
+				    	</div>
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Montant du capital Souscrit (DH)</label>
+					            <input type="text" class="form-control" th:value="${part.getMontantCapitalSouscrit()}" placeholder=" Montant du capitale Souscrit" name="montantCapitalSouscrit">
+					        </div>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Montant du capital Appele (DH)</label>
+					            <input type="text" class="form-control" th:value="${part.getMontantCapitalAppele()}" placeholder=" Montant du capitale Appele" name="montantCapitalAppele">
+					        </div>
+				    	</div>
+				    	<div class="col-6">
+				    		<div class="form-group">
+					            <label>Montant du capital libere (DH)</label>
+					            <input type="text" class="form-control" th:value="${part.getMontantCapitalLibere()}"  placeholder=" Montant du capitale libere" name="montantCapitalLibere">
+					        </div>
+				    	</div>
+				    </div>
+				   
+				    <div class="row">
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Nombre de titre de l'exercice Precedent (DH)</label>
+					            <input type="text" class="form-control" th:value="${part.getExercicePrec()}"  placeholder="Nombre de titre de l'exercice Precedent" name="exercicePrec">
+					        </div>
+				    	</div>
+				    	<div class="col-6">
+					    	<div class="form-group">
+					            <label>Nombre de titre de l'exercice Actuel (DH)</label>
+					            <input type="text" class="form-control"  th:value="${part.getExerciceActuel()}"  placeholder="Nombre de titre de l'exercice Actuel" name="exerciceActuel">
+					        </div>
+				    	</div>
+				    </div>
+				 </div>
+				    
+				    
+ 						<div class="modal-footer">
+                            <button type="submit" class="btn btn-success btn-rounded">Save changes</button>
+                            <button type="button" class="btn btn-outline-info btn-rounded" data-dismiss="modal">Close</button>
+                        </div>				
+                 </form>
+
+                </div>
+            </div><!-- modal-dialog -->
+        </div>
+    </div>
+
+</div><!-- card-body -->
+</html>

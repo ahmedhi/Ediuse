@@ -32,12 +32,16 @@
             <td th:text="${company.getIceCompany()}"></td>
             <td th:text="${company.getIfCompany()}"></td>
             <td>
-                <a th:href="'#companyEdit_' + ${ company.getIdCompany() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
+               <!--  <a th:href="'#companyEdit_' + ${ company.getIdCompany() }" class="modal-effect btn btn-info btn-rounded" data-toggle="modal" data-effect="effect-fall">
                     <i class="fal fa-info"></i>
+                </a>--> 
+                 <a th:href="@{/admin/profilCompany/}+${ company.getIdCompany()}" th:object="${company.getIdCompany()}" class="modal-effect btn btn-info btn-rounded">
+               		 <i class="fal fa-info"></i>
                 </a>
                 <a th:href="'#companyDelete_' + ${ company.getIdCompany() }" class="modal-effect btn btn-danger btn-rounded" data-toggle="modal" data-effect="effect-fall">
                     <i class="far fa-trash-alt"></i>
                 </a>
+               
             </td>
         </tr>
         </tbody>

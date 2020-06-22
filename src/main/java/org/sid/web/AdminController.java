@@ -48,7 +48,8 @@ public class AdminController {
     @Autowired private ServletContext context ;
 
     public double capital ;
-    
+    public int idCompany ; 
+    public int countAssociete ;
     @RequestMapping("users")
     public String users( Model model) {
        model.addAttribute("users", userMetier.getAllUsers() );
@@ -134,7 +135,40 @@ public class AdminController {
         model.addAttribute("companies", companyMetier.getAllCompany() );
         return "/admin/companiesList";
     }
-    @RequestMapping("partSocial")
+    
+    @RequestMapping("profilCompany/{id}")
+    public String profilCompany(Model model , @PathVariable("id") int id ) {
+    	List<Double> total = new ArrayList() ;
+    	List<Integer>count = new ArrayList();
+    	double lastEx = 0 , ExActuel = 0 , Souscrit = 0 , Appele = 0 , libere = 0 ;
+    	idCompany = id ; 
+        List<PartSocial> Allparts = partMetier.getAllParts();
+        List<PartSocial> parts = new ArrayList();
+
+        for(int i = 0 ; i< Allparts.size(); i++) {
+        	if(Allparts.get(i).getIdCompany() == idCompany)
+        		parts.add(Allparts.get(i));
+        }
+
+        for(int i = 0 ; i < parts.size(); i++) {
+        	lastEx += parts.get(i).getExercicePrec();
+        	ExActuel += parts.get(i).getExerciceActuel();
+        	Souscrit += parts.get(i).getMontantCapitalSouscrit();
+        	Appele += parts.get(i).getMontantCapitalAppele();
+        	libere += parts.get(i).getMontantCapitalLibere();
+        }
+        countAssociete = parts.size();
+        total.add(lastEx );  total.add(ExActuel); total.add(Souscrit);
+        total.add(Appele);  total.add(libere); total.add(capital) ;
+        count.add(countAssociete);
+        count.add(idCompany);
+        model.addAttribute("parts",parts );
+        model.addAttribute("total",total);
+        model.addAttribute("count",count);
+        model.addAttribute("companies", companyMetier.findCompanyById(id));
+    	 return "/admin/profilCompany";
+    }
+   /* @RequestMapping("partSocial")
     public String partSocial( Model model ) {
     	List<Double> total = new ArrayList() ;
     	double lastEx = 0 , ExActuel = 0 , Souscrit = 0 , Appele = 0 , libere = 0 ;
@@ -152,14 +186,14 @@ public class AdminController {
         model.addAttribute("total",total);
         return "/documents/partSocial";
     }
-   
+   */
     @PostMapping("/partSocial/add")
     public String addPart(@Valid PartSocial part , BindingResult result , Model model ){
         if( result.hasErrors() ){
-            return "redirect:/admin/partSocial";
+            return "redirect:/admin/profilCompany/"+idCompany;
         }
         this.partMetier.addCapitalSocial(part);
-        return "redirect:/admin/partSocial"; 
+        return "redirect:/admin/profilCompany/"+idCompany; 
     }
    /* @PostMapping("/partSocial/add")
     public String addPart(@ModelAttribute("PartCapitalSocial") PartCapitalSocial part){
@@ -170,23 +204,23 @@ public class AdminController {
     @PostMapping("/partSocial/update")
     public String updatePart(@ModelAttribute("PartCapitalSocial") PartSocial part ){
         this.partMetier.updateCapitalSocial(part);
-        return "redirect:/admin/partSocial"; 
+        return "redirect:/admin/profilCompany/"+idCompany; 
     }
 
 
     @PostMapping("/partSocial/addCapital")
     public String addCapital(@Valid PartSocial part , BindingResult result , Model model ){
         if( result.hasErrors() ){
-            return "/documents/partSocial";
+            return "redirect:/admin/profilCompany/"+idCompany;
         }
         capital = part.getPartSocial();
-        return "redirect:/admin/partSocial";
+        return "redirect:/admin/profilCompany/"+idCompany;
     }
     
     @PostMapping("/partSocial/delete")
     public String deletePart(@ModelAttribute("PartCapitalSocial") PartSocial part){
         this.partMetier.deletePart(part);
-        return "redirect:/admin/partSocial";
+        return "redirect:/admin/profilCompany/"+idCompany;
     }
 
     
