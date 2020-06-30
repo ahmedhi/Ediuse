@@ -15,6 +15,7 @@
 <div layout:fragment="primaryContent_Body">
 
    <form method="post" th:action="@{/admin/partSocial/add}" th:object="${PartCapitalSocial}" >
+   	<input class="form-control" name="company" style="display: none">
     <div class="row">
        <div class="col-4">
 	        <div class="form-group">

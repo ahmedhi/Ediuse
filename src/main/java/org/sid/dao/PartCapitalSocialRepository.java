@@ -10,7 +10,9 @@ import org.springframework.data.repository.query.Param;
 
 public interface PartCapitalSocialRepository extends JpaRepository<PartSocial,Long>{
 
-	  @Query("select u from PartSocial u where u.idPart like :x")
-	    public PartSocial findById(@Param("x") long id );
+  	@Query("select u from PartSocial u where u.idPart like :x")
+	public PartSocial findById(@Param("x") long id );
 
+	@Query("select u from PartSocial u where u.company.idCompany like :x")
+	public List<PartSocial> findTopByCompany(@Param("x") long id );
 }

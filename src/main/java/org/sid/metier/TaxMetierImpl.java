@@ -27,6 +27,7 @@ public class TaxMetierImpl implements ITaxMetier {
     @Autowired private DocCompanyRepository docCompanyRepository;
     @Autowired private ChartOfAccountsRepository chartOfAccountsRepository;
     @Autowired private BalanceRepository balanceRepository;
+    @Autowired private PartSocialMetierImpl partSocialMetier;
 
     @Override
     public DocCompany createTax(DocCompany docCompany) {
@@ -695,6 +696,7 @@ public class TaxMetierImpl implements ITaxMetier {
 		liasse.setBilanActif( this.generateBilanActif( balanceList ) );
 		liasse.setBilanPassif( this.generateBilanPassif( balanceList ) );
 		liasse.setCpc( this.generateCPC( balanceList ));
+		liasse.setPartSocial( this.partSocialMetier.getAllPartsOfCompany( company ) );
 
 		XMLMetierImpl xmlMetier = new XMLMetierImpl();
 		xmlMetier.createLiasseXML( filename , liasse );

@@ -155,6 +155,7 @@ public class XMLMetierImpl implements IXMLMetier{
                         }
                     }
             valuesTab.appendChild( tmp );
+        grpValue.appendChild( valuesTab );
 
             /*----------------------------------------------------------------------------*/
 
@@ -198,6 +199,7 @@ public class XMLMetierImpl implements IXMLMetier{
                             tmp.appendChild(valeurCellule);
             }
             valuesTab.appendChild( tmp );
+        grpValue.appendChild( valuesTab );
 
             /*---------------------------------------------------------*/
 
@@ -269,6 +271,7 @@ public class XMLMetierImpl implements IXMLMetier{
                 }
             }
             valuesTab.appendChild( tmp );
+        grpValue.appendChild( valuesTab );
 
             /*---------------------------------------------------------*/
 

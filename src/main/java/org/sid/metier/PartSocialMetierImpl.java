@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.sid.dao.PartCapitalSocialRepository;
 import org.sid.dao.UserRepository;
+import org.sid.entities.Company;
 import org.sid.entities.PartSocial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,11 @@ public class PartSocialMetierImpl implements IPartSocialMetier   {
 	@Override
 	public List<PartSocial> getAllParts() {
 		return partRepository.findAll() ;
+	}
+
+	@Override
+	public List<PartSocial> getAllPartsOfCompany(Company company) {
+		return this.partRepository.findTopByCompany( company.getIdCompany() );
 	}
 
 	@Override
