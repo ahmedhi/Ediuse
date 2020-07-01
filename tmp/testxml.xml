@@ -1,0 +1,2164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Liasse>
+  <modele>
+    <id>3</id>
+  </modele>
+  <resultatFiscal>
+    <identifiantFiscal>00039913</identifiantFiscal>
+    <exerciceFiscalDu>2020-01-01</exerciceFiscalDu>
+    <exerciceFiscalAu>2020-31-12</exerciceFiscalAu>
+  </resultatFiscal>
+  <groupeValeursTableau>
+    <ValeursTableau>
+      <tableau>
+        <id>BILAN ACTIF</id>
+      </tableau>
+      <groupeValeurs>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS EN NON VALEURS  (A) Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS EN NON VALEURS  (A) Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS EN NON VALEURS  (A) Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Frais préliminaires Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Frais préliminaires Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Frais préliminaires Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Charges à repartir sur plusieurs  exercices Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Charges à repartir sur plusieurs  exercices Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Charges à repartir sur plusieurs  exercices Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Primes de remboursement des obligations Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Primes de remboursement des obligations Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Primes de remboursement des obligations Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS INCORPORELLES  (B) Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS INCORPORELLES  (B) Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS INCORPORELLES  (B) Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Immobilisation en recherche et développement Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Immobilisation en recherche et développement Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Immobilisation en recherche et développement Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Brevets, marques, droits et valeurs similaires Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Brevets, marques, droits et valeurs similaires Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Brevets, marques, droits et valeurs similaires Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Fonds commercial Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Fonds commercial Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Fonds commercial Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres immobilisations incorporelles Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres immobilisations incorporelles Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres immobilisations incorporelles Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS CORPORELLES (C) Brut</codeEdi>
+          </cellule>
+          <valeur>3366.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS CORPORELLES (C) Amortissement</codeEdi>
+          </cellule>
+          <valeur>226.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS CORPORELLES (C) Net</codeEdi>
+          </cellule>
+          <valeur>3140.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Terrains Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Terrains Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Terrains Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Constructions Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Constructions Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Constructions Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Installations techniques, matériel et outillage Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Installations techniques, matériel et outillage Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Installations techniques, matériel et outillage Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Matériel transport Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Matériel transport Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Matériel transport Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Mobilier, matériel de bureau et aménagements divers Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Mobilier, matériel de bureau et aménagements divers Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Mobilier, matériel de bureau et aménagements divers Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres immobilisations corporelles Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres immobilisations corporelles Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres immobilisations corporelles Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Immobilisations corporelles en cours Brut</codeEdi>
+          </cellule>
+          <valeur>3366.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Immobilisations corporelles en cours Amortissement</codeEdi>
+          </cellule>
+          <valeur>226.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Immobilisations corporelles en cours Net</codeEdi>
+          </cellule>
+          <valeur>3140.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS FINANCIERES  (D) Brut</codeEdi>
+          </cellule>
+          <valeur>4491.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS FINANCIERES  (D) Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMMOBILISATIONS FINANCIERES  (D) Net</codeEdi>
+          </cellule>
+          <valeur>4491.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Prêts immobilisés Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Prêts immobilisés Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Prêts immobilisés Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres créances financières Brut</codeEdi>
+          </cellule>
+          <valeur>4491.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres créances financières Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres créances financières Net</codeEdi>
+          </cellule>
+          <valeur>4491.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Titres de participation Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Titres de participation Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Titres de participation Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres titres immobilisés Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres titres immobilisés Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres titres immobilisés Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>ECARTS DE CONVERSION -ACTIF  (E) Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>ECARTS DE CONVERSION -ACTIF  (E) Amortissement</codeEdi>
+          </cellule>
+          <valeur>-999.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>ECARTS DE CONVERSION -ACTIF  (E) Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Diminution des créances immobilisées Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Diminution des créances immobilisées Amortissement</codeEdi>
+          </cellule>
+          <valeur>-999.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Diminution des créances immobilisées Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Augmentation des dettes financières Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Augmentation des dettes financières Amortissement</codeEdi>
+          </cellule>
+          <valeur>-999.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Augmentation des dettes financières Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL I (A+B+C+D+E) Brut</codeEdi>
+          </cellule>
+          <valeur>7857.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL I (A+B+C+D+E) Amortissement</codeEdi>
+          </cellule>
+          <valeur>226.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL I (A+B+C+D+E) Net</codeEdi>
+          </cellule>
+          <valeur>7631.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>STOCKS (F) Brut</codeEdi>
+          </cellule>
+          <valeur>340529.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>STOCKS (F) Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>STOCKS (F) Net</codeEdi>
+          </cellule>
+          <valeur>340529.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Marchandises Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Marchandises Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Marchandises Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Matières et fournitures, consommables Brut</codeEdi>
+          </cellule>
+          <valeur>340529.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Matières et fournitures, consommables Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Matières et fournitures, consommables Net</codeEdi>
+          </cellule>
+          <valeur>340529.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Produits en cours Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Produits en cours Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Produits en cours Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>produits intermédiaires et produits résiduels Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>produits intermédiaires et produits résiduels Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>produits intermédiaires et produits résiduels Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Produits finis Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Produits finis Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Produits finis Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>CREANCES DE L'ACTIF CIRCULANT  (G) Brut</codeEdi>
+          </cellule>
+          <valeur>1043939.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>CREANCES DE L'ACTIF CIRCULANT  (G) Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>CREANCES DE L'ACTIF CIRCULANT  (G) Net</codeEdi>
+          </cellule>
+          <valeur>1043939.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Fournis. débiteurs, avances et acomptes Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Fournis. débiteurs, avances et acomptes Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Fournis. débiteurs, avances et acomptes Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Clients et comptes rattachés Brut</codeEdi>
+          </cellule>
+          <valeur>1037099.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Clients et comptes rattachés Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Clients et comptes rattachés Net</codeEdi>
+          </cellule>
+          <valeur>1037099.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Personnel Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Personnel Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Personnel Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Etat Brut</codeEdi>
+          </cellule>
+          <valeur>6840.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Etat Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Etat Net</codeEdi>
+          </cellule>
+          <valeur>6840.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes d'associés Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes d'associés Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes d'associés Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres débiteurs Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres débiteurs Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres débiteurs Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes de régularisation-Actif Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes de régularisation-Actif Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes de régularisation-Actif Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TITRES VALEURS DE PLACEMENT  (H) Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TITRES VALEURS DE PLACEMENT  (H) Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TITRES VALEURS DE PLACEMENT  (H) Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>ECARTS DE CONVERSION-ACTIF  (I) Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>ECARTS DE CONVERSION-ACTIF  (I) Amortissement</codeEdi>
+          </cellule>
+          <valeur>-999.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>ECARTS DE CONVERSION-ACTIF  (I) Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes de régularisation-Actif Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes de régularisation-Actif Amortissement</codeEdi>
+          </cellule>
+          <valeur>-999.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Comptes de régularisation-Actif Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL II  ( F+G+H+I ) Brut</codeEdi>
+          </cellule>
+          <valeur>1384468.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL II  ( F+G+H+I ) Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL II  ( F+G+H+I ) Net</codeEdi>
+          </cellule>
+          <valeur>1384468.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TRESORERIE-ACTIF Brut</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TRESORERIE-ACTIF Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TRESORERIE-ACTIF Net</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Chéques et valeurs à encaisser Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Chéques et valeurs à encaisser Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Chéques et valeurs à encaisser Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Banques, TG et CCP Brut</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Banques, TG et CCP Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Banques, TG et CCP Net</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Caisse, Régie d'avances et accréditifs Brut</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Caisse, Régie d'avances et accréditifs Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Caisse, Régie d'avances et accréditifs Net</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL III Brut</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL III Amortissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL III Net</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL GENERAL I+II+III Brut</codeEdi>
+          </cellule>
+          <valeur>1446857.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL GENERAL I+II+III Amortissement</codeEdi>
+          </cellule>
+          <valeur>226.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL GENERAL I+II+III Net</codeEdi>
+          </cellule>
+          <valeur>1446631.0</valeur>
+        </ValeurCellule>
+      </groupeValeurs>
+    </ValeursTableau>
+    <ValeursTableau>
+      <tableau>
+        <id>BILAN PASSIF</id>
+      </tableau>
+      <groupeValeurs>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>CAPITAUX PROPRES (A)</codeEdi>
+          </cellule>
+          <valeur>240759.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Capital social ou personnel (1)</codeEdi>
+          </cellule>
+          <valeur>10000.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Moins : actionnaires, capital souscrit non applé</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Capital appelé, dont versé</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Primes d'émission, de fusion, d'apport</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Ecart de réévaluation</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Réserve légale</codeEdi>
+          </cellule>
+          <valeur>1932.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Autres Réserves</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Report à nouveau (2)</codeEdi>
+          </cellule>
+          <valeur>228827.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Résultats nets en instance d'affectation (2)</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Résultat net de l'exercice (2)</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> CAPITAUX PROPRES ASSIMILES</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Subvensions d'investissement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Provisions réglementées</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> DETTES DE FINANCEMENT</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Emprunts obligataires</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres dettes de financement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> PROVISIONS DURABLES POUR RISQUE ET CHARGES</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Provisions pour risques</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Provisions pour charges</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> ECRATS DE CONVERSION - PASSIF</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Augmentation des créances immobilisées</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Diminution des dettes de financement</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Total I ( A + B + C + D + E )</codeEdi>
+          </cellule>
+          <valeur>240759.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> DETTES DU PASSIF CIRCULANT</codeEdi>
+          </cellule>
+          <valeur>1222088.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Fournisseurs et comptes rattachés</codeEdi>
+          </cellule>
+          <valeur>7814.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Clients créditeurs, avances et acomptes</codeEdi>
+          </cellule>
+          <valeur>60000.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Personnel</codeEdi>
+          </cellule>
+          <valeur>41799.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Organismes sociaux</codeEdi>
+          </cellule>
+          <valeur>12473.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Etat</codeEdi>
+          </cellule>
+          <valeur>156268.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Comptes d'associés</codeEdi>
+          </cellule>
+          <valeur>943734.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres créanciers</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Comptes de régularisation passif</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> AUTRES PROVISIONS POUR RISQUES ET CHARGES (G)</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> ECARTS DE CONVERSION - PASSIF (Eléments circulants) (H)</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Total II (F + G + H )</codeEdi>
+          </cellule>
+          <valeur>1222088.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> TRESORERIE - PASSIF (I)</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Crédit d'escompte</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Crédit de trésorerie</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Banques (soldes créditeurs)</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Total III</codeEdi>
+          </cellule>
+          <valeur>54532.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> TOTAL GENERAL I + II + III</codeEdi>
+          </cellule>
+          <valeur>1517379.0</valeur>
+        </ValeurCellule>
+      </groupeValeurs>
+    </ValeursTableau>
+    <ValeursTableau>
+      <tableau>
+        <id>CPC</id>
+      </tableau>
+      <groupeValeurs>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> PRODUITS D'EXPLOITATION Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1332017.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> PRODUITS D'EXPLOITATION Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> PRODUITS D'EXPLOITATION Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1332017.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Ventes de marchandises (en l'état) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Ventes de marchandises (en l'état) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Ventes de marchandises (en l'état) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Ventes de biens et services produits chiffre d'affaires Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1762409.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Ventes de biens et services produits chiffre d'affaires Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Ventes de biens et services produits chiffre d'affaires Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1762409.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Variation des stocks de produits (1) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>430392.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Variation des stocks de produits (1) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Variation des stocks de produits (1) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>430392.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Immobilisations produites par l'entreprise pour elle-même Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Immobilisations produites par l'entreprise pour elle-même Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Immobilisations produites par l'entreprise pour elle-même Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Subventions d'exploitation Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Subventions d'exploitation Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Subventions d'exploitation Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres produits d'exploitation Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres produits d'exploitation Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres produits d'exploitation Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Reprises d'exploitation; Transsferts de charges Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Reprises d'exploitation; Transsferts de charges Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Reprises d'exploitation; Transsferts de charges Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total I   Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1332017.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total I   Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total I   Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1332017.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES D'EXPLOITATION Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1261784.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES D'EXPLOITATION Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>138048.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES D'EXPLOITATION Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1399832.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Achats revendus(2) de marchandises Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Achats revendus(2) de marchandises Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Achats revendus(2) de marchandises Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>   Achats consommés(2) de matières et fournitures Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>620228.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>   Achats consommés(2) de matières et fournitures Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>138048.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>   Achats consommés(2) de matières et fournitures Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>758276.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres charges externes Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>53839.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres charges externes Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres charges externes Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>53839.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>   Impôts et taxes Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>4107.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>   Impôts et taxes Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>   Impôts et taxes Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>4107.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Charges de personnel Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>583384.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Charges de personnel Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Charges de personnel Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>583384.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres charges d'exploitation Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres charges d'exploitation Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres charges d'exploitation Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Dotations d'exploitation Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>226.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Dotations d'exploitation Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Dotations d'exploitation Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>226.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total II   Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1261784.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total II   Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>138048.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total II   Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1399832.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES D'EXPLOITATION Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>70233.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES D'EXPLOITATION Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>-138048.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES D'EXPLOITATION Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>-67815.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  PRODUITS FINANCIERS Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  PRODUITS FINANCIERS Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  PRODUITS FINANCIERS Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Produits des titres de partic. et autres titres immobilisés Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Produits des titres de partic. et autres titres immobilisés Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Produits des titres de partic. et autres titres immobilisés Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Gains de change Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Gains de change Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Gains de change Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Interêts et autres produits financiers Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Interêts et autres produits financiers Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Interêts et autres produits financiers Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Reprises financier;  transferts de charges Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Reprises financier;  transferts de charges Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Reprises financier;  transferts de charges Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total IV   Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total IV   Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total IV   Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES  FINANCIERS Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES  FINANCIERS Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES  FINANCIERS Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Charges d'interêts Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Charges d'interêts Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Charges d'interêts Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Pertes de change Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Pertes de change Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Pertes de change Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres charges financières Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres charges financières Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres charges financières Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Dotations finacières Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Dotations finacières Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Dotations finacières Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total V   Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total V   Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total V   Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> RESULTAT FINANCIER (IV-V) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> RESULTAT FINANCIER (IV-V) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> RESULTAT FINANCIER (IV-V) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> RESULTAT COURANT (III+VI)  Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>70233.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> RESULTAT COURANT (III+VI)  Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>-138048.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> RESULTAT COURANT (III+VI)  Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>-67815.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  PRODUITS NON COURANTS Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1661.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  PRODUITS NON COURANTS Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  PRODUITS NON COURANTS Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1663.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Produits des cessions d'immobilisations Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Produits des cessions d'immobilisations Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Produits des cessions d'immobilisations Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Subventions d'équilibre Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Subventions d'équilibre Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Subventions d'équilibre Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Reprises sur subventions d'investissement Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Reprises sur subventions d'investissement Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Reprises sur subventions d'investissement Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres produits non courants Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres produits non courants Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres produits non courants Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>3.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres produits non courants Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1660.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres produits non courants Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Autres produits non courants Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1660.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total VIII   Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1661.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total VIII   Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total VIII   Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1663.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES NON COURANTES Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES NON COURANTES Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  CHARGES NON COURANTES Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Valeurs nettes d'amortissements des immobilisations cédées Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Valeurs nettes d'amortissements des immobilisations cédées Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Valeurs nettes d'amortissements des immobilisations cédées Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Subventions accordées Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Subventions accordées Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Subventions accordées Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres charges non courantes Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres charges non courantes Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi> Autres charges non courantes Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Dotations non courantes aux amortissements et aux provisions Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Dotations non courantes aux amortissements et aux provisions Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>  Dotations non courantes aux amortissements et aux provisions Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total IX   Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total IX   Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>Total IX   Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NON COURANT (VIII-IX) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1659.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NON COURANT (VIII-IX) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NON COURANT (VIII-IX) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1661.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT AVANT IMPÔTS (VII+X) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>71892.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT AVANT IMPÔTS (VII+X) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>-138046.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT AVANT IMPÔTS (VII+X) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>-66154.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMPÔTS SUR LES BENEFICES Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>8813.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMPÔTS SUR LES BENEFICES Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>IMPÔTS SUR LES BENEFICES Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>8813.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NET (XI-XII) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>63079.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NET (XI-XII) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>-138046.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NET (XI-XII) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>-74967.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>null Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>null Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>null Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL DES PRODUITS (I+IV+VIII) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1333678.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL DES PRODUITS (I+IV+VIII) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL DES PRODUITS (I+IV+VIII) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1333680.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL DES CHARGES (II+V+IX+XIII) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>1324865.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL DES CHARGES (II+V+IX+XIII) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>2.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>TOTAL DES CHARGES (II+V+IX+XIII) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>1324867.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NET (total des produits-total des charges) Propre à l'exercice</codeEdi>
+          </cellule>
+          <valeur>8813.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NET (total des produits-total des charges) Exercice precedent</codeEdi>
+          </cellule>
+          <valeur>0.0</valeur>
+        </ValeurCellule>
+        <ValeurCellule>
+          <cellule>
+            <codeEdi>RESULTAT NET (total des produits-total des charges) Total de l'exercice</codeEdi>
+          </cellule>
+          <valeur>8813.0</valeur>
+        </ValeurCellule>
+      </groupeValeurs>
+    </ValeursTableau>
+    <ValeursTableau>
+      <tableau>
+        <id>Etat récapitulatif</id>
+      </tableau>
+      <groupeValeurs/>
+    </ValeursTableau>
+  </groupeValeursTableau>
+</Liasse>

@@ -92,6 +92,7 @@ public class UserMetierImpl implements IUserMetier {
 		return null;
 	}
 
+
 	@Override
 	public boolean saveDataFromUpload(MultipartFile file) {
 		boolean isFlag = false ; 
@@ -105,6 +106,37 @@ public class UserMetierImpl implements IUserMetier {
 		}
 		return isFlag ;
 	}
+
+	@Override
+	public InputStreamResource generateBilan() {
+		try {
+			return new InputStreamResource( new FileInputStream("target/bilan.pdf"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public InputStreamResource generateCpc() {
+		try {
+			return new InputStreamResource( new FileInputStream("target/cpc.pdf"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public InputStreamResource generateEtatRepCapital() {
+		try {
+			return new InputStreamResource( new FileInputStream("target/EtatRepCap.pdf"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	private boolean readDataFromExcel(MultipartFile file) {
 		Workbook workbook = getWorkBook(file);
 		Sheet sheet =  workbook.getSheetAt(0);

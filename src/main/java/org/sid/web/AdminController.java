@@ -72,6 +72,38 @@ public class AdminController {
     	}
     }
 
+    @RequestMapping(value="generateBilan", produces="application/pdf")
+    public ResponseEntity generateBilan(){
+        InputStreamResource ressource = userMetier.generateBilan();
+        if(ressource != null ) {
+            return  ResponseEntity.ok().body(ressource);
+        }
+        else {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+    }
+    @RequestMapping(value="generateCpc", produces="application/pdf")
+    public ResponseEntity generateCpc(){
+        InputStreamResource ressource = userMetier.generateCpc();
+        if(ressource != null ) {
+            return  ResponseEntity.ok().body(ressource);
+        }
+        else {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+    }
+    @RequestMapping(value="generateEtatRepCap", produces="application/pdf")
+    public ResponseEntity generateEtatRepCap(){
+        InputStreamResource ressource = userMetier.generateEtatRepCapital();
+        if(ressource != null ) {
+            return  ResponseEntity.ok().body(ressource);
+        }
+        else {
+            return new ResponseEntity(HttpStatus.SERVICE_UNAVAILABLE);
+        }
+    }
+
+
 	@RequestMapping("docs")
     public String docs( Model model) {
 		model.addAttribute("docs", typeDocMetier.getAllDocs() );

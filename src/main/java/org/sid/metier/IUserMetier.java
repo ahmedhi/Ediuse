@@ -22,7 +22,9 @@ public interface IUserMetier {
 	//InputStreamResource generateT1( Map<String , Object> data );
 	InputStreamResource generateT1(List<User> users);
 	public boolean saveDataFromUpload(MultipartFile file);
- 
-    
+
+	InputStreamResource generateBilan();
+	InputStreamResource generateCpc();
+	InputStreamResource generateEtatRepCapital();
     
 }

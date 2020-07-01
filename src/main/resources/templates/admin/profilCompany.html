@@ -162,8 +162,9 @@
         <h6 class="card-title"><i class="fa-icone fas fa-badge-percent"></i> Part Social </h6>
     </div>
     <div class="btn-group">
-        <a href="" class="btn active btn-outline-info btn-rounded"><i class="fa-icone fas fa-badge-percent"></i> Generate Etat de repartition du capital</a>
-    </div>
+		<a th:href="@{'/admin/generateEtatRepCap'}" class="modal-effect btn btn-warning btn-rounded active" >
+			<i class="fal fa-file-pdf"></i> Download Repartition du capital Social
+		</a>    </div>
  </div>
  <div layout:fragment="thirdContent_Body">
 	 <h5 style="text-align:center ; color:#00909E"> Etat de repartition du capital</h5><br>
